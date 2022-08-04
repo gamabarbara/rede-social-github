@@ -4,7 +4,7 @@ import { UsuarioPagesComponent } from './pages/usuario-pages/usuario-pages.compo
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: UsuarioPagesComponent
   }
 ];
