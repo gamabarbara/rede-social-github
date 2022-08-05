@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PrincipalRoutingModule } from './principal-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    PrincipalRoutingModule
+    PrincipalRoutingModule,
+    MatIconModule
   ]
 })
 export class PrincipalModule { }
