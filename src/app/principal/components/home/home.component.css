@@ -1,1 +1,58 @@
 
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: url("src/assets/background.jpg");
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 100%;
+    min-height: 600px;
+}
+
+.esq {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.esq h1 {
+    font-size: 3em;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.esq p {
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.logo-git img {
+    width: 150px;
+    height: 150px;
+}
+
+/* @media (max-width: 800px) {
+    #landing-left-content h1 {
+        font-size: 3em;
+    }
+    #landing-left-content p {
+        font-size: 1em;
+    }
+    .logo-git img {
+        width: 10px;
+        height: 100px;
+    }
+    #home-page-landing {
+        background-size: 100%;
+        
+    }
+    
+} */
+
+
+
