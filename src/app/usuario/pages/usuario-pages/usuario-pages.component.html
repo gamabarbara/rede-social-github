@@ -1,29 +1,36 @@
 <main>
     <section class="userinfo">
         <div class="container">
-            <img src="{{this.userInfos?.avatar_url}}" alt="" width="200px">
+            <img src="{{this.userInfos?.avatar_url}}" alt="" width="100px">
+            <button id="editprofile">Edit Profile</button>
             <h2>{{userInfos?.name}}</h2>
             <span>@{{userInfos?.login}}</span>
-
             <span>{{userInfos?.bio}}</span>
-            <!-- <span>Data de criação: {{userInfos?.created_at | date : 'dd/MM/yyyy'}}</span> -->
             <span>{{userInfos?.email}}</span>
-            <!-- <span>Seguidores: {{userInfos?.followers}}</span> -->
+            <span>Data de cadastro</span>
         </div>
-
-        <section class="buttons">
-            <div id="activities">
-                <button type="button" class="btn btn-primary">Atividades</button>
-            </div>
-            <div id="reputation">
-                <button type="button" class="btn btn-primary">Postagens</button>
-            </div>
-        </section>
-
     </section>
-    <div class="userpanel">
-        oi
-    </div>
-
-
+    <section class="container2">
+        <div id="left">
+            <p>
+                0 post published
+            </p>
+            <p>
+                0 comments written
+            </p>
+            <p>
+                0 tags followed
+            </p>
+        </div>
+        <div id="right">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non expedita dolor atque dolorem, odio
+                eaque rerum in provident sapiente, hic tempora modi corporis nihil mollitia laborum deleniti quia,
+                aperiam
+                eius?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non expedita dolor atque dolorem, odio
+                eaque rerum in provident sapiente, hic tempora modi corporis nihil mollitia laborum deleniti quia,
+                aperiam
+                eius?</p>
+        </div>
+    </section>
 </main>
