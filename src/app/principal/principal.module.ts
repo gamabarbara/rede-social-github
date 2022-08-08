@@ -6,6 +6,7 @@ import { PrincipalRoutingModule } from './principal-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     PrincipalRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ]
 })
 export class PrincipalModule { }
