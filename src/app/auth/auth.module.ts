@@ -7,10 +7,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginGitComponent } from './pages/login-git/login-git.component';
 
-
 @NgModule({
   declarations: [
-    LoginGitComponent
+    LoginGitComponent,
   ],
   imports: [
     CommonModule,

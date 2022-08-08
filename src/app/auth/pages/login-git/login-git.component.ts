@@ -24,23 +24,23 @@ export class LoginGitComponent implements OnInit {
 
   signInWithGithub() {
     this.authService.signInWithGitHub()
-    .subscribe(
-      data => {
-        this.snackbar.open('Register complete', 'Ok', {
-          duration: 3000,
-          horizontalPosition: 'right',
-          verticalPosition: 'top'
-        })
+      .subscribe(
+        data => {
+          this.snackbar.open('Register complete', 'Ok', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          })
 
-        this.router.navigateByUrl('/todos')
-      },
-      error => {
-        this.snackbar.open('Erro ao cadastrar com o GitHub', 'Ok', {
-          duration: 3000,
-          horizontalPosition: 'right',
-          verticalPosition: 'top'
-        })
-      }
-    )
+          this.router.navigateByUrl('/todos')
+        },
+        error => {
+          this.snackbar.open('Erro ao cadastrar com o GitHub', 'Ok', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          })
+        }
+      )
   }
 }

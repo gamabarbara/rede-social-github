@@ -19,7 +19,11 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     PrincipalRoutingModule,
     MatIconModule,
+<<<<<<< Updated upstream
     MatCardModule
+=======
+
+>>>>>>> Stashed changes
   ]
 })
 export class PrincipalModule { }

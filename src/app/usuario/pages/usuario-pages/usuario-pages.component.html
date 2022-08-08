@@ -1,27 +1,50 @@
+<app-nav-bar></app-nav-bar>
 <main>
-    <section class="userinfo">
+    <!-- <section class="userinfo">
         <div class="container">
             <img src="{{this.userInfos?.avatar_url}}" alt="" width="100px">
-            <button id="editprofile">Edit Profile</button>
             <h2>{{userInfos?.name}}</h2>
             <span>@{{userInfos?.login}}</span>
-            <span>{{userInfos?.bio}}</span>
-            <span>{{userInfos?.email}}</span>
-            <span>Data de cadastro</span>
+            <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
+            <ng-template #teste> {{ userInfos?.bio }}</ng-template>
+            <P>Data de cadastro</P>
+            <button id="editprofile" mat-raised-button>Edit Profile</button>
         </div>
+    </section> -->
+    <section class="container">
+        <mat-card class="example-card">
+            <mat-card-actions align="end">
+                <button id="editprofile" mat-raised-button>Editar Perfil</button>
+            </mat-card-actions>
+            <div id="teste">
+
+                <img mat-card-md-image src="{{this.userInfos?.avatar_url}}" width="100px">
+                <mat-card-title>{{userInfos?.name}}</mat-card-title>
+                <mat-card-subtitle>@{{userInfos?.login}}</mat-card-subtitle>
+                <mat-card-content>
+                    <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
+                    <ng-template #teste> {{ userInfos?.bio }}</ng-template>
+
+                </mat-card-content>
+            </div>
+
+        </mat-card>
     </section>
+
+
     <section class="container2">
         <div id="left">
             <p>
-                0 post published
+                0 publicações
             </p>
             <p>
-                0 comments written
+                0 comentários
             </p>
             <p>
-                0 tags followed
+                0 tags seguidas
             </p>
         </div>
+
         <div id="right">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non expedita dolor atque dolorem, odio
                 eaque rerum in provident sapiente, hic tempora modi corporis nihil mollitia laborum deleniti quia,
