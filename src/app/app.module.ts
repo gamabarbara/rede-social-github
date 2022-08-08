@@ -12,11 +12,16 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from 'src/environments/environment';
 
+import { LoginComponent } from './login/components/login/login.component';
+import { MatCard } from '@angular/material/card';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
