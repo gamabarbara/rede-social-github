@@ -1,23 +1,40 @@
 img {
   border-radius: 50%;
-  border: 5px solid rgb(0, 0, 0);
-  margin-top: -30px;
+  border: 5px solid black;
 }
 main {
-  height: 100vh;
+  height: calc(100vh - 40px);
   background-image: url("src/assets/background.jpg");
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 .userinfo {
-  color: white;
+  color: rgb(0, 0, 0);
   width: 60%;
   font-size: 80%;
   padding-top: 5%;
 }
-.container {
+.example-card {
+  margin-top: 10%;
+  width: 60%;
+  border-radius: 10px;
+  padding-top: 0;
+}
+#teste {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -12%;
+}
+
+mat-card-title {
+  padding-top: 2%;
+}
+/* .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +44,7 @@ main {
   height: fit-content;
   background-color: white;
   border-radius: 10px;
-}
+} */
 
 .buttons {
   display: flex;
@@ -40,8 +57,9 @@ main {
 
 span {
   margin-top: 10px;
-  color: black;
+  font-size: 15px;
 }
+
 h2 {
   color: black;
 }
@@ -59,6 +77,12 @@ h2 {
 
 td {
   font-size: 11px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container2 {
   display: flex;
@@ -80,4 +104,18 @@ td {
 }
 p {
   padding: 10px;
+}
+
+#editprofile {
+  background-color: rgb(19, 19, 19) !important;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .example-card {
+    width: 90%;
+  }
+  .container2 {
+    width: 90%;
+  }
 }

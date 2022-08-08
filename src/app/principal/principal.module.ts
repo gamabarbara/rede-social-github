@@ -18,8 +18,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     PrincipalRoutingModule,
-    MatIconModule,
-    MatCardModule
+    MatIconModule
   ]
 })
 export class PrincipalModule { }
