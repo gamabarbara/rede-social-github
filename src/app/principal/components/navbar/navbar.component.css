@@ -11,10 +11,10 @@
 }
 
 .navbar {
-  display: grid;
-  grid-template-columns: 6fr 1fr;
+  display: flex;
   height: 100%;
   position: static;
+  justify-content: space-between;
 }
 
 .esq,
@@ -51,10 +51,11 @@ button {
   transition: 0.3s;
   font-weight: bold;
   cursor: pointer;
-  justify-content: space-between;
-  align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+    margin-right: 10px;
+
+    
 }
 .esq :nth-child(2) {
   margin-left: 10px;
@@ -69,6 +70,9 @@ mat-icon {
     align-items:stretch; 
 
   } 
+  .navbar {
+    width: 100%;
+  }
 }
 
 
