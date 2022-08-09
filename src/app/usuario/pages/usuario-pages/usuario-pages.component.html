@@ -24,7 +24,8 @@
                 <mat-card-content>
                     <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
                     <ng-template #teste> {{ userInfos?.bio }}</ng-template>
-
+                    <a href="https://github.com/{{userInfos?.login}}" target="_blank"><img src="assets/github-icon.png"
+                            alt="" width="24px"></a>
                 </mat-card-content>
             </div>
 
