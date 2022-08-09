@@ -12,7 +12,6 @@ import { FeedComponent } from './pages/feed/feed.component';
   declarations: [
     SidebarComponent,
     CardsComponent,
-    NavbarComponent,
     CardsComponent,
     FeedComponent
   ],
