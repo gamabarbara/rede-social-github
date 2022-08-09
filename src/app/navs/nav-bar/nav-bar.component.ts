@@ -14,7 +14,5 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  abrirDialog() {
-    const dialog = this.dialog.open(LoginGitComponent, { disableClose: false })
-  }
+
 }

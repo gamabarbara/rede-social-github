@@ -3,7 +3,7 @@ img {
   border: 5px solid black;
 }
 main {
-  height: calc(100vh - 40px);
+  height: calc(100vh - 55px);
   background-image: url("src/assets/background.jpg");
   background-size: cover;
   display: flex;
