@@ -1,10 +1,25 @@
-<p>
-    <mat-toolbar>
-        <span>Dev Hub</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-            (click)="abrirDialog()">
-            <mat-icon>menu</mat-icon>
+<mat-toolbar>
+    <a href="#"><img src="assets/logo2.png" alt=""></a>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Abrir menu">
+        <mat-icon id="menu">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="custom-class">
+        <button mat-menu-item routerLink="/">
+            <mat-icon [ngStyle]="{'color':'white'}">person</mat-icon>
+            <span>Perfil</span>
         </button>
-    </mat-toolbar>
-</p>
+
+        <button mat-menu-item routerLink="/">
+            <mat-icon [ngStyle]="{'color':'white'}">settings</mat-icon>
+            <span>Configurações</span>
+        </button>
+
+        <button mat-menu-item routerLink="/">
+            <mat-icon [ngStyle]="{'color':'white'}">logout</mat-icon>
+            <span>Sair</span>
+        </button>
+
+
+    </mat-menu>
+</mat-toolbar>
