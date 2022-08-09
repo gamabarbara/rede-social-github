@@ -7,7 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { DialogPrincipalComponent } from './components/dialog-principal/dialog-principal.component';
+
 
 
 
@@ -15,7 +15,6 @@ import { DialogPrincipalComponent } from './components/dialog-principal/dialog-p
   declarations: [
     HomeComponent,
     NavbarComponent,
-    DialogPrincipalComponent
   ],
   imports: [
     CommonModule,

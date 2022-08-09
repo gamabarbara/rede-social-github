@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { DialogPrincipalComponent } from '../dialog-principal/dialog-principal.component';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginGitComponent } from 'src/app/auth/pages/login-git/login-git.component';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent {
   constructor(public dialog: MatDialog) { }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogPrincipalComponent, {
+    this.dialog.open(LoginGitComponent, {
       width: '400px',
       height: '350px',
       enterAnimationDuration,

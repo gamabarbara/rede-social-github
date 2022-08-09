@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -12,7 +11,6 @@ import { AuthService } from '../../services/auth.service';
 export class LoginGitComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     private snackbar: MatSnackBar
