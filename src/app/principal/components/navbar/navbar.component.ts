@@ -18,7 +18,9 @@ export class NavbarComponent {
       height: '350px',
       enterAnimationDuration,
       exitAnimationDuration,
-    });
+    })
+
   }
+
 
 }
