@@ -22,7 +22,7 @@ body {
   background-color: rgb(19, 19, 19);
   padding: 6px 6px;
   transition: all 0.5s ease;
-  border-right: 2px solid rebeccapurple;
+  border-right: 1px solid #525252;
 }
 
 .sidebar .logoContent .logo {
@@ -62,7 +62,7 @@ body {
   border: none;
   border-radius: 12px;
   outline: none;
-  background-color: #1d1d31;
+  background-color: #525252;
   padding-left: 50px;
   font-size: 18px;
   color: #fff;
@@ -111,7 +111,7 @@ body {
   position: relative;
   height: 60px;
   padding: 10px 6px;
-  background-color: #1d1d31;
+  background-color: #525252;
 }
 
 .sidebar .profileContent .profile .profileDetail {
@@ -127,7 +127,7 @@ body {
   width: 45px;
   height: 45px;
   object-fit: cover;
-  background-color: #202047;
+  background-color: #525252;
   border-radius: 12px;
 }
 
@@ -231,7 +231,7 @@ body {
 .bx-menu:hover {
   transition: all 0.5s ease;
   opacity: 1;
-  color: #1d1d31;
+  color: #525252;
   background-color: #fff;
 }
 .logoName img {

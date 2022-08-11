@@ -3,12 +3,12 @@
 }
 textarea {
     font-size: 1.5em;
-    padding: 1em;
+    margin-left: 10px;
     resize: none;
-    width: 250px;
+    width: 300px;
     min-height: 200px;
     border: 1px solid gray;
-    border-radius: 1em;
+    border-radius: 5px;
     outline: none;
 }
 
@@ -22,22 +22,28 @@ textarea {
     width: 150px;
     height: 100px;
     border-radius: 1em;
-    border: 1px dashed gray;
+    border: 1px dashed #525252;
 }
 mat-card-title {
     color: white;
 }
 mat-card {
     background-color: rgb(19, 19, 19);
+    width: 350px;
+    height: 400px;
+
 }
 mat-icon {
     color: black;
     padding-top: 5px;
 }
 button {
-    background-color: rebeccapurple;
+    background-color: #525252;
     color: black;
+    position: relative;
+    top: 80px;
 }
 button:hover {
     opacity: .5;
 }
+
