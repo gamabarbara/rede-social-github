@@ -1,0 +1,19 @@
+mat-form-field {
+  color: white;
+}
+mat-hint {
+  color: white;
+}
+mat-label {
+  color: white;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+section {
+  height: 100%;
+}

@@ -5,17 +5,21 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
 import { UsuarioPagesComponent } from './pages/usuario-pages/usuario-pages.component';
 import { NavsModule } from '../navs/navs.module';
 import { MaterialModule } from '../material/material.module';
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    UsuarioPagesComponent
+    UsuarioPagesComponent,
+    EditDialogComponent
   ],
   imports: [
     CommonModule,
     UsuarioRoutingModule,
     NavsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuarioModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -13,7 +14,8 @@ export class LoginGitComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -24,13 +26,14 @@ export class LoginGitComponent implements OnInit {
     this.authService.signInWithGitHub()
       .subscribe(
         data => {
-          console.log(data)
+          /* console.log(data) */
           this.snackbar.open('Register complete', 'Ok', {
             duration: 3000,
             horizontalPosition: 'right',
-            verticalPosition: 'top'
-          })
+            verticalPosition: 'top',
 
+          })
+          this.dialog.closeAll()
           this.router.navigateByUrl('/feed')
         },
         error => {
