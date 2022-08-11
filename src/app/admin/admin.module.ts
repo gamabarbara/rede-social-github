@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdministracaoComponent } from './pages/administracao/administracao.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { AdministracaoComponent } from './pages/administracao/administracao.comp
   imports: [
     CommonModule,
     AdminRoutingModule,
+    MatIconModule
 
 
   ]
