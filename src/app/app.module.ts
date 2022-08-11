@@ -14,6 +14,8 @@ import { environment } from 'src/environments/environment';
 
 import { MatCard } from '@angular/material/card';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 

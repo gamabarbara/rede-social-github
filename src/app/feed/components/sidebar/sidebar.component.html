@@ -1,14 +1,9 @@
 <div
   class="sidebar"
   (mouseenter)="toggleCollapse()"
-  [ngClass]="collapsed ? 'homeContent active' : ''"
->
-  <div class="logoContent">
-    <div class="logo">
-      <div class="logoName"></div>
-    </div>
-  </div>
-  <ul class="nav_list">
+  [ngClass]="collapsed ? 'homeContent active' : ''">
+  <div class="sidebar-items">
+  <ul class="nav-list">
     <li>
       <i class="bx bx-search"></i>
       <input type="search" name="search" placeholder="Procurar..." />
@@ -74,4 +69,5 @@
       <i class="bx bx-log-out" id="logout"></i>
     </div>
   </div>
+</div>
 </div>
