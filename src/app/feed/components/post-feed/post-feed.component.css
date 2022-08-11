@@ -1,0 +1,9 @@
+#post-button {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    background-color: rebeccapurple;
+}
+button:hover {
+    opacity: .5;
+}
