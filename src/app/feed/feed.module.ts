@@ -6,6 +6,10 @@ import { CardsComponent } from './components/cards/cards.component';
 import { MaterialModule } from '../material/material.module';
 import { FeedComponent } from './pages/feed/feed.component';
 import { NavsModule } from '../navs/navs.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { PostFeedComponent } from './components/post-feed/post-feed.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
 
 
 
@@ -14,13 +18,18 @@ import { NavsModule } from '../navs/navs.module';
     SidebarComponent,
     CardsComponent,
     CardsComponent,
-    FeedComponent
+    FeedComponent,
+    PostFeedComponent,
+    CreatePostComponent
   ],
   imports: [
     CommonModule,
     FeedRoutingModule,
     MaterialModule,
     NavsModule
+    , 
+    MatCardModule, 
+    MatIconModule
   ]
 })
 export class FeedModule { }
