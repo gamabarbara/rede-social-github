@@ -7,6 +7,9 @@ mat-toolbar {
   background-color: rgb(19, 19, 19) !important;
   color: white;
   padding-left: 7px;
+  border-bottom: 2px solid rebeccapurple;
+  z-index: 10000;
+  position: fixed;
 }
 
 ::ng-deep .custom-class {
