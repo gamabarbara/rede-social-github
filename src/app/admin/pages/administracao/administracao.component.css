@@ -21,7 +21,7 @@
   justify-content: space-between;
 }
 
-.esq,
+.esq1,
 .dir {
   display: flex;
   align-items: center;
@@ -36,10 +36,10 @@
 .dir img:hover {
   opacity: 0.3;
 }
-.esq button:hover {
+.esq1 button:hover {
   opacity: 0.3;
 }
-.esq :nth-child(1) {
+.esq1 :nth-child(1) {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@ button {
 
     
 }
-.esq :nth-child(2) {
+.esq1 :nth-child(2) {
   margin-left: 10px;
 }
 mat-icon {
@@ -68,7 +68,7 @@ mat-icon {
 }
 
 @media(max-width:300px) {
-  .esq{
+  .esq1{
     display: flex;
     align-items:stretch; 
 
@@ -79,6 +79,15 @@ mat-icon {
 }
 
 /* home */
+
+.log {
+  display: flex;
+  color: rgb(15, 13, 13);
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+}
 
 .container {
   width: 100%;
@@ -94,7 +103,7 @@ mat-icon {
 
 .esq {
   display: flex;
-  color: white;
+  color: rgb(255, 255, 255);
   justify-content: center;
   align-items: center;
 }
@@ -105,19 +114,14 @@ mat-icon {
   align-items: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.esq p {
-  font-size: 1.5em;
-  justify-content: center;
-  align-items: center;
-  /* margin-left: 10px;  */
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+
 .logo-git img {
-  width: 150px;
-  height: 150px;
+width: 150px;
+height: 150px;
+
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   #landing-left-content h1 {
       font-size: 2em;
   }
@@ -125,8 +129,8 @@ mat-icon {
       font-size: 1em;
   }
   .logo-git img {
-      /* width: 100px;
-      height: 100px; */
+      width: 100px;
+      height: 100px;
       display: none;
   }
   #home-page-landing {
@@ -179,7 +183,7 @@ mat-icon {
       background-size: 100%;
       
   }     
-} 
+}  */
 
 
 
