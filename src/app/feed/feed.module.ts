@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { PostComponent } from './components/post/post.component';
 
 
 
@@ -20,7 +21,8 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     CardsComponent,
     FeedComponent,
     PostFeedComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
