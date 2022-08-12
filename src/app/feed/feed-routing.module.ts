@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessFeedGuard } from '../guards/access-feed.guard';
 import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FeedComponent
+    component: FeedComponent,
+    canActivate: [
+      AccessFeedGuard
+    ]
   }
 ];
 

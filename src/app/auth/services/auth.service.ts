@@ -17,7 +17,12 @@ export class AuthService {
   constructor(
     private authentication: AngularFireAuth,
     private store: AngularFirestore
+
   ) { }
+
+  get currentUser() {
+    return this.authentication.authState
+  }
   signInWithGitHub() {
     const githubProvider = new GithubAuthProvider()
 
@@ -37,10 +42,11 @@ export class AuthService {
             email: email,
             posts: posts
           })
-
-
-
         })
       )
+  }
+
+  signOut() {
+    this.authentication.signOut()
   }
 }

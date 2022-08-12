@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginGitComponent } from 'src/app/auth/pages/login-git/login-git.component';
+import { ServicesService } from '../services/services.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,10 +9,13 @@ import { LoginGitComponent } from 'src/app/auth/pages/login-git/login-git.compon
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private service: ServicesService) { }
 
   ngOnInit(): void {
   }
 
+  signOut(): void {
+    this.service.signOut().subscribe()
+  }
 
 }
