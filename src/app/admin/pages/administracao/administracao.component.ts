@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginGitComponent } from 'src/app/auth/pages/login-git/login-git.component';
+import { LoginAdminComponent } from '../../components/login-admin/login-admin.component';
 
 @Component({
   selector: 'app-administracao', 
@@ -16,7 +17,7 @@ export class AdministracaoComponent implements OnInit {
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(LoginGitComponent, {
+    this.dialog.open(LoginAdminComponent, {
       width: '400px',
       height: '350px',
       enterAnimationDuration,
