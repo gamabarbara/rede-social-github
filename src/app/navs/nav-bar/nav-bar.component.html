@@ -9,7 +9,8 @@
 
     
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Menu">
-        <mat-icon id="menu">menu</mat-icon>
+        <!-- <mat-icon id="menu">menu</mat-icon> -->
+        <img id="profilepic" src="{{photo}}" alt="">
     </button>
     <mat-menu #menu="matMenu" class="custom-class">
         <button mat-menu-item routerLink="/">
