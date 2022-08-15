@@ -28,3 +28,16 @@ a {
   height: 48px;
   width: 48px;
 }
+
+button{
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+button:hover {
+  color: #11101d;
+  background-color: #fff;
+  border-radius: 10px;
+}
