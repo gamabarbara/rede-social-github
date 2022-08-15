@@ -33,4 +33,15 @@ a {
   border-radius: 50%;
   width: 30px;
   height: 30px;
+button{
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+button:hover {
+  color: #ffffff;
+  background-color: #525252;
+  border-radius: 10px;
 }
