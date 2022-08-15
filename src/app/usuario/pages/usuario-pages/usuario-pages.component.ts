@@ -29,7 +29,7 @@ export class UsuarioPagesComponent implements OnInit {
   getUser(): void {
     this.servicesService.getUserByName(this.userName).subscribe(
       (a) => {
-        /* console.log(a) */
+        console.log(a)
         this.userInfos = a
         /* console.log(this.userInfos?.login) */
 
