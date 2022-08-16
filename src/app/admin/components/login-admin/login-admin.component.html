@@ -1,36 +1,28 @@
-<div class="grid-container">
-  <div class="image-container"></div>
-  <main class="login-container">
-    <h1>Sign in</h1>
-    <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
-      <mat-form-field appearance="outline">
-        <mat-label>E-mail</mat-label>
-        <input
-          type="email"
-          placeholder="Seu e-mail aqui"
-          matInput
-          autocomplete="off"
-          formControlName="email"
-          name="email"
-        >
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Senha</mat-label>
-        <input
-          type="password"
-          placeholder="Sua senha aqui"
-          matInput
-          autocomplete="off"
-          formControlName="password"
-          name="password"
-        >
-      </mat-form-field>
-      <button mat-stroked-button color="primary" type="submit" [disabled]="loginForm.invalid">
-        <mat-icon>login</mat-icon>
+<div id="authenticator">
+  <mat-card id="authenticator-content">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+    <div [formGroup]="loginForm" (ngSubmit)="login()">
+      <input
+        mat-input
+        formControlName="email"
+        name="email"
+        placeholder="Your email here"
+        autocomplete="off"
+        type="email"
+      />
+      <input
+        mat-input
+        autocomplete="off"
+        placeholder="Your password here"
+        type="password"
+        formControlName="password"
+        name="password"
+      />
+      <button mat-flat-button [disabled]="loginForm.invalid" type="submit">
+        Login
       </button>
-     
-    </form>
-
-   
-  </main>
+    </div>
+  </mat-card>
 </div>
