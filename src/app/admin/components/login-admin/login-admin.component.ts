@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -11,8 +12,13 @@ import { ServicesService } from '../../services/services.service';
   styleUrls: ['./login-admin.component.css']
 })
 export class LoginAdminComponent implements OnInit {
+  loginForm: FormGroup = this.fb.group({
+    email: ['', [ Validators.required, Validators.email ]],
+    password: ['', [ Validators.required, Validators.minLength(6) ]]
+  })
 
   constructor(
+    private fb: FormBuilder,
     private adminService: ServicesService,
     private router: Router,
     private snackbar: MatSnackBar,
@@ -21,6 +27,30 @@ export class LoginAdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  login() { //logar ou entrar 
+    const {email, password} = this.loginForm.value //destructer ao inves de escrever em duas linhas , email e senha coloca-se em uma linha só
+    this.adminService.signUpWithEmailAndPassword(email, password)
+    .subscribe(
+     () => {
+       this.router.navigateByUrl('/feed') // vai ser redicionado para página de todos
+     }
+    )
+ 
+   }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
   signInWithGoogle() {
     this.adminService.signInWithGoogle()

@@ -1,12 +1,36 @@
-<div mat-dialog-container class="top">
-    <p>Login to DevHub</p>
-  </div>
-  <div class="content">
-    <p>Login to have access to the best social media for developer of the world!</p>
-  </div>
-  <div class="content-button-2">
-    <button (click)="signInWithGoogle()"><img src="assets/logo-google.png" alt="">Connect with Gmail</button>
-  </div>
-  <div class="botton">
-    <p>By signing in I accept the Terms of Service and the Privacy Policy.</p>
-  </div>
+<div class="grid-container">
+  <div class="image-container"></div>
+  <main class="login-container">
+    <h1>Sign in</h1>
+    <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          type="email"
+          placeholder="Seu e-mail aqui"
+          matInput
+          autocomplete="off"
+          formControlName="email"
+          name="email"
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input
+          type="password"
+          placeholder="Sua senha aqui"
+          matInput
+          autocomplete="off"
+          formControlName="password"
+          name="password"
+        >
+      </mat-form-field>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        <mat-icon>login</mat-icon>
+      </button>
+     
+    </form>
+
+   
+  </main>
+</div>
