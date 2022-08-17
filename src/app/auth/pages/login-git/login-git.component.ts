@@ -26,13 +26,6 @@ export class LoginGitComponent implements OnInit {
     this.authService.signInWithGitHub()
       .subscribe(
         data => {
-          /* console.log(data) */
-          this.snackbar.open('Register complete', 'Ok', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-
-          })
           this.dialog.closeAll()
           this.router.navigateByUrl('/feed')
         },

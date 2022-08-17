@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { map, mergeMap, Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { user } from 'src/app/auth/models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
 
-  private apiUrl = "https://api.github.com/users"
+  private usersCollection = this.store.collection<user>('users')
+  private currentUser = this.authService.currentUser
 
-  constructor(private http: HttpClient) { }
+  constructor(private authentication: AngularFireAuth,
+    private store: AngularFirestore,
+    private authService: AuthService) { }
 
 
-  getUserByName(username: string): Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}/${username}`)
+  getUser() {
+    return this.currentUser.pipe(
+      mergeMap(user => {
+        return this.usersCollection.doc(user?.uid).get()
+      }),
+      map(userDoc => {
+        return userDoc.data()
+      })
+    )
+  }
+
+  setUserInfos() {
+    console.log(this.usersCollection.doc());
+
+
   }
 }

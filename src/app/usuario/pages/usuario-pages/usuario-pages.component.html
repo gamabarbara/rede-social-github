@@ -8,14 +8,14 @@
             </mat-card-actions>
             <div id="teste">
 
-                <img id="avatar" mat-card-md-image src="{{this.userInfos?.avatar_url}}" width="100px">
+                <img id="avatar" mat-card-md-image src="{{this.userInfos?.photoURL}}" width="100px">
                 <mat-card-title>{{userInfos?.name}}</mat-card-title>
-                <mat-card-subtitle>@{{userInfos?.login}}</mat-card-subtitle>
+                <mat-card-subtitle>@{{userInfos?.username}}</mat-card-subtitle>
                 <mat-card-content>
                     <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
                     <ng-template #teste> {{ userInfos?.bio }}</ng-template>
                 </mat-card-content>
-                <a href="https://github.com/{{userInfos?.login}}" target="_blank"><img src="assets/github-icon.png"
+                <a href="https://github.com/{{userInfos?.username}}" target="_blank"><img src="assets/github-icon.png"
                         alt="" width="24px"></a>
             </div>
 

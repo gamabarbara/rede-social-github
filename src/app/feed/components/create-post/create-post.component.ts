@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import {FirebaseTSStorage} from 'firebasets/firebasetsStorage/firebaseTSStorage';
-import {FirebaseTSFirestore} from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorage';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -21,9 +21,10 @@ export class CreatePostComponent implements OnInit {
   }
 
   onPostClick(commentInput: HTMLTextAreaElement) {
+    console.log(this.selectedImageFile)
     let comment = commentInput.value;
-    if(comment.length <= 0) return;
-    if(this.selectedImageFile) {
+    if (comment.length <= 0) return;
+    if (this.selectedImageFile) {
       this.uploadImagePost(comment);
     } else {
       this.uploadPost(comment);
@@ -46,6 +47,8 @@ export class CreatePostComponent implements OnInit {
               data: {
                 comment: comment,
                 creatorId: this.auth.getAuth().currentUser?.uid,
+                creatorName: this.auth.getAuth().currentUser?.displayName,
+                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
                 imageUrl: downloadURL,
                 timestamp: FirebaseTSApp.getFirestoreTimestamp()
               },
@@ -70,20 +73,21 @@ export class CreatePostComponent implements OnInit {
         },
         onComplete: (docId) => {
           this.dialog.close();
+
         }
       }
     );
   }
 
-  onPhotoSelected(photoSelector : HTMLInputElement) {
+  onPhotoSelected(photoSelector: HTMLInputElement) {
     this.selectedImageFile = photoSelector.files![0];
-    if(!this.selectedImageFile) return;
+    if (!this.selectedImageFile) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedImageFile);
     fileReader.addEventListener(
-      "loadend", 
+      "loadend",
       ev => {
-        let readableString =  fileReader.result?.toString();
+        let readableString = fileReader.result?.toString();
         let postPreviewImage: any = <HTMLImageElement>document.getElementById("post-preview-image");
         postPreviewImage.src = readableString;
       }

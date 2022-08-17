@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreatePostComponent } from '../create-post/create-post.component';
-import {FirebaseTSFirestore, Limit, OrderBy, Where} from 'firebasets/firebasetsFirestore/firebaseTSFirestore'
+import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore'
+import { feed } from '../../models/feed';
 @Component({
   selector: 'app-post-feed',
   templateUrl: './post-feed.component.html',
@@ -9,43 +10,15 @@ import {FirebaseTSFirestore, Limit, OrderBy, Where} from 'firebasets/firebasetsF
 })
 export class PostFeedComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
-  posts: PostData[] = [];
+  posts: feed[] = [];
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getPosts();
   }
   onCreatePostClick() {
     this.dialog.open(CreatePostComponent)
   }
-  getPosts() {
-    this.firestore.getCollection(
-      {
-        path: ["Posts"],
-        where: [
-          new OrderBy("timestamp", "desc"),
-          new Limit(10)
-        ],
-        onComplete: (result) => {
-          result.docs.forEach(
-            doc => {
-              let post = <PostData>doc.data();
-              this.posts.push(post);
-            }
-          )
-        },
-        onFail: error => {
-
-        }
-      }
-    )
-  } 
 
 }
 
-export interface PostData {
-  comment: string;
-  creatorId: string;
-  imageUrl?: string;
 
-}
