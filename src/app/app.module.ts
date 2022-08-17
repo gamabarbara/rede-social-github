@@ -11,10 +11,7 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from 'src/environments/environment';
-
-import { MatCard } from '@angular/material/card';
-
-import { ReactiveFormsModule } from '@angular/forms';
+import {FirebaseTSApp} from 'firebasets/firebasetsApp/firebaseTSApp';
 
 
 
@@ -38,4 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor () {
+    FirebaseTSApp.init(environment.firebaseConfig)
+  }
+}

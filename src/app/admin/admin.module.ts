@@ -5,6 +5,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdministracaoComponent } from './pages/administracao/administracao.component';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,8 +17,9 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatIconModule
-
+    MatIconModule, 
+    MaterialModule,
+    ReactiveFormsModule
 
   ]
 })

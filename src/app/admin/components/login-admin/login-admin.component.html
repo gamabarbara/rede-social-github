@@ -1,12 +1,28 @@
-<div mat-dialog-container class="top">
-    <p>Login to DevHub</p>
-  </div>
-  <div class="content">
-    <p>Login to have access to the best social media for developer of the world!</p>
-  </div>
-  <div class="content-button-2">
-    <button (click)="signInWithGoogle()"><img src="assets/logo-google.png" alt="">Connect with Gmail</button>
-  </div>
-  <div class="botton">
-    <p>By signing in I accept the Terms of Service and the Privacy Policy.</p>
-  </div>
+<div id="authenticator">
+  <mat-card id="authenticator-content">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+    <div [formGroup]="loginForm" (ngSubmit)="login()">
+      <input
+        mat-input
+        formControlName="email"
+        name="email"
+        placeholder="Your email here"
+        autocomplete="off"
+        type="email"
+      />
+      <input
+        mat-input
+        autocomplete="off"
+        placeholder="Your password here"
+        type="password"
+        formControlName="password"
+        name="password"
+      />
+      <button mat-flat-button [disabled]="loginForm.invalid" type="submit">
+        Login
+      </button>
+    </div>
+  </mat-card>
+</div>
