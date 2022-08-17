@@ -7,12 +7,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 
 
 @NgModule({
   declarations: [
     AdministracaoComponent,
     LoginAdminComponent,
+    HomeadminComponent,
   ],
   imports: [
     CommonModule,
