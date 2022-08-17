@@ -29,7 +29,15 @@ export class EditDialogComponent implements OnInit {
   }
 
   getUser() {
-    this.servicesService.getUser()
+    this.servicesService.getUser().subscribe(
+      a => {
+        this.profileForm.setValue({
+          name: a?.name,
+          username: a?.username,
+          bio: a?.bio
+        })
+      }
+    )
   }
 
   setUserInfos() {
