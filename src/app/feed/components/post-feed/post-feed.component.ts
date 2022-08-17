@@ -9,14 +9,16 @@ import {FirebaseTSFirestore, Limit, OrderBy, Where} from 'firebasets/firebasetsF
 })
 export class PostFeedComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
+  posts: PostData[] = [];
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.getPosts();
   }
   onCreatePostClick() {
     this.dialog.open(CreatePostComponent)
   }
-/*   getPosts() {
+  getPosts() {
     this.firestore.getCollection(
       {
         path: ["Posts"],
@@ -25,11 +27,25 @@ export class PostFeedComponent implements OnInit {
           new Limit(10)
         ],
         onComplete: (result) => {
-
+          result.docs.forEach(
+            doc => {
+              let post = <PostData>doc.data();
+              this.posts.push(post);
+            }
+          )
         },
-        onFail: error => 
+        onFail: error => {
+
+        }
       }
     )
-  } */
+  } 
+
+}
+
+export interface PostData {
+  comment: string;
+  creatorId: string;
+  imageUrl?: string;
 
 }
