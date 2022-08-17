@@ -3,8 +3,9 @@
     <mat-card-header>
       <mat-card-title>Sign In</mat-card-title>
     </mat-card-header>
-    <div [formGroup]="loginForm" (ngSubmit)="login()">
+    <div [formGroup]="loginForm">
       <input
+        #loginEmail
         mat-input
         formControlName="email"
         name="email"
@@ -13,6 +14,7 @@
         type="email"
       />
       <input
+      #loginPassword
         mat-input
         autocomplete="off"
         placeholder="Your password here"
@@ -20,7 +22,7 @@
         formControlName="password"
         name="password"
       />
-      <button mat-flat-button [disabled]="loginForm.invalid" type="submit">
+      <button (click)="onLogin(loginEmail, loginPassword)" mat-flat-button [disabled]="loginForm.invalid" type="submit">
         Login
       </button>
     </div>
