@@ -4,12 +4,14 @@ import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 
 const routes: Routes = [
   { path:'',
-  component: HomeadminComponent,
+  pathMatch: 'full',
+  component: HomeadminComponent
 }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  
   exports: [RouterModule]
 })
 export class HomeadminRoutingModule { }
