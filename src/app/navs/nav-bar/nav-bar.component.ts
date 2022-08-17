@@ -10,11 +10,13 @@ import { ServicesService } from '../services/services.service';
 export class NavBarComponent implements OnInit {
 
   public photo?: string
+  public username?: string
 
   constructor(private dialog: MatDialog, private service: ServicesService) { }
 
   ngOnInit(): void {
     this.getUserPhoto()
+    this.getUsername()
   }
 
   signOut(): void {
@@ -25,6 +27,13 @@ export class NavBarComponent implements OnInit {
     this.service.getUserPhoto().subscribe(
       (a) => {
         this.photo = a
+      }
+    )
+  }
+  getUsername(): void {
+    this.service.getUsername().subscribe(
+      (a) => {
+        this.username = a
       }
     )
   }

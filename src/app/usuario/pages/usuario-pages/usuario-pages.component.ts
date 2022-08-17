@@ -16,23 +16,18 @@ export class UsuarioPagesComponent implements OnInit {
   userName: string = ""
   userInfos?: gitUser
 
-  constructor(private servicesService: ServicesService, private route: ActivatedRoute, private dialog: MatDialog) {
+  constructor(private servicesService: ServicesService, private dialog: MatDialog) {
 
   }
 
   ngOnInit(): void {
-    this.userName = this.route.snapshot.params['name']
-    /*  console.log(this.userName) */
     this.getUser()
   }
 
   getUser(): void {
-    this.servicesService.getUserByName(this.userName).subscribe(
-      (a) => {
-        console.log(a)
+    this.servicesService.getUser().subscribe(
+      a => {
         this.userInfos = a
-        /* console.log(this.userInfos?.login) */
-
       }
     )
   }
