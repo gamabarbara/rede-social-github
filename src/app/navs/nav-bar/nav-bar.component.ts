@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ServicesService } from '../services/services.service';
+import { ConfirmarLogoutComponent } from './confirmar-logout/confirmar-logout.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,7 +14,10 @@ export class NavBarComponent implements OnInit {
   public photo?: string
   public username?: string
 
-  constructor(private dialog: MatDialog, private service: ServicesService) { }
+  constructor(
+    private dialog: MatDialog,
+    private service: ServicesService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.getUserPhoto()
@@ -20,9 +25,16 @@ export class NavBarComponent implements OnInit {
   }
 
   signOut(): void {
-    this.service.signOut().subscribe()
+    const dialogRef = this.dialog.open(ConfirmarLogoutComponent)
+    dialogRef.afterClosed().subscribe(
+      (a) => {
+        if (a === true) {
+          this.service.signOut()
+          this.route.navigate(['/'])
+        }
+      }
+    )
   }
-
   getUserPhoto(): void {
     this.service.getUserPhoto().subscribe(
       (a) => {
