@@ -1,7 +1,11 @@
 #post-button {
   position: absolute;
     top: 3em;
-    right: 650px;
+}
+.pai {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
