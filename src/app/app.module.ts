@@ -12,13 +12,15 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from 'src/environments/environment';
 import {FirebaseTSApp} from 'firebasets/firebasetsApp/firebaseTSApp';
+import { PagesComponent } from './not-found/pages/pages.component';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PagesComponent
 
   ],
   imports: [
