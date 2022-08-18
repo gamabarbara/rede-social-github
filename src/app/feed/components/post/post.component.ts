@@ -13,6 +13,7 @@ import { ReplyComponent } from '../reply/reply.component';
 export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
+  numberOfLike: number=0;
   constructor(
     private feedService: FeedService, 
     private dialog: MatDialog
@@ -27,6 +28,9 @@ export class PostComponent implements OnInit {
   }
   onReplyClick() {
     this.dialog.open(ReplyComponent)
+  }
+  likeButtonClick() {
+    this.numberOfLike++;
   }
 
 }

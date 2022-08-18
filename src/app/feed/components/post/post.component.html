@@ -6,12 +6,14 @@
             <mat-card-subtitle class="title">{{post?.timestamp}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image src="{{post?.imageUrl}}" class="img">
-        <mat-card-content>
+        <mat-card-content class="contador">
             {{post?.comment}}
         </mat-card-content>
-        <mat-card-actions>
+        
+        <mat-card-actions class="contador">
             <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon>
-            <mat-icon class="action-item">favorite_border</mat-icon>
+            <p>{{numberOfLike}}</p>
+            <mat-icon class="action-item" (click)="likeButtonClick()">favorite_border</mat-icon> 
             <mat-icon class="action-item">bookmark_border</mat-icon>
         </mat-card-actions>
     </mat-card>

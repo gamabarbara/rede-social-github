@@ -1,8 +1,15 @@
 .action-item {
-    margin-left: .5em;
-    cursor: pointer;
-    position: static;
+    display: flex;
+    display: inline-block;
+    justify-content: center;  
+    display:space-around; 
 }
+
+.contador{
+    display: flex;
+    display:space-around;
+}
+
 mat-card {
     position: relative;
     top: 200px;
@@ -38,6 +45,7 @@ mat-card-actions mat-icon{
 }
 mat-icon {
     color: black;
+
 }
 mat-card-header {
     height: 80px;
