@@ -26,8 +26,6 @@ export class CreatePostComponent implements OnInit {
     if (comment.length <= 0) return;
     if (this.selectedImageFile) {
       this.uploadImagePost(comment);
-    } else {
-      this.uploadPost(comment);
     }
   }
 
@@ -54,26 +52,10 @@ export class CreatePostComponent implements OnInit {
               },
               onComplete: (docId) => {
                 this.dialog.close();
+                location.reload()
               }
             }
           );
-        }
-      }
-    );
-  }
-
-  uploadPost(comment: string) {
-    this.firestore.create(
-      {
-        path: ["Posts"],
-        data: {
-          comment: comment,
-          creatorId: this.auth.getAuth().currentUser?.uid,
-          timestamp: FirebaseTSApp.getFirestoreTimestamp()
-        },
-        onComplete: (docId) => {
-          this.dialog.close();
-
         }
       }
     );
