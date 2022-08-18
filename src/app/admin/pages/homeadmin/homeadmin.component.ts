@@ -5,11 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './homeadmin.component.html',
   styleUrls: ['./homeadmin.component.css']
 })
-export class HomeadminComponent implements OnInit {
+export class HomeadminComponent   {
 
-  constructor() { }
+  collapsed = false;
 
-  ngOnInit(): void {
+  toggleCollapse(): void {
+    this.collapsed = !this.collapsed;
   }
+
+  closeSidebar() {
+    this.collapsed = false;
+  }
+
 
 }
