@@ -37,7 +37,7 @@ export class LoginAdminComponent implements OnInit {
         email: email,
         password: password,
         onComplete: (res) => {
-          this.router.navigateByUrl('/feed');
+          this.router.navigateByUrl('/homeadmin');
           this.dialog.closeAll();
         },
         onFail: (error) => {
