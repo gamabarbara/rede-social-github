@@ -29,3 +29,64 @@
         </button>
     </mat-menu>
 </mat-toolbar>
+
+
+<div
+  class="sidebar"
+  (mouseenter)="toggleCollapse()"
+  [ngClass]="collapsed ? 'homeContent active' : ''">
+  <div class="sidebar-items">
+  <ul class="nav-list">
+    <li>
+      <i class="bx bx-search"></i>
+      <input type="search" name="search" placeholder="Procurar..." />
+      <span class="toolipe">Procurar</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Feed</span>
+        <span class="toolipe">Feed</span>
+      </a>
+    </li>
+   
+    <li>
+      <a href="#">
+        <i class="bx bxs-hot"></i>
+        <span class="links_name">Em alta</span>
+        <span class="toolipe">Em alta</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bx-chat"></i>
+        <span class="links_name">Mensagens</span>
+        <span class="toolipe">Mensagens</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bx-bookmark"></i>
+        <span class="links_name">Salvos</span>
+        <span class="toolipe">Salvos</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bxs-book'></i>
+        <span class="links_name">Publicações</span>
+        <span class="toolipe"> Publicações</span>
+      </a>
+    </li>
+   
+  </ul>
+  <div class="profileContent">
+    <div class="profile">
+      <div class="profileDetail">
+        <div class="name_job">
+          <div class="job"></div>
+        </div>
+      
+  </div>
+</div>
+</div>
