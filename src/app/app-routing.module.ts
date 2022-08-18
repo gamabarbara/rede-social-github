@@ -23,10 +23,15 @@ const routes: Routes = [
     path: 'feed',
     loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
+
   
   {
   path: 'error404',
     loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
+  {
+    path: 'homeadmin',
+    loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
+
   }
 
 

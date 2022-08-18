@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { feed } from '../../models/feed';
+import { FeedService } from '../../services/feed.service';
 
 @Component({
   selector: 'app-post',
@@ -8,42 +10,16 @@ import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirest
 })
 export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
-  posts: PostData[] = [];
-  constructor() { }
+  posts: feed[] = [];
+  constructor(private feedService: FeedService) { }
 
   ngOnInit(): void {
     this.getPosts();
+    console.log(this.posts)
   }
   getPosts() {
-    this.firestore.getCollection(
-      {
-        path: ["Posts"],
-        where: [
-          new OrderBy("timestamp", "desc"),
-          new Limit(10)
-        ],
-        onComplete: (result) => {
-          result.docs.forEach(
-            doc => {
-              let post = <PostData>doc.data();
-              this.posts.push(post);
-            }
-          )
-        },
-        onFail: error => {
-
-        }
-      }
-    )
-  } 
+    this.feedService.getPosts(this.posts)
+  }
 
 }
 
-export interface PostData {
-  comment: string;
-  creatorId: string;
-  imageUrl?: string;
-  photoProfile: string;
-  userName: string;
-
-}

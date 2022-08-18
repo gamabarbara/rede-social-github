@@ -29,18 +29,23 @@ export class AuthService {
     return from(this.authentication.signInWithPopup(githubProvider))
       .pipe(
         tap((credentials) => {
-          const uid = credentials.user?.uid as string
 
+          const uid = credentials.user?.uid as string
+          const name = credentials.user?.displayName as string
+          const username = credentials.additionalUserInfo?.username as string
           const photoURL = credentials.user?.photoURL as string
           const email = credentials.user?.email as string
-
+          const bio: string = ''
           const posts: posts[] = []
 
           this.usersCollection.doc(uid).set({
             uid: uid,
-            photoURL: photoURL,
+            username: username,
+            name: name,
+            bio: bio,
             email: email,
-            posts: posts
+            photoURL: photoURL,
+            posts: posts,
           })
         })
       )

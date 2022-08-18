@@ -3,7 +3,7 @@
     <mat-card-title>Create Post</mat-card-title>
   </mat-card-header>
   <div>
-    <textarea #commentInput placeholder="Write your post content here..."></textarea>
+    <textarea maxlength="120" #commentInput placeholder="Write your post content here..."></textarea>
   </div>
   <div *ngIf="selectedImageFile" id="post-preview">
     <img id="post-preview-image" />

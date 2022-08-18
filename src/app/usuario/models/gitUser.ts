@@ -1,10 +1,9 @@
 export interface gitUser {
-    login: string
-    avatar_url: string
-    bio: string
-    created_at: string
-    email: string
-    followers: number
-    following: number
+    uid: string
+    photoURL: string
+    username: string
     name: string
+    bio: string
+    email: string
+
 }

@@ -33,4 +33,16 @@ export class ServicesService {
       })
     )
   }
+  getUsername() {
+    return this.currentUser.pipe(
+      mergeMap(user => {
+        return this.usersCollection.doc(user?.uid).get()
+      }),
+      map(userDoc => {
+        return userDoc.data()?.username
+      })
+    )
+  }
+
+
 }

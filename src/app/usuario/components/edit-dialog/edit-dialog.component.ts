@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { gitUser } from '../../models/gitUser';
@@ -13,40 +14,37 @@ export class EditDialogComponent implements OnInit {
 
   userName: string = ""
   userInfos?: gitUser
+  private usersCollection = this.store.collection<gitUser>('users')
 
   profileForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required]],
     username: [''],
-    bio: ['', [Validators.required]]
+    name: [''],
+    bio: ['']
   })
 
-  constructor(private servicesService: ServicesService, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private servicesService: ServicesService, private route: ActivatedRoute, private fb: FormBuilder, private store: AngularFirestore) { }
 
   ngOnInit(): void {
-    /* this.userName = this.route.snapshot.params['name']
-    console.log(this.route.snapshot.params['name']) */
     this.getUser()
-    this.route.paramMap.subscribe(
-      (params) => {
-        console.log(params.get('name'))
-      }
-    )
-
   }
 
-  getUser(): void {
-    this.servicesService.getUserByName("Ezuros").subscribe(
-      (a) => {
-        console.log(a)
-        this.userInfos = a
-        console.log(this.userInfos?.name)
+  getUser() {
+    this.servicesService.getUser().subscribe(
+      a => {
         this.profileForm.setValue({
-          name: this.userInfos?.name,
-          username: this.userInfos?.login,
-          bio: this.userInfos?.bio
-
+          name: a?.name,
+          username: a?.username,
+          bio: a?.bio
         })
       }
     )
   }
+
+  setUserInfos() {
+    this.servicesService.setUserInfos()
+  }
+
+
+
+
 }
