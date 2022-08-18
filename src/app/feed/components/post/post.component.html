@@ -10,7 +10,7 @@
             {{post?.comment}}
         </mat-card-content>
         <mat-card-actions>
-            <mat-icon class="action-item">chat_bubble_outline</mat-icon>
+            <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon>
             <mat-icon class="action-item">favorite_border</mat-icon>
             <mat-icon class="action-item">bookmark_border</mat-icon>
         </mat-card-actions>

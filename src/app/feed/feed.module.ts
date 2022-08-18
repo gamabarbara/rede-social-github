@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { PostComponent } from './components/post/post.component';
+import { ReplyComponent } from './components/reply/reply.component';
 
 
 
@@ -22,7 +23,8 @@ import { PostComponent } from './components/post/post.component';
     FeedComponent,
     PostFeedComponent,
     CreatePostComponent,
-    PostComponent
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     CommonModule,
