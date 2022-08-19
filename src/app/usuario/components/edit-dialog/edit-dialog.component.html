@@ -15,9 +15,14 @@
             <mat-label>Bio</mat-label>
             <input type="text" matInput placeholder="Salário" formControlName="bio">
         </mat-form-field>
+        <div class="buttons">
+            <button class="formSubmit" type="submit" mat-raised-button color="accent" id="salvar"
+                matTooltip="Salvar atualizações do cargo" matTooltipPosition="above" (click)="setUserInfos()">Salvar
+                atualizações</button>
+            <button class="delete" mat-raised-button color="warn" matTooltipPosition="above"
+                (click)="deleteUser()">Deletar
+                Conta</button>
+        </div>
 
-        <button class="formSubmit" type="submit" mat-raised-button color="accent" id="salvar"
-            matTooltip="Salvar atualizações do cargo" matTooltipPosition="above" (click)="setUserInfos()">Salvar
-            atualizações</button>
     </form>
 </section>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { map, mergeMap, Observable } from 'rxjs';
+import { from, map, mergeMap, Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -30,9 +30,30 @@ export class ServicesService {
     )
   }
 
-  setUserInfos() {
-    console.log(this.usersCollection.doc());
+  setUserInfos(bio: string) {
+    return this.getUser().pipe(
+      mergeMap(user => {
+        return this.usersCollection.doc(user?.uid).set(
+          {
+            uid: user?.uid as string,
+            photoURL: user?.photoURL as string,
+            username: user?.username as string,
+            name: user?.name as string,
+            bio: bio,
+            email: user?.email as string,
+            posts: []
+          }
+        )
+      })
+    )
+  }
 
-
+  deleteUser() {
+    return this.currentUser.pipe(
+      mergeMap(user => {
+        return this.usersCollection.doc(user?.uid).delete()
+      })
+    )
   }
 }
+

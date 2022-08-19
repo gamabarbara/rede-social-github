@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
-import { ActivatedRoute } from '@angular/router';
+import { user } from 'src/app/auth/models/user';
 import { EditDialogComponent } from '../../components/edit-dialog/edit-dialog.component';
-import { gitUser } from '../../models/gitUser';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
@@ -14,7 +12,7 @@ import { ServicesService } from '../../services/services.service';
 export class UsuarioPagesComponent implements OnInit {
 
   userName: string = ""
-  userInfos?: gitUser
+  userInfos?: user
 
   constructor(private servicesService: ServicesService, private dialog: MatDialog) {
 
@@ -31,6 +29,7 @@ export class UsuarioPagesComponent implements OnInit {
       }
     )
   }
+
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(EditDialogComponent, {
