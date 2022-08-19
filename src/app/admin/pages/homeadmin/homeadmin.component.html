@@ -1,12 +1,11 @@
 <mat-toolbar>
-    <a href="#"><img src="assets/logo2.png" alt=""></a>
+    <a routerLink="#"><img src="assets/logo2.png" alt=""></a>
     <span class="example-spacer"></span>
 
     <button mat-icon-button matTooltip="Notificações">
         <mat-icon id="notifications" matBadge="8" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="small">
             notifications</mat-icon>
     </button>
-
     
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Menu">
         <mat-icon id="menu">menu</mat-icon>
@@ -30,7 +29,6 @@
     </mat-menu>
 </mat-toolbar>
 
-
 <div
   class="sidebar"
   (mouseenter)="toggleCollapse()"
@@ -43,7 +41,7 @@
       <span class="toolipe">Procurar</span>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="/feed">
         <i class="bx bx-grid-alt"></i>
         <span class="links_name">Feed</span>
         <span class="toolipe">Feed</span>
@@ -51,28 +49,28 @@
     </li>
    
     <li>
-      <a href="#">
+      <a routerLink="#">
         <i class="bx bxs-hot"></i>
         <span class="links_name">Em alta</span>
         <span class="toolipe">Em alta</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="#">
         <i class="bx bx-chat"></i>
         <span class="links_name">Mensagens</span>
         <span class="toolipe">Mensagens</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="#">
         <i class="bx bx-bookmark"></i>
         <span class="links_name">Salvos</span>
         <span class="toolipe">Salvos</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="#">
         <i class='bx bxs-book'></i>
         <span class="links_name">Publicações</span>
         <span class="toolipe"> Publicações</span>
@@ -90,3 +88,4 @@
   </div>
 </div>
 </div>
+
