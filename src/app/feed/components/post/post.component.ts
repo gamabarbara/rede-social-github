@@ -4,6 +4,7 @@ import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post',
@@ -22,6 +23,8 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.getPosts();
     console.log(this.posts)
+    
+   
   }
   getPosts() {
     this.feedService.getPosts(this.posts)
@@ -29,9 +32,14 @@ export class PostComponent implements OnInit {
   onReplyClick() {
     this.dialog.open(ReplyComponent)
   }
+
   likeButtonClick() {
     this.numberOfLike++;
-  }
+   }
+
+// likeButtonClick(){
+//   if(this.numberOfLike == )
+// }
 
 }
 
