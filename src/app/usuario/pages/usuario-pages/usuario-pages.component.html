@@ -15,7 +15,7 @@
                     <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
                     <ng-template #teste> {{ userInfos?.bio }}</ng-template>
                 </mat-card-content>
-                <a href="https://github.com/{{userInfos?.username}}" target="_blank"><img src="assets/github-icon.png"
+                <a routerLink="https://github.com/{{userInfos?.username}}" target="_blank"><img src="assets/github-icon.png"
                         alt="" width="24px"></a>
 
             </div>
