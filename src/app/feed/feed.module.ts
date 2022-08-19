@@ -12,6 +12,7 @@ import { PostFeedComponent } from './components/post-feed/post-feed.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { PostComponent } from './components/post/post.component';
 import { ReplyComponent } from './components/reply/reply.component';
+import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.component';
 
 
 
@@ -24,7 +25,8 @@ import { ReplyComponent } from './components/reply/reply.component';
     PostFeedComponent,
     CreatePostComponent,
     PostComponent,
-    ReplyComponent
+    ReplyComponent,
+    InviteDialogComponent
   ],
   imports: [
     CommonModule,
