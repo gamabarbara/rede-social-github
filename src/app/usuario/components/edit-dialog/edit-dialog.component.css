@@ -17,3 +17,19 @@ form {
 section {
   height: 100%;
 }
+
+.delete {
+  width: 150px;
+  margin-top: 15px;
+}
+
+.formSubmit {
+  width: 150px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10px;
+}
