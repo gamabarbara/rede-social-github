@@ -1,8 +1,10 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { gitUser } from '../../models/gitUser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { user } from 'src/app/auth/models/user';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
@@ -13,8 +15,7 @@ import { ServicesService } from '../../services/services.service';
 export class EditDialogComponent implements OnInit {
 
   userName: string = ""
-  userInfos?: gitUser
-  private usersCollection = this.store.collection<gitUser>('users')
+  userInfos?: user
 
   profileForm: FormGroup = this.fb.group({
     username: [''],
@@ -22,7 +23,7 @@ export class EditDialogComponent implements OnInit {
     bio: ['']
   })
 
-  constructor(private servicesService: ServicesService, private route: ActivatedRoute, private fb: FormBuilder, private store: AngularFirestore) { }
+  constructor(private servicesService: ServicesService, private fb: FormBuilder, private authentication: AngularFireAuth, private dialogRef: Dialog) { }
 
   ngOnInit(): void {
     this.getUser()
@@ -41,10 +42,15 @@ export class EditDialogComponent implements OnInit {
   }
 
   setUserInfos() {
-    this.servicesService.setUserInfos()
+    this.servicesService.setUserInfos(this.profileForm.get('bio')?.value).subscribe()
   }
 
+  deleteUser() {
+    this.authentication.signOut()
+    this.servicesService.deleteUser().subscribe()
+    this.dialogRef.closeAll()
+    location.href = '/'
 
-
+  }
 
 }
