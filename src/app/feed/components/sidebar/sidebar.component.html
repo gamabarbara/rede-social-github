@@ -1,6 +1,6 @@
 <div
   class="sidebar"
-  (mouseenter)="toggleCollapse()"
+  (click)="toggleCollapse()"
   [ngClass]="collapsed ? 'homeContent active' : ''">
   <div class="sidebar-items">
   <ul class="nav-list">
@@ -16,7 +16,7 @@
         <span class="toolipe">Feed</span>
       </a>
     </li>
-  
+
     <li>
       <a href="#">
         <i class="bx bxs-hot"></i>
@@ -39,13 +39,15 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a>
         <i class="bx bxs-user-plus"></i>
-        <span class="links_name">Convide amigos</span>
+        <span class="links_name" (click)="openDialog()">Convide amigos</span>
         <span class="toolipe">Convide amigos</span>
       </a>
     </li>
-   
+
+
+
   </ul>
   <div class="profileContent">
     <div class="profile">
