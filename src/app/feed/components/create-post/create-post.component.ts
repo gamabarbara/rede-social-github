@@ -15,6 +15,8 @@ export class CreatePostComponent implements OnInit {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
+  url!: string | ArrayBuffer | null;
+  format!: string;
   constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
 
   ngOnInit(): void {
@@ -75,5 +77,23 @@ export class CreatePostComponent implements OnInit {
       }
     )
   }
+
+  onSelectFile(event:any) {
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      if(file.type.indexOf('image')> -1){
+        this.format = 'image';
+      } else if(file.type.indexOf('video')> -1){
+        this.format = 'video';
+      }
+      reader.onload = (event) => {
+        this.url = (<FileReader>event.target).result;
+      }
+    }
+  }
+
+
 
 }
