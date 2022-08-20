@@ -1,4 +1,4 @@
-<mat-card>
+  <mat-card>
   <mat-card-header>
     <mat-card-title>Create Post</mat-card-title>
   </mat-card-header>
@@ -16,6 +16,9 @@
             <mat-icon>insert_photo</mat-icon>
         </label>
     </button>
+    <img [src]="url" *ngIf="format==='image' && url" height=""> <br/>
+  <video [src]="url" *ngIf="format==='video' && url" height="" controls></video> <br/>
+  <input type='file' (change)="onSelectFile($event)" />
     <button (click)="onPostClick(commentInput)" mat-flat-button>Post</button>
   </mat-card-actions>
-</mat-card>
+  </mat-card>
