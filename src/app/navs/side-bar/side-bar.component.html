@@ -1,11 +1,9 @@
 
 <div
 class="sidebar"
-(dblclick)="toggleCollapse()"
+(click)="toggleCollapse()"
 [ngClass]="collapsed ? 'homeContent active' : ''">
 <div class="sidebar-items">
-  <button mat-raised-button mat-mini-fab color="black" class="buts" (click)="toggleCollapse()"
-  >abrir</button>
 <ul class="nav-list">
   <li>
     <i class="bx bx-search"></i>
@@ -35,7 +33,7 @@ class="sidebar"
     </a>
   </li>
   <li>
-    <a routerLink="/user/{{username}}/posts-savos">
+    <a routerLink="/user/{{username}}/posts-salvos">
       <i class="bx bx-bookmark"></i>
       <span class="links_name">Salvos</span>
       <span class="toolipe">Salvos</span>

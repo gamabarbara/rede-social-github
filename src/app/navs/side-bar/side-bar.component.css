@@ -20,7 +20,7 @@ body {
   top: 0;
   height: 100%;
   background-color: rgb(19, 19, 19);
-  padding: 6px 6px;
+
   transition: all 0.5s ease;
   border-right: 1px solid #525252;
 }
@@ -40,16 +40,18 @@ body {
 }
 
 
-.sidebar ul {
+/* .sidebar ul {
   margin-top: 20px;
 }
-
+ */
 .sidebar ul li {
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 50px;
   line-height: 50px;
-  margin: 20px 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
   list-style: none;
 }
 

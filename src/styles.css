@@ -4,9 +4,7 @@
 html,
 body {
   height: 100%;
-
-    background-image: url("src/assets/background.jpg");
-    background-size: cover;
+  background-color: rgb(19, 19, 19);
 }
 
 * {
