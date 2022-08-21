@@ -32,9 +32,8 @@ import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.
     CommonModule,
     FeedRoutingModule,
     MaterialModule,
-    NavsModule
-    , 
-    MatCardModule, 
+    NavsModule,
+    MatCardModule,
     MatIconModule
   ]
 })
