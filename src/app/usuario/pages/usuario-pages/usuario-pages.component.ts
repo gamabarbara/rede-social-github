@@ -13,19 +13,30 @@ export class UsuarioPagesComponent implements OnInit {
 
   userName: string = ""
   userInfos?: user
+  public username?: string
 
-  constructor(private servicesService: ServicesService, private dialog: MatDialog) {
+  constructor(private servicesService: ServicesService, private dialog: MatDialog, ) {
 
   }
 
   ngOnInit(): void {
     this.getUser()
+    this.getUsername()
+
   }
 
   getUser(): void {
     this.servicesService.getUser().subscribe(
       a => {
         this.userInfos = a
+      }
+    )
+  }
+
+  getUsername(): void {
+    this.servicesService.getUsername().subscribe(
+      (a) => {
+        this.username = a
       }
     )
   }

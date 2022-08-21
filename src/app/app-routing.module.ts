@@ -31,7 +31,21 @@ const routes: Routes = [
     path: 'homeadmin',
     loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
 
+  },
+  {
+    path: 'user/:name/repos',
+    loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
+  },
+  {
+    path: 'user/:name/posts-savos',
+    loadChildren: () => import('./salvos/salvos.module').then(m => m.SalvosModule)
+  },
+  {
+    path: 'user/:name/mensagens',
+    loadChildren: () => import('./mensagens/mensagens.module').then(m => m.MensagensModule)
   }
+
+
 
 
 

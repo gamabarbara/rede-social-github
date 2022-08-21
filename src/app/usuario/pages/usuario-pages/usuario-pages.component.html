@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+<app-side-bar></app-side-bar>
 <main>
     <section class="container">
         <mat-card class="example-card">
@@ -15,9 +16,8 @@
                     <span id="bio" *ngIf="userInfos?.bio == null; else teste"><b> 404 bio not found</b></span>
                     <ng-template #teste> {{ userInfos?.bio }}</ng-template>
                 </mat-card-content>
-                <a routerLink="https://github.com/{{userInfos?.username}}" target="_blank"><img src="assets/github-icon.png"
-                        alt="" width="24px"></a>
-
+                <a href="https://github.com/{{username}}" target="_blank"><img src="assets/github-icon.png"
+                        alt="" width="50px"></a>
             </div>
         </mat-card>
     </section>
