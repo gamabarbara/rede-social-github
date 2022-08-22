@@ -5,6 +5,7 @@ import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
 import { Validators } from '@angular/forms';
+import { user } from 'src/app/auth/models/user';
 
 @Component({
   selector: 'app-post',
@@ -14,20 +15,23 @@ import { Validators } from '@angular/forms';
 export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
-  numberOfLike: number=0;
+  userUid?: string
+  numberOfLike: number = 0;
+  teste: number = 1000;
+
   constructor(
-    private feedService: FeedService, 
+    private feedService: FeedService,
     private dialog: MatDialog
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getPosts();
     console.log(this.posts)
-    
-   
+    this.getUser()
   }
   getPosts() {
     this.feedService.getPosts(this.posts)
+
   }
   onReplyClick() {
     this.dialog.open(ReplyComponent)
@@ -35,11 +39,25 @@ export class PostComponent implements OnInit {
 
   likeButtonClick() {
     this.numberOfLike++;
-   }
+  }
 
-// likeButtonClick(){
-//   if(this.numberOfLike == )
-// }
+  deletePost(postId?: string) {
+    const teste = postId
+    console.log(teste);
+
+
+    this.feedService.deletePost(postId).subscribe()
+
+  }
+
+  getUser() {
+    this.feedService.getUser().subscribe(
+      a => {
+        this.userUid = a?.uid
+        console.log(a?.uid)
+      }
+    )
+  }
 
 }
 

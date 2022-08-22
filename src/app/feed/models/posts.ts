@@ -3,4 +3,5 @@ export interface posts {
     text: string
     likes: number
     title: string
+    creatorId: string
 }

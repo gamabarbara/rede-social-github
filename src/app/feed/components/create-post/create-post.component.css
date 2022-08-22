@@ -1,49 +1,47 @@
 #photo-upload {
-    display: none;
+  display: none;
 }
 textarea {
-    font-size: 1.5em;
-    margin-left: 10px;
-    resize: none;
-    width: 300px;
-    min-height: 200px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    outline: none;
+  font-size: 1.5em;
+  margin-left: 10px;
+  resize: none;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  outline: none;
 }
 
 #post-preview {
-    text-align: right;
-    margin-top: 1em;
+  text-align: right;
+  margin-top: 1em;
 }
 #post-preview-image {
-    object-fit: cover;
-    object-position: center;
-    width: 150px;
-    height: 100px;
-    border-radius: 1em;
-    border: 1px dashed #525252;
+  object-fit: cover;
+  object-position: center;
+  width: 150px;
+  height: 100px;
+  border-radius: 1em;
+  border: 1px dashed #525252;
 }
 mat-card-title {
-    color: white;
+  color: white;
 }
 mat-card {
-    background-color: rgb(19, 19, 19);
-    width: 350px;
-    height: 400px;
-
+  background-color: rgb(19, 19, 19);
+  width: 350px;
+  height: 400px;
 }
 mat-icon {
-    color: black;
-    padding-top: 5px;
+  color: black;
+  padding-top: 5px;
 }
 button {
-    background-color: #525252;
-    color: black;
-    position: relative;
-    top: 80px;
+  background-color: #525252;
+  color: black;
+  position: relative;
+  top: 80px;
 }
 button:hover {
-    opacity: .5;
+  opacity: 0.5;
 }
-
