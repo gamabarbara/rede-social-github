@@ -31,15 +31,8 @@ export class SideBarComponent{
   }
 
 
-  collapsed = false;
+  collapsed = true;
 
-  toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
-  }
-
-  closeSidebar() {
-    this.collapsed = true;
-  }
 
   getUsername(): void {
     this.service.getUsername().subscribe(
