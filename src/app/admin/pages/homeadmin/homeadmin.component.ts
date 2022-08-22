@@ -6,16 +6,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homeadmin.component.css']
 })
 export class HomeadminComponent   {
-
-  collapsed = false;
-
-  toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
-  }
-
-  closeSidebar() {
-    this.collapsed = false;
-  }
-
-
 }
