@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundModule } from './not-found/not-found.module';
 
 
 const routes: Routes = [
@@ -23,6 +24,14 @@ const routes: Routes = [
     path: 'feed',
     loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
+
+  {
+    path:'404',component:NotFoundModule
+  },
+
+  {
+    path:'**',redirectTo:'/error404'
+  },
   {
   path: 'error404',
     loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
@@ -32,10 +41,12 @@ const routes: Routes = [
     loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
 
   },
+
   {
     path: 'user/:name/repos',
-    loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
+  loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
   },
+
   {
     path: 'user/:name/posts-savos',
     loadChildren: () => import('./salvos/salvos.module').then(m => m.SalvosModule)
