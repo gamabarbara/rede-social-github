@@ -8,6 +8,7 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
+import { ConfirmarLogoutComponent } from './confirmar-logout/confirmar-logout.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
     AdministracaoComponent,
     LoginAdminComponent,
     HomeadminComponent,
+    ConfirmarLogoutComponent,
   ],
   imports: [
     CommonModule,

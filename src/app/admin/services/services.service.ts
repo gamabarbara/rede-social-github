@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { from, tap } from 'rxjs';
 import { admin } from 'src/app/admin/models/admin';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,9 @@ export class ServicesService {
 
   constructor(
     private authentication: AngularFireAuth,
-    private store: AngularFirestore
-  ) {}
+    private store: AngularFirestore,
+    private authService: AuthService) { }
+  
 
   signInWithGoogle() {
     const googleProvider = new GoogleAuthProvider();
@@ -36,12 +38,16 @@ export class ServicesService {
   }
 
   signOut() {
-    this.authentication.signOut();
+    return from(this.authentication.signOut())
   }
+
+
 
   signUpWithEmailAndPassword(email: string, password: string) {
     return from(
       this.authentication.createUserWithEmailAndPassword(email, password)
     );
   }
+
+ 
 }

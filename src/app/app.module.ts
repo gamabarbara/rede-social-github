@@ -17,10 +17,12 @@ import { PagesComponent } from './not-found/pages/pages.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent
+    PagesComponent,
+    
 
   ],
   imports: [

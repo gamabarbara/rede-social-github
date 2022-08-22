@@ -13,6 +13,7 @@ export class ServicesService {
 
   private usersCollection = this.store.collection<user>('users')
   private currentUser = this.authService.currentUser
+  signOut: any;
 
   constructor(private authentication: AngularFireAuth,
     private store: AngularFirestore,

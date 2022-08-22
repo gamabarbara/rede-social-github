@@ -1,0 +1,14 @@
+p {
+    color: white;
+  }
+  confirm {
+    background-color: #a70707 !important;
+    color: black;
+  }
+  cancel {
+    background-color: #525252;
+    color: black;
+  }
+  button:hover {
+    opacity: 0.5;
+  }

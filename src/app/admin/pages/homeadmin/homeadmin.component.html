@@ -22,7 +22,7 @@
             <span>Configurações</span>
         </button>
 
-        <button mat-menu-item>
+        <button mat-menu-item (click)="signOut()">
             <mat-icon [ngStyle]="{'color':'white'}">logout</mat-icon>
             <span>Sair</span>
         </button>

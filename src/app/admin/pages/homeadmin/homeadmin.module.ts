@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavsModule } from '../navs/navs.module';
+import { NavsModule } from '../../../navs/navs.module';
 import { HomeadminRoutingModule } from './homeadmin-routing.module';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeadminRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    NavsModule
+    
   ]
 })
 export class HomeadminModule { }

@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'homeadmin',
-    loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
+    loadChildren: () => import('./admin/pages/homeadmin/homeadmin.module').then(m => m.HomeadminModule)
 
   }
 
