@@ -5,9 +5,9 @@ export interface feed {
     creatorId: string;
     creatorPhoto: string;
     creatorName: string;
-    timestamp: string;
+    date: Date;
     imageUrl?: string;
     likes: number
     postId: string
-    approved: string
+    approved: boolean
 }

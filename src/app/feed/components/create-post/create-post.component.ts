@@ -15,8 +15,8 @@ export class CreatePostComponent implements OnInit {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
-  // url!: string | ArrayBuffer | null;
-  // format!: string;
+  date = new Date().toDateString()
+
 
   constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
 
@@ -24,7 +24,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   onPostClick(commentInput: HTMLTextAreaElement) {
-    console.log(this.selectedImageFile)
     let comment = commentInput.value;
     if (comment.length <= 0) return;
     if (this.selectedImageFile) {
@@ -51,9 +50,9 @@ export class CreatePostComponent implements OnInit {
                 creatorName: this.auth.getAuth().currentUser?.displayName,
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
                 imageUrl: downloadURL,
-                timestamp: FirebaseTSApp.getFirestoreTimestamp(),
+                date: this.date,
                 postId: postId,
-                approved: 'false',
+                approved: false,
                 likes: 0
 
               },

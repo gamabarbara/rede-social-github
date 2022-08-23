@@ -52,7 +52,6 @@ export class HomeadminComponent {
   }
 
   approvePosts(post: feed) {
-    console.log(post)
     this.service.approvePosts(post).subscribe()
   }
 

@@ -24,7 +24,6 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
-    console.log(this.posts)
     this.getUser()
   }
   getPosts() {
@@ -47,7 +46,6 @@ export class PostComponent implements OnInit {
     this.feedService.getUser().subscribe(
       a => {
         this.userUid = a?.uid
-        console.log(a?.uid)
       }
     )
   }
