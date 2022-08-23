@@ -20,17 +20,16 @@ export class FeedService {
   constructor(private store: AngularFirestore,
     private authService: AuthService) { }
 
-  getPosts(posts: feed[]) { //tirei o array dessa classe e passei como parametro, pra chamar o novo array pelo post.ts
+  getPosts(posts: feed[]) {
     this.firestore.getCollection(
       {
         path: ["Posts"],
         where: [
-          new Where("approved", "==", "true"),
-          new OrderBy("timestamp", "desc"),
+          new Where("approved", "==", true),
+          new OrderBy("date", "desc"),
           new Limit(10)
         ],
         onComplete: (result) => {
-          console.log(result);
 
           result.docs.forEach(
             doc => {
@@ -89,9 +88,9 @@ export class FeedService {
         creatorId: post.creatorId,
         creatorPhoto: post.creatorPhoto,
         creatorName: post.creatorName,
-        timestamp: 'oi',
+        date: post.date,
         imageUrl: post.imageUrl,
-        likes: post.likes++,
+        likes: ++post.likes,
         postId: post.postId,
         approved: post.approved
       }

@@ -17,6 +17,7 @@ export class ServicesService {
   private postsCollection = this.store.collection<feed>('Posts');
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
+
   constructor(
     private authentication: AngularFireAuth,
     private store: AngularFirestore
@@ -51,12 +52,12 @@ export class ServicesService {
     );
   }
 
-  getPosts(posts: feed[]) { //tirei o array dessa classe e passei como parametro, pra chamar o novo array pelo post.ts
+  getPosts(posts: feed[]) {
     this.firestore.getCollection(
       {
         path: ["Posts"],
         where: [
-          new OrderBy("timestamp", "desc"),
+          new OrderBy("date", "desc"),
           new Limit(10)
         ],
         onComplete: (result) => {
@@ -81,11 +82,11 @@ export class ServicesService {
         creatorId: post.creatorId,
         creatorPhoto: post.creatorPhoto,
         creatorName: post.creatorName,
-        timestamp: 'oi',
+        date: post.date,
         imageUrl: post.imageUrl,
         likes: post.likes,
         postId: post.postId,
-        approved: 'true'
+        approved: true
       }
     )
     )
