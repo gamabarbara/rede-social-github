@@ -26,25 +26,25 @@ const routes: Routes = [
   },
 
   {
-    path:'404',component:NotFoundModule
+    path: '404', component: NotFoundModule
   },
 
-  // {
-  //   path:'**',redirectTo:'/error404'
-  // },
+  /* {
+    path:'**',redirectTo:'/error404'
+  }, */
   {
-  path: 'error404',
+    path: 'error404',
     loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
   },
   {
     path: 'homeadmin',
-    loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
+    loadChildren: () => import('./admin/pages/homeadmin/homeadmin.module').then(m => m.HomeadminModule)
 
   },
 
   {
     path: 'user/:name/repos',
-  loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
+    loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
   },
 
   {
@@ -55,10 +55,6 @@ const routes: Routes = [
     path: 'user/:name/mensagens',
     loadChildren: () => import('./mensagens/mensagens.module').then(m => m.MensagensModule)
   }
-
-
-
-
 
 ];
 

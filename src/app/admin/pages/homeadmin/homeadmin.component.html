@@ -1,7 +1,23 @@
-<mat-toolbar>
-    <a routerLink="#"><img src="assets/logo2.png" alt=""></a>
-    <span class="example-spacer"></span>
+<app-nav-bar></app-nav-bar>
 
+<div class="container">
+  <mat-card *ngFor="let post of posts">
+    <mat-card-header>
+      <img src="{{post?.creatorPhoto}}" alt="">
+      <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
+      <mat-card-subtitle class="title">{{post?.timestamp}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{post?.imageUrl}}" class="img">
+    <mat-card-content class="contador">
+      {{post?.comment}}
+    </mat-card-content>
+
+    <mat-card-actions class="contador">
+      <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
+      <mat-icon class="action-item" (click)="deletePost(post?.postId)">close</mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</div>
     <button mat-icon-button matTooltip="Notificações">
         <mat-icon id="notifications" matBadge="8" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="small">
             notifications</mat-icon>
