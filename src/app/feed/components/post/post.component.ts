@@ -34,10 +34,6 @@ export class PostComponent implements OnInit {
     this.dialog.open(ReplyComponent)
   }
 
-  likeButtonClick() {
-    this.numberOfLike++;
-  }
-
   deletePost(postId?: string) {
     this.feedService.deletePost(postId).subscribe()
   }

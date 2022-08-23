@@ -4,7 +4,6 @@ import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { feed } from 'src/app/feed/models/feed';
-import { posts } from 'src/app/feed/models/posts';
 
 @Component({
   selector: 'app-homeadmin',

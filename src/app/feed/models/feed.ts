@@ -1,5 +1,3 @@
-import { timestamp } from "./timestamp";
-
 export interface feed {
     comment: string;
     creatorId: string;
@@ -7,7 +5,7 @@ export interface feed {
     creatorName: string;
     date: Date;
     imageUrl?: string;
-    likes: number
+    likes: any
     postId: string
     approved: boolean
 }
