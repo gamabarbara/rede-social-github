@@ -1,91 +1,20 @@
-<mat-toolbar>
-    <a routerLink="#"><img src="assets/logo2.png" alt=""></a>
-    <span class="example-spacer"></span>
+<app-nav-bar></app-nav-bar>
 
-    <button mat-icon-button matTooltip="Notificações">
-        <mat-icon id="notifications" matBadge="8" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="small">
-            notifications</mat-icon>
-    </button>
-    
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Menu">
-        <mat-icon id="menu">menu</mat-icon>
-        <!-- <img id="profilepic" src="{{photo}}" alt=""> -->
-    </button>
-    <mat-menu #menu="matMenu" class="custom-class">
-        <button mat-menu-item routerLink="/">
-            <mat-icon [ngStyle]="{'color':'white'}">person</mat-icon>
-            <span>Perfil</span>
-        </button>
+<div class="container">
+  <mat-card *ngFor="let post of posts">
+    <mat-card-header>
+      <img src="{{post?.creatorPhoto}}" alt="">
+      <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
+      <mat-card-subtitle class="title">{{post?.timestamp}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{post?.imageUrl}}" class="img">
+    <mat-card-content class="contador">
+      {{post?.comment}}
+    </mat-card-content>
 
-        <button mat-menu-item routerLink="/">
-            <mat-icon [ngStyle]="{'color':'white'}">settings</mat-icon>
-            <span>Configurações</span>
-        </button>
-
-        <button mat-menu-item (click)="signOut()">
-            <mat-icon [ngStyle]="{'color':'white'}">logout</mat-icon>
-            <span>Sair</span>
-        </button>
-    </mat-menu>
-</mat-toolbar>
-
-<div
-  class="sidebar"
-  (click)="toggleCollapse()"
-  [ngClass]="collapsed ? 'homeContent active' : ''">
-  <div class="sidebar-items">
-  <ul class="nav-list">
-    <li>
-      <i class="bx bx-search"></i>
-      <input type="search" name="search" placeholder="Procurar..." />
-      <span class="toolipe">Procurar</span>
-    </li>
-    <li>
-      <a routerLink="/feed">
-        <i class="bx bx-grid-alt"></i>
-        <span class="links_name">Feed</span>
-        <span class="toolipe">Feed</span>
-      </a>
-    </li>
-   
-    <li>
-      <a routerLink="#">
-        <i class="bx bxs-hot"></i>
-        <span class="links_name">Em alta</span>
-        <span class="toolipe">Em alta</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="#">
-        <i class="bx bx-chat"></i>
-        <span class="links_name">Mensagens</span>
-        <span class="toolipe">Mensagens</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="#">
-        <i class="bx bx-bookmark"></i>
-        <span class="links_name">Salvos</span>
-        <span class="toolipe">Salvos</span>
-      </a>
-    </li>
-    <li>
-      <a routerLink="#">
-        <i class='bx bxs-book'></i>
-        <span class="links_name">Publicações</span>
-        <span class="toolipe"> Publicações</span>
-      </a>
-    </li>
-   
-  </ul>
-  <div class="profileContent">
-    <div class="profile">
-      <div class="profileDetail">
-        <div class="name_job">
-          <div class="job"></div>
-        </div>
-      
-  </div>
+    <mat-card-actions class="contador">
+      <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
+      <mat-icon class="action-item" (click)="deletePost(post?.postId)">close</mat-icon>
+    </mat-card-actions>
+  </mat-card>
 </div>
-</div>
-

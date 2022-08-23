@@ -8,6 +8,8 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
+import { NavsModule } from '../navs/navs.module';
+
 
 
 @NgModule({
@@ -19,9 +21,12 @@ import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatIconModule, 
+    MatIconModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NavsModule
+
+
 
   ]
 })

@@ -1,321 +1,57 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.action-item {
+  display: flex;
+  display: inline-block;
+  justify-content: center;
+  display: space-around;
 }
 
-  
-/* navbar */
-
-.example-spacer {
-  flex: 1 1 auto;
+.contador {
+  display: flex;
+  display: space-around;
 }
 
-mat-toolbar {
-  height: 55px;
-  background-color: rgb(19, 19, 19) !important;
-  color: white;
-  padding-left: 7px;
-  border-bottom: 1px solid #525252;
-  z-index: 10000;
-  position: fixed;
-}
-
-::ng-deep .custom-class {
-  background-color: rgb(19, 19, 19) !important;
-}
-
-span {
-  color: white;
-}
-
-img {
-  height: 48px;
-  width: 48px;
-}
-a {
-  height: 48px;
-  width: 48px;
-}
-
-#profilepic {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-}
-button{
-  color: #fff;
-  text-decoration: none;
-  border-radius: 12px;
-  white-space: nowrap;
-  transition: all 0.5s ease;
-}
-button:hover {
-  color: #ffffff;
-  background-color: #525252;
+mat-card {
+  position: relative;
+  top: 200px;
+  width: 25%;
+  height: 420px;
+  margin-bottom: 80px;
+  margin-right: 100px;
+  border: 3px solid #525252;
   border-radius: 10px;
 }
-
-  /* home */
-
-  .container {
-    width: 100%;
-    height: 100vh;
-    background-image: url("src/assets/background.jpg");
-    background-position: center;
-    background-size: cover;
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 100%;
-    min-height: 600px;
-  }
-
-
-
-  body {
-    position: relative;
-    min-height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-  .sidebar {
-    position: fixed;
-    width: 80px;
-    height: 100%;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: rgb(19, 19, 19);
-    padding: 6px 6px;
-    transition: all 0.5s ease;
-    border-right: 1px solid #525252;
-  }
-  
-  .sidebar .logoContent .logo {
-    width: 100%;
-    height: 128px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    opacity: 0;
-    pointer-events: auto;
-  }
-  
-  .sidebar .links_name {
-    opacity: 0;
-  }
-  
-  
-/*   .sidebar ul {
-    margin-top: 20px;
-  } */
-  
-  .sidebar ul li {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    margin-left: 5px;
-    margin-bottom: 15px;
-    list-style: none;
-  }
-  
-  .sidebar ul li input {
-    position: relative;
-    justify-content: center;
-    left: 0;
-    width: 80%;
-    height: 50px;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    background-color: #525252;
-    padding-left: 50px;
-    font-size: 18px;
-    color: #fff;
-  }
-  
-  .sidebar ul li .bx-search {
-    position: absolute;
-    font-size: 22px;
-    color: #fff;
-    z-index: 999;
-    cursor: pointer;
-  }
-  
-  .sidebar ul li a {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 12px;
-    white-space: nowrap;
-    transition: all 0.5s ease;
-  }
-  
-  .sidebar ul li a:hover {
-    color: #11101d;
-    background-color: #fff;
-    /* AQUI */
-  }
-  
-  .sidebar ul li i {
-    min-width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 12px;
-    text-align: center;
-  }
-  
-  .sidebar .profileContent {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: #fff;
-  }
-  
-  .sidebar .profileContent .profile {
-    position: relative;
-    height: 60px;
-    padding: 10px 6px;
-  }
-  
-  .sidebar .profileContent .profile .profileDetail {
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .sidebar .profileContent .profile .profileDetail img {
-    width: 45px;
-    height: 45px;
-    object-fit: cover;
-    background-color: #525252;
-    border-radius: 12px;
-  }
-  
-  .sidebar .profileContent .profile .profileDetail .name_job {
-    margin-left: 15px;
-  }
-  
-  .profile .profileDetail .name_job .name {
-    font-size: 15px;
-    font-weight: 400;
-  }
-  
-  .profile .profileDetail .name_job .job {
-    font-size: 12px;
-  }
-  
-  .profile #logout {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    bottom: 6px;
-    min-width: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 12px;
-  }
-  
-  .homeContent {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    transition: all 0.5s ease;
-  }
-  
-  .homeContent h2 {
-
-    font-size: 25px;
-    font-weight: 400;
-    color: #1d1d31;
-  }
-  
-  
-  .toolipe {
-    position: absolute;
-    top: 0;
-    left: 122px;
-    transform: translate(-50%, -50%);
-    width: 122px;
-    height: 35px;
-    background-color: #fff;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    color: #1d1d1d;
-    line-height: 35px;
-    transition: 0;
-    opacity: 0;
-  }
-  
-  .sidebar ul li:hover .toolipe {
-    transition: all 0.5s ease;
-    top: 50%;
-    opacity: 1;
-  }
-  
-  .sidebar.active {
-    width: 250px;
-    position: fixed;
-  }
-  
-  .sidebar.active .logoContent .logo {
-    opacity: 1;
-  }
-  
-  .sidebar.active .links_name {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .sidebar.active .profileContent .profile .profileDetail {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .sidebar.active .profile #logout {
-    left: 90%;
-  }
-  
-  .sidebar.active .toolipe {
-    display: none;
-  }
-  .bx-menu {
-    font-size: 25px;
-    margin-left: 17px;
-    color: #fff;
-  }
-  .bx-menu:hover {
-    transition: all 0.5s ease;
-    opacity: 1;
-    color: #525252;
-    background-color: #fff;
-  }
-  .logoName img {
-    width: 60px;
-    height: 60px;
-  }
-  .logoName {
-    display: flex;
-    margin: 0 auto;
-  }
-  .sidebar-items {
-    margin-top: 200px;
-  }
-
-
-  
-  
- 
-  
+mat-card img {
+  height: 200px;
+  margin-top: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+mat-card-header img {
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+}
+.title {
+  margin-left: 40px;
+}
+mat-card-actions mat-icon {
+  margin-bottom: 10px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 250px;
+}
+mat-icon {
+  color: black;
+}
+mat-card-header {
+  height: 80px;
+  max-height: 80px;
+}
+mat-card-actions {
+  position: absolute;
+  bottom: 10px;
+  margin-top: 10px;
+}

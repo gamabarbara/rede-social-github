@@ -4,8 +4,6 @@ import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
-import { Validators } from '@angular/forms';
-import { user } from 'src/app/auth/models/user';
 
 @Component({
   selector: 'app-post',
@@ -42,12 +40,7 @@ export class PostComponent implements OnInit {
   }
 
   deletePost(postId?: string) {
-    const teste = postId
-    console.log(teste);
-
-
     this.feedService.deletePost(postId).subscribe()
-
   }
 
   getUser() {

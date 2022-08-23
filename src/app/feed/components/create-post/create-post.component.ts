@@ -52,7 +52,9 @@ export class CreatePostComponent implements OnInit {
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
                 imageUrl: downloadURL,
                 timestamp: FirebaseTSApp.getFirestoreTimestamp(),
-                postId: postId
+                postId: postId,
+                approved: 'false',
+                likes: 0
 
               },
               onComplete: (docId) => {
