@@ -76,16 +76,8 @@ export class ServicesService {
     )
   }
   approvePosts(post: feed) {
-    return from(this.postsCollection.doc(post.postId).set(
+    return from(this.postsCollection.doc(post.postId).update(
       {
-        comment: post.comment,
-        creatorId: post.creatorId,
-        creatorPhoto: post.creatorPhoto,
-        creatorName: post.creatorName,
-        date: post.date,
-        imageUrl: post.imageUrl,
-        likes: post.likes,
-        postId: post.postId,
         approved: true
       }
     )

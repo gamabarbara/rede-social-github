@@ -6,7 +6,6 @@ import { user } from 'src/app/auth/models/user';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { feed } from '../models/feed';
 import * as firebase from 'firebase/compat/app';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -84,17 +83,18 @@ export class FeedService {
   }
 
   likes(post: feed) {
-    return from(this.postsCollection.doc(post.postId).set(
+    return from(this.postsCollection.doc(post.postId).update(
       {
-        comment: post.comment,
-        creatorId: post.creatorId,
-        creatorPhoto: post.creatorPhoto,
-        creatorName: post.creatorName,
-        date: post.date,
-        imageUrl: post.imageUrl,
         likes: firebase.default.firestore.FieldValue.arrayUnion(this.userId),
-        postId: post.postId,
-        approved: post.approved
+      }
+    )
+    )
+  }
+
+  comment(post: feed, comment: string) {
+    return from(this.postsCollection.doc(post.postId).update(
+      {
+        comments: firebase.default.firestore.FieldValue.arrayUnion(comment),
       }
     )
     )

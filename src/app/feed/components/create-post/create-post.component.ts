@@ -31,7 +31,7 @@ export class CreatePostComponent implements OnInit {
     }
   }
 
-  uploadImagePost(comment: string) {
+  uploadImagePost(description: string) {
     let postId = this.firestore.genDocId();
     this.storage.upload(
       {
@@ -45,7 +45,7 @@ export class CreatePostComponent implements OnInit {
             {
               path: ["Posts", postId],
               data: {
-                comment: comment,
+                description: description,
                 creatorId: this.auth.getAuth().currentUser?.uid,
                 creatorName: this.auth.getAuth().currentUser?.displayName,
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
@@ -53,7 +53,9 @@ export class CreatePostComponent implements OnInit {
                 date: this.date,
                 postId: postId,
                 approved: false,
-                likes: 0
+                likes: [],
+                comments: []
+
 
               },
               onComplete: (docId) => {
