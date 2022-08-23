@@ -81,5 +81,22 @@ export class FeedService {
       })
     )
   }
+
+  likes(post: feed) {
+    return from(this.postsCollection.doc(post.postId).set(
+      {
+        comment: post.comment,
+        creatorId: post.creatorId,
+        creatorPhoto: post.creatorPhoto,
+        creatorName: post.creatorName,
+        timestamp: 'oi',
+        imageUrl: post.imageUrl,
+        likes: post.likes++,
+        postId: post.postId,
+        approved: post.approved
+      }
+    )
+    )
+  }
 }
 

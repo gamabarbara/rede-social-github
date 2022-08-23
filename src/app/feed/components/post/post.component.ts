@@ -52,5 +52,9 @@ export class PostComponent implements OnInit {
     )
   }
 
+  likes(post: feed) {
+    this.feedService.likes(post).subscribe()
+  }
+
 }
 

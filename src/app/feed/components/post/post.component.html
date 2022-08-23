@@ -12,8 +12,8 @@
 
         <mat-card-actions class="contador">
             <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon>
-            <p>{{numberOfLike}}</p>
-            <mat-icon class="action-item" (click)="likeButtonClick()">favorite_border</mat-icon>
+            <p>{{post.likes}}</p>
+            <mat-icon class="action-item" (click)="likes(post)">favorite_border</mat-icon>
             <mat-icon class="action-item">bookmark_border</mat-icon>
 
             <mat-icon *ngIf="post?.creatorId == userUid" class="action-item" (click)="deletePost(post?.postId)">delete
