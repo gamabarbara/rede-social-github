@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'; import { AngularFir
 import { Router } from '@angular/router';
 import { GithubAuthProvider } from 'firebase/auth'
 import { from, tap } from 'rxjs';
-import { posts } from 'src/app/feed/models/posts';
 import { user } from '../models/user';
 
 
@@ -36,7 +35,6 @@ export class AuthService {
           const photoURL = credentials.user?.photoURL as string
           const email = credentials.user?.email as string
           const bio: string = ''
-          const posts: posts[] = []
 
           this.usersCollection.doc(uid).set({
             uid: uid,
@@ -45,7 +43,6 @@ export class AuthService {
             bio: bio,
             email: email,
             photoURL: photoURL,
-            posts: posts,
           })
         })
       )

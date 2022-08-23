@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { from, map, mergeMap } from 'rxjs';
 import { user } from 'src/app/auth/models/user';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { feed } from '../models/feed';
+import * as firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedService {
-  auth = new FirebaseTSAuth();
+  /*   auth = new FirebaseTSAuth(); */
   firestore = new FirebaseTSFirestore();
   private usersCollection = this.store.collection<user>('users')
   private currentUser = this.authService.currentUser
   private postsCollection = this.store.collection<feed>('Posts')
+  private userId?: string
 
   constructor(private store: AngularFirestore,
     private authService: AuthService) { }
@@ -76,6 +77,7 @@ export class FeedService {
         return this.usersCollection.doc(user?.uid).get()
       }),
       map(userDoc => {
+        this.userId = userDoc.data()?.uid
         return userDoc.data()
       })
     )
@@ -90,7 +92,7 @@ export class FeedService {
         creatorName: post.creatorName,
         date: post.date,
         imageUrl: post.imageUrl,
-        likes: ++post.likes,
+        likes: firebase.default.firestore.FieldValue.arrayUnion(this.userId),
         postId: post.postId,
         approved: post.approved
       }
