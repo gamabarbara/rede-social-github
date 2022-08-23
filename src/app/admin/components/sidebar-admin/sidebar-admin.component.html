@@ -1,7 +1,5 @@
 <div
-  class="sidebar"
-  (click)="toggleCollapse()"
-  [ngClass]="collapsed ? 'homeContent active' : ''">
+  class="sidebar">
   <div class="sidebar-items">
   <ul class="nav-list">
     <li>
@@ -10,13 +8,13 @@
       <span class="toolipe">Procurar</span>
     </li>
     <li>
-      <a routerLink="#">
+      <a routerLink="/feed">
         <i class="bx bx-grid-alt"></i>
         <span class="links_name">Feed</span>
         <span class="toolipe">Feed</span>
       </a>
     </li>
-
+   
     <li>
       <a routerLink="#">
         <i class="bx bxs-hot"></i>
@@ -39,22 +37,13 @@
       </a>
     </li>
     <li>
-      <a>
-        <i class="bx bxs-user-plus"></i>
-        <span class="links_name" (click)="openDialog()">Convide amigos</span>
-        <span class="toolipe">Convide amigos</span>
+      <a routerLink="#">
+        <i class='bx bxs-book'></i>
+        <span class="links_name">Publicações</span>
+        <span class="toolipe"> Publicações</span>
       </a>
     </li>
-    <li>
-      <a routerLink="user/:name/repos">
-        <i class="bx bx-star"></i>
-        <span class="links_name">Repositórios</span>
-        <span class="toolipe">Repositórios</span>
-      </a>
-    </li>
-
-
-
+   
   </ul>
   <div class="profileContent">
     <div class="profile">
@@ -62,8 +51,8 @@
         <div class="name_job">
           <div class="job"></div>
         </div>
-      </div>
-    </div>
+      
   </div>
 </div>
 </div>
+

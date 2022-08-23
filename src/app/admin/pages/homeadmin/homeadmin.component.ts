@@ -15,6 +15,7 @@ export class HomeadminComponent {
   posts: feed[] = []
   collapsed = false;
 
+
   constructor(
     private dialog: MatDialog,
     private service: ServicesService,
@@ -58,6 +59,5 @@ export class HomeadminComponent {
   deletePost(postId?: string) {
     this.service.deletePost(postId).subscribe()
   }
-
 
 }
