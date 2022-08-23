@@ -14,8 +14,6 @@ export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
   userUid?: string
-  numberOfLike: number = 0;
-  teste: number = 1000;
 
   constructor(
     private feedService: FeedService,
