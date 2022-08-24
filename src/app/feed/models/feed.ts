@@ -9,4 +9,5 @@ export interface feed {
     comments: any
     postId: string
     approved: boolean
+    tagCount: number
 }

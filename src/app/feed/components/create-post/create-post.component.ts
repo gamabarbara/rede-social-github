@@ -54,7 +54,8 @@ export class CreatePostComponent implements OnInit {
                 postId: postId,
                 approved: false,
                 likes: [],
-                comments: []
+                comments: [],
+                tagCount: 0
 
 
               },

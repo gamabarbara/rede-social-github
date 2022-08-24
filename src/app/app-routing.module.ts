@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'feed',
     loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
+  {
+    path: 'trend',
+    loadChildren: () => import('./feed/components/trending/trending.module').then(m => m.TrendingModule)
+  },
 
   {
     path: '404', component: NotFoundModule
