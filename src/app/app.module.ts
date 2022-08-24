@@ -11,8 +11,9 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { environment } from 'src/environments/environment';
-import {FirebaseTSApp} from 'firebasets/firebasetsApp/firebaseTSApp';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { PagesComponent } from './not-found/pages/pages.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -31,14 +32,15 @@ import { PagesComponent } from './not-found/pages/pages.component';
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatCardModule
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor () {
+  constructor() {
     FirebaseTSApp.init(environment.firebaseConfig)
   }
 }
