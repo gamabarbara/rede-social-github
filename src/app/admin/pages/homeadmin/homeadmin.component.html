@@ -14,7 +14,11 @@
 
     <mat-card-actions class="contador">
       <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
+
+      <mat-icon class="action-item2" (click)="deletePost(post?.postId)">close</mat-icon>
+
       <mat-icon class="action-item" (click)="deletePost(post?.postId)">close</mat-icon>
+
     </mat-card-actions>
 
   </mat-card>

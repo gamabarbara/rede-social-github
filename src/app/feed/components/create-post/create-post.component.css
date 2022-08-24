@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #photo-upload {
   display: none;
 }
@@ -6,23 +9,23 @@ textarea {
   margin-left: 10px;
   resize: none;
   width: 300px;
-  min-height: 200px;
+  min-height: 150px;
   border: 1px solid gray;
   border-radius: 5px;
   outline: none;
 }
 
 #post-preview {
-  text-align: right;
+  text-align: center;
   margin-top: 1em;
 }
 #post-preview-image {
   object-fit: cover;
   object-position: center;
-  width: 150px;
-  height: 100px;
-  border-radius: 1em;
-  border: 1px dashed #525252;
+  width: 200px;
+  height: 150px;
+  border-radius: 4px;
+  border: 1px solid #525252;
 }
 mat-card-title {
   color: white;
@@ -30,7 +33,7 @@ mat-card-title {
 mat-card {
   background-color: rgb(19, 19, 19);
   width: 350px;
-  height: 400px;
+
 }
 mat-icon {
   color: black;
@@ -39,9 +42,11 @@ mat-icon {
 button {
   background-color: #525252;
   color: black;
-  position: relative;
-  top: 80px;
+  margin-right: 10px;
 }
 button:hover {
   opacity: 0.5;
+}
+mat-card-actions {
+  margin-top: 20px;
 }

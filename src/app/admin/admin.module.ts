@@ -10,6 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeadminComponent } from './pages/homeadmin/homeadmin.component';
 import { NavsModule } from '../navs/navs.module';
 
+import { ConfirmarAprovacaoComponent } from './components/confirmar-aprovacao/confirmar-aprovacao.component';
+import { ConfirmarDelecaoComponent } from './components/confirmar-delecao/confirmar-delecao.component';
+
+
 
 
 @NgModule({
@@ -17,6 +21,8 @@ import { NavsModule } from '../navs/navs.module';
     AdministracaoComponent,
     LoginAdminComponent,
     HomeadminComponent,
+    ConfirmarAprovacaoComponent,
+    ConfirmarDelecaoComponent,
   ],
   imports: [
     CommonModule,

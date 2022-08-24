@@ -33,3 +33,7 @@ section {
   align-items: center;
   padding-left: 10px;
 }
+.formSubmit {
+  background-color: #525252;
+  color: white;
+}
