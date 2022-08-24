@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedRoutingModule } from './feed-routing.module';
-import { CardsComponent } from './components/cards/cards.component';
 import { MaterialModule } from '../material/material.module';
 import { FeedComponent } from './pages/feed/feed.component';
 import { NavsModule } from '../navs/navs.module';
@@ -13,18 +12,15 @@ import { PostComponent } from './components/post/post.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.component';
 
-
-
 @NgModule({
   declarations: [
-    CardsComponent,
-    CardsComponent,
     FeedComponent,
     PostFeedComponent,
     CreatePostComponent,
     PostComponent,
     ReplyComponent,
-    InviteDialogComponent
+    InviteDialogComponent,
+
   ],
   imports: [
     CommonModule,

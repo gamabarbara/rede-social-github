@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { feed } from '../../models/feed';
-import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ReplyComponent } from '../reply/reply.component';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { feed } from 'src/app/feed/models/feed';
+import { FeedService } from 'src/app/feed/services/feed.service';
+import { ReplyComponent } from '../../../reply/reply.component';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-trending',
+  templateUrl: './trending.component.html',
+  styleUrls: ['./trending.component.css']
 })
-export class PostComponent implements OnInit {
+export class TrendingComponent implements OnInit {
+
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
   userUid?: string
@@ -21,11 +22,11 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPosts();
+    this.getPostsByTrending();
     this.getUser()
   }
-  getPosts() {
-    this.feedService.getPosts(this.posts)
+  getPostsByTrending() {
+    this.feedService.getPostsByTrending(this.posts)
 
   }
   onReplyClick() {
@@ -48,5 +49,6 @@ export class PostComponent implements OnInit {
     this.feedService.likes(post).subscribe()
   }
 
-}
 
+
+}

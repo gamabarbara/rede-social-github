@@ -1,12 +1,13 @@
-import { timestamp } from "./timestamp";
-
 export interface feed {
-    comment: string;
+    description: string;
     creatorId: string;
     creatorPhoto: string;
     creatorName: string;
-    timestamp: timestamp;
+    date: Date;
     imageUrl?: string;
-    likes: number
+    likes: any
+    comments: any
     postId: string
+    approved: boolean
+    tagCount: number
 }

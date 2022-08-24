@@ -1,3 +1,19 @@
+<div class="sidebar" [ngClass]="collapsed ? 'homeContent active' : ''">
+  <div class="sidebar-items">
+    <ul class="nav-list">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="search" name="search" placeholder="Procurar..." />
+        <span class="toolipe">Procurar</span>
+      </li>
+      <li>
+        <a routerLink="/feed">
+          <i class="bx bx-grid-alt"></i>
+          <i class="links_name">Feed</i>
+          <span class="toolipe">Feed</span>
+        </a>
+      </li>
+
 
 <div
 class="sidebar"
@@ -17,43 +33,44 @@ class="sidebar"
     </a>
   </li>
 
-  <li>
-    <a routerLink="#">
-      <i class="bx bxs-hot"></i>
-      <i class="links_name">Em alta</i>
-      <span class="toolipe">Em alta</span>
-    </a>
-  </li>
-  <li>
-    <a routerLink="/user/{{username}}/mensagens">
-      <i class="bx bx-chat"></i>
-      <span class="links_name">Mensagens</span>
-      <span class="toolipe">Mensagens</span>
-    </a>
-  </li>
-  <li>
-    <a routerLink="/user/{{username}}/posts-salvos">
-      <i class="bx bx-bookmark"></i>
-      <span class="links_name">Salvos</span>
-      <span class="toolipe">Salvos</span>
-    </a>
-  </li>
+      <li>
+        <a routerLink="/trend">
+          <i class="bx bxs-hot"></i>
+          <i class="links_name">Em alta</i>
+          <span class="toolipe">Em alta</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/user/{{username}}/mensagens">
+          <i class="bx bx-chat"></i>
+          <span class="links_name">Mensagens</span>
+          <span class="toolipe">Mensagens</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/user/{{username}}/posts-salvos">
+          <i class="bx bx-bookmark"></i>
+          <span class="links_name">Salvos</span>
+          <span class="toolipe">Salvos</span>
+        </a>
+      </li>
 
-  <li>
-    <a>
-      <i class="bx bxs-user-plus"></i>
-      <span class="links_name" (click)="openDialog()">Convide amigos</span>
-      <span class="toolipe">Convide amigos</span>
-    </a>
-  </li>
 
-  <li>
-    <a routerLink="/user/{{username}}/repos">
-      <i class="bx bx-star"></i>
-      <span class="links_name">Repositórios</span>
-      <span class="toolipe">Repositórios</span>
-    </a>
-  </li>
-</ul>
-</div>
+      <li>
+        <a>
+          <i class="bx bxs-user-plus"></i>
+          <span class="links_name" (click)="openDialog()">Convide amigos</span>
+          <span class="toolipe">Convide amigos</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/user/{{username}}/repos">
+          <i class="bx bx-star"></i>
+          <span class="links_name">Repositórios</span>
+          <span class="toolipe">Repositórios</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

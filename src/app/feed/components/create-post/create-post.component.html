@@ -9,7 +9,11 @@
     <img id="post-preview-image" />
   </div>
   <mat-card-actions align="end">
+
     <button mat-button>
+
+    <button mat-button color="warn">
+
       <label for="photo-upload">
         <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="images/*">
         <mat-icon>insert_photo</mat-icon>

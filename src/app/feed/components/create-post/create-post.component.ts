@@ -15,8 +15,8 @@ export class CreatePostComponent implements OnInit {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
-  // url!: string | ArrayBuffer | null;
-  // format!: string;
+  date = new Date().toDateString()
+
 
   constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
 
@@ -24,7 +24,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   onPostClick(commentInput: HTMLTextAreaElement) {
-    console.log(this.selectedImageFile)
     let comment = commentInput.value;
     if (comment.length <= 0) return;
     if (this.selectedImageFile) {
@@ -32,7 +31,7 @@ export class CreatePostComponent implements OnInit {
     }
   }
 
-  uploadImagePost(comment: string) {
+  uploadImagePost(description: string) {
     let postId = this.firestore.genDocId();
     this.storage.upload(
       {
@@ -46,13 +45,18 @@ export class CreatePostComponent implements OnInit {
             {
               path: ["Posts", postId],
               data: {
-                comment: comment,
+                description: description,
                 creatorId: this.auth.getAuth().currentUser?.uid,
                 creatorName: this.auth.getAuth().currentUser?.displayName,
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
                 imageUrl: downloadURL,
-                timestamp: FirebaseTSApp.getFirestoreTimestamp(),
-                postId: postId
+                date: this.date,
+                postId: postId,
+                approved: false,
+                likes: [],
+                comments: [],
+                tagCount: 0
+
 
               },
               onComplete: (docId) => {

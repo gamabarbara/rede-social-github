@@ -52,7 +52,6 @@ export class ServicesService {
             name: user?.name as string,
             bio: bio,
             email: user?.email as string,
-            posts: []
           }
         )
       })

@@ -24,27 +24,31 @@ const routes: Routes = [
     path: 'feed',
     loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
-
   {
-    path:'404',component:NotFoundModule
+    path: 'trend',
+    loadChildren: () => import('./feed/components/trending/trending.module').then(m => m.TrendingModule)
   },
 
-  // {
-  //   path:'**',redirectTo:'/error404'
-  // },
   {
-  path: 'error404',
+    path: '404', component: NotFoundModule
+  },
+
+  /* {
+    path:'**',redirectTo:'/error404'
+  }, */
+  {
+    path: 'error404',
     loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
   },
   {
     path: 'homeadmin',
-    loadChildren: () => import('./admin/homeadmin.module').then(m => m.HomeadminModule)
+    loadChildren: () => import('./admin/pages/homeadmin/homeadmin.module').then(m => m.HomeadminModule)
 
   },
 
   {
     path: 'user/:name/repos',
-  loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
+    loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
   },
 
   {
@@ -55,10 +59,6 @@ const routes: Routes = [
     path: 'user/:name/mensagens',
     loadChildren: () => import('./mensagens/mensagens.module').then(m => m.MensagensModule)
   }
-
-
-
-
 
 ];
 

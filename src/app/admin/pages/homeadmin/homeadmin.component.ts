@@ -4,8 +4,10 @@ import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { feed } from 'src/app/feed/models/feed';
+
 import { ConfirmarAprovacaoComponent } from '../../components/confirmar-aprovacao/confirmar-aprovacao.component';
 import { ConfirmarDelecaoComponent } from '../../components/confirmar-delecao/confirmar-delecao.component';
+
 
 @Component({
   selector: 'app-homeadmin',
@@ -53,6 +55,7 @@ export class HomeadminComponent {
   }
 
   approvePosts(post: feed) {
+
     const dialogRef = this.dialog.open(ConfirmarAprovacaoComponent)
     dialogRef.afterClosed().subscribe(
       (a) => {
@@ -75,6 +78,12 @@ export class HomeadminComponent {
       }
     )
     
+
+    this.service.approvePosts(post).subscribe()
+  }
+
+  deletePost(postId?: string) {
+    this.service.deletePost(postId).subscribe()
   }
 
 }

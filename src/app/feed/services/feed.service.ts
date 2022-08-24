@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { from, map, mergeMap } from 'rxjs';
 import { user } from 'src/app/auth/models/user';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { feed } from '../models/feed';
-
+import * as firebase from 'firebase/compat/app';
 @Injectable({
   providedIn: 'root'
 })
 export class FeedService {
+  /*   auth = new FirebaseTSAuth(); */
   firestore = new FirebaseTSFirestore();
   private usersCollection = this.store.collection<user>('users')
   private currentUser = this.authService.currentUser
   private postsCollection = this.store.collection<feed>('Posts')
+  private userId?: string
+
   constructor(private store: AngularFirestore,
     private authService: AuthService) { }
 
-
-  getPosts(posts: feed[]) { //tirei o array dessa classe e passei como parametro, pra chamar o novo array pelo post.ts
+  getPosts(posts: feed[]) {
     this.firestore.getCollection(
       {
         path: ["Posts"],
         where: [
-          new OrderBy("timestamp", "desc"),
+          new Where("approved", "==", true),
+          new OrderBy("date", "desc"),
           new Limit(10)
         ],
         onComplete: (result) => {
-          console.log(result);
 
           result.docs.forEach(
             doc => {
@@ -43,17 +45,55 @@ export class FeedService {
     )
   }
 
-  deletePost(postId?: string) {
+  getPostsByTrending(posts: feed[]) {
+    this.firestore.getCollection(
+      {
+        path: ["Posts"],
+        where: [
+          new Where("approved", "==", true),
+          new OrderBy("tagCount", "desc"),
+          new Limit(10)
+        ],
+        onComplete: (result) => {
 
-    return from(this.postsCollection.doc(postId).delete());
+          result.docs.forEach(
+            doc => {
+              let post = <feed>doc.data();
+              posts.push(post);
 
-
-    /* return from(this.postsCollection.ref.where('postId', '==', 'qmoMqrmfVisevur0GQo9').get())
-      .pipe(
-        
-      )
-  } */
+            }
+          )
+        },
+        onFail: error => {
+        }
+      }
+    )
   }
+
+  /* editPost() {
+    this.firestore.update(
+      {
+        path: ["Posts", postId],
+        data: {
+          comment: comment,
+          creatorId: this.auth.getAuth().currentUser?.uid,
+          creatorName: this.auth.getAuth().currentUser?.displayName,
+          creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+          imageUrl: downloadURL,
+          timestamp: FirebaseTSApp.getFirestoreTimestamp(),
+          postId: postId,
+          approved: 'false'
+
+        }
+      }
+    )
+  } */
+
+
+  deletePost(postId?: string) {
+    return from(this.postsCollection.doc(postId).delete());
+  }
+
 
   getUser() {
     return this.currentUser.pipe(
@@ -61,8 +101,28 @@ export class FeedService {
         return this.usersCollection.doc(user?.uid).get()
       }),
       map(userDoc => {
+        this.userId = userDoc.data()?.uid
         return userDoc.data()
       })
+    )
+  }
+
+  likes(post: feed) {
+    return from(this.postsCollection.doc(post.postId).update(
+      {
+        likes: firebase.default.firestore.FieldValue.arrayUnion(this.userId),
+        tagCount: post.likes.length
+      }
+    )
+    )
+  }
+
+  comment(post: feed, comment: string) {
+    return from(this.postsCollection.doc(post.postId).update(
+      {
+        comments: firebase.default.firestore.FieldValue.arrayUnion(comment),
+      }
+    )
     )
   }
 }
