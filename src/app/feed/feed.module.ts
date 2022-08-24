@@ -12,8 +12,6 @@ import { PostComponent } from './components/post/post.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.component';
 
-
-
 @NgModule({
   declarations: [
     FeedComponent,
@@ -21,7 +19,8 @@ import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.
     CreatePostComponent,
     PostComponent,
     ReplyComponent,
-    InviteDialogComponent
+    InviteDialogComponent,
+
   ],
   imports: [
     CommonModule,

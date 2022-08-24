@@ -45,6 +45,31 @@ export class FeedService {
     )
   }
 
+  getPostsByTrending(posts: feed[]) {
+    this.firestore.getCollection(
+      {
+        path: ["Posts"],
+        where: [
+          new Where("approved", "==", true),
+          new OrderBy("tagCount", "desc"),
+          new Limit(10)
+        ],
+        onComplete: (result) => {
+
+          result.docs.forEach(
+            doc => {
+              let post = <feed>doc.data();
+              posts.push(post);
+
+            }
+          )
+        },
+        onFail: error => {
+        }
+      }
+    )
+  }
+
   /* editPost() {
     this.firestore.update(
       {
@@ -86,6 +111,7 @@ export class FeedService {
     return from(this.postsCollection.doc(post.postId).update(
       {
         likes: firebase.default.firestore.FieldValue.arrayUnion(this.userId),
+        tagCount: post.likes.length
       }
     )
     )
