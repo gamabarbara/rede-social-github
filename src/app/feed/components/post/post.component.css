@@ -1,105 +1,100 @@
 .action-item {
-    display: flex;
-    display: inline-block;
-    justify-content: center;
-    display:space-around;
+  display: flex;
+  display: inline-block;
+  justify-content: center;
+  display: space-around;
 }
-
 
 mat-card {
-    position: relative;
-    top: 200px;
-    width: 25%;
-    height: 400px;
-    margin-bottom: 80px;
-    margin-right: 100px;
-    border: 3px solid #525252;
-    border-radius: 5px;
-    background-color: #1C1F26;
-    color: #ffffff;
+  position: relative;
+  top: 200px;
+  width: 300px;
+  height: 400px;
+  margin-bottom: 80px;
+  margin-right: 50px;
+  border: 0.1px solid rgb(63, 63, 63);
+  border-radius: 10px;
+  background-color: #1c1f26;
+  color: #ffffff;
 }
 mat-card img {
-    height: 200px;
-    margin-top: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
+  height: 200px;
+  margin-top: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 mat-card-header img {
-    position: absolute;
-    width: 50px;
-    height: 40px;
-    border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
 }
 .title {
-    margin-left: 40px;
+  margin-left: 40px;
 }
-mat-card-actions mat-icon{
-    margin-bottom: 10px;
+mat-card-actions mat-icon {
+  margin-bottom: 10px;
 }
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-left: 300px;
-}
-mat-icon {
-    color: black;
-
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+  margin-left: 370px;
 }
 mat-card-header {
-    height: 80px;
-    max-height: 80px;
+  height: 80px;
+  max-height: 80px;
 }
 mat-card-actions {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 i {
-    font-size: 25px;
-    cursor: pointer;
+  font-size: 25px;
+  cursor: pointer;
 }
 i:hover {
-    opacity: .8;
-    color: rebeccapurple;
+  opacity: 0.8;
+  color: rebeccapurple;
 }
 span {
-    font-size: 15px;
-    position: relative;
-    bottom: 5px;
+  font-size: 15px;
+  position: relative;
+  bottom: 5px;
 }
 .comment {
-    bottom: 9px;
+  bottom: 9px;
 }
 mat-icon {
-    position: relative;
-    left: 60px;
-    font-size: 30px;
-    color: #ffffff;
+  position: relative;
+  /* left: 60px; */
+  font-size: 30px;
+  color: #ffffff;
+}
+#menu {
+  left: 50px;
 }
 .bx-trash-alt {
-    position: relative;
-    top: 7px;
+  position: relative;
+  top: 7px;
 }
 .trash {
-    top: 2px;
+  top: 2px;
 }
 .img {
-    border-top: 2px solid #525252;
-    border-bottom: 2px solid #525252;
+  border-top: 0.1px solid rgb(63, 63, 63);
+  border-bottom: 0.1px solid rgb(63, 63, 63);
 }
 mat-card-subtitle {
-    color: #ffffff;
+  color: #ffffff;
 }
 /* .bx-upvote, .bx-comment-detail {
     background-color: rebeccapurple;
     top: 50px;
 } */
 mat-card-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
-

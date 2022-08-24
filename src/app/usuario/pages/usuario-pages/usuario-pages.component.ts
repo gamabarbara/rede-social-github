@@ -13,15 +13,14 @@ export class UsuarioPagesComponent implements OnInit {
 
   userName: string = ""
   userInfos?: user
-  public username?: string
 
-  constructor(private servicesService: ServicesService, private dialog: MatDialog, ) {
+  constructor(private servicesService: ServicesService, private dialog: MatDialog,) {
 
   }
 
   ngOnInit(): void {
     this.getUser()
-    this.getUsername()
+
 
   }
 
@@ -32,15 +31,6 @@ export class UsuarioPagesComponent implements OnInit {
       }
     )
   }
-
-  getUsername(): void {
-    this.servicesService.getUsername().subscribe(
-      (a) => {
-        this.username = a
-      }
-    )
-  }
-
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(EditDialogComponent, {
