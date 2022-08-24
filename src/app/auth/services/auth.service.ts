@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'; import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GithubAuthProvider } from 'firebase/auth'
 import { from, tap } from 'rxjs';
+import { ModalComponent } from 'src/app/feed/modal/modal.component';
+import { posts } from 'src/app/feed/models/posts';
 import { user } from '../models/user';
 
 
@@ -15,7 +18,8 @@ export class AuthService {
 
   constructor(
     private authentication: AngularFireAuth,
-    private store: AngularFirestore
+    private store: AngularFirestore,
+    private dialog: MatDialog
 
   ) { }
 
@@ -24,7 +28,7 @@ export class AuthService {
   }
   signInWithGitHub() {
     const githubProvider = new GithubAuthProvider()
-
+    /** this.dialog.open(ModalComponent) */
     return from(this.authentication.signInWithPopup(githubProvider))
       .pipe(
         tap((credentials) => {
@@ -35,6 +39,7 @@ export class AuthService {
           const photoURL = credentials.user?.photoURL as string
           const email = credentials.user?.email as string
           const bio: string = ''
+          const posts: posts[] = []
 
           this.usersCollection.doc(uid).set({
             uid: uid,
@@ -43,6 +48,7 @@ export class AuthService {
             bio: bio,
             email: email,
             photoURL: photoURL,
+            posts: posts,
           })
         })
       )

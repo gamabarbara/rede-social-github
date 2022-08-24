@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ModalComponent } from 'src/app/feed/modal/modal.component';
 import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-login-git',
@@ -16,6 +18,7 @@ export class LoginGitComponent implements OnInit {
     private router: Router,
     private snackbar: MatSnackBar,
     private dialog: MatDialog
+
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +31,7 @@ export class LoginGitComponent implements OnInit {
         data => {
           this.dialog.closeAll()
           this.router.navigateByUrl('/feed')
+          this.dialog.open(ModalComponent)
         },
         error => {
           this.snackbar.open('Erro ao cadastrar com o GitHub', 'Ok', {

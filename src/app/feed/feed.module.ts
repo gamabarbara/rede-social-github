@@ -11,6 +11,7 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
 import { PostComponent } from './components/post/post.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { InviteDialogComponent } from './components/invite-dialog/invite-dialog.
     PostComponent,
     ReplyComponent,
     InviteDialogComponent,
-
+    ModalComponent
   ],
   imports: [
     CommonModule,
