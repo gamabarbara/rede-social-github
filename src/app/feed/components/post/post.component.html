@@ -3,21 +3,29 @@
         <mat-card-header>
             <img src="{{post?.creatorPhoto}}" alt="">
             <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
-            <mat-card-subtitle class="title">{{post?.timestamp?.seconds}}</mat-card-subtitle>
+            <mat-card-subtitle class="title">{{post?.date}}</mat-card-subtitle>
+            <button class="menu" mat-icon-button [matMenuTriggerFor]="menu" *ngIf="post?.creatorId == userUid" class="action-item" >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <i class='bx bx-trash-alt' ></i>
+                  <span (click)="deletePost(post?.postId)" class="trash">Deletar post</span>
+                </button>
+              </mat-menu>
         </mat-card-header>
         <img mat-card-image src="{{post?.imageUrl}}" class="img">
         <mat-card-content class="contador">
-            {{post?.comment}}
+            {{post?.description}}
         </mat-card-content>
 
         <mat-card-actions class="contador">
-            <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon>
-            <p>{{numberOfLike}}</p>
-            <mat-icon class="action-item" (click)="likeButtonClick()">favorite_border</mat-icon>
-            <mat-icon class="action-item">bookmark_border</mat-icon>
-
-            <mat-icon *ngIf="post?.creatorId == userUid" class="action-item" (click)="deletePost(post?.postId)">delete
-            </mat-icon>
+            <!-- <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon> -->
+            <!--  <p>{{post.likes}}</p> -->
+            <i class='bx bx-upvote' (click)="likes(post)"><span>265</span></i>
+            <i class='bx bx-comment-detail'(click)="onReplyClick()" ><span class="comment">15</span></i>
+        <!--     <mat-icon *ngIf="post?.creatorId == userUid" class="action-item" (click)="deletePost(post?.postId)">delete
+            </mat-icon> -->
         </mat-card-actions>
     </mat-card>
 </div>

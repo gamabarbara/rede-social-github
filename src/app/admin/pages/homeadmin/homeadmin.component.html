@@ -1,31 +1,21 @@
-<mat-toolbar>
-    <a routerLink="#"><img src="assets/logo2.png" alt=""></a>
-    <span class="example-spacer"></span>
+<app-nav-bar></app-nav-bar>
 
-    <button mat-icon-button matTooltip="Notificações">
-        <mat-icon id="notifications" matBadge="8" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="small">
-            notifications</mat-icon>
-    </button>
-    
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Menu">
-        <mat-icon id="menu">menu</mat-icon>
-        <!-- <img id="profilepic" src="{{photo}}" alt=""> -->
-    </button>
-    <mat-menu #menu="matMenu" class="custom-class">
-        <button mat-menu-item routerLink="/">
-            <mat-icon [ngStyle]="{'color':'white'}">person</mat-icon>
-            <span>Perfil</span>
-        </button>
+<div class="container">
+  <mat-card *ngFor="let post of posts">
+    <mat-card-header>
+      <img src="{{post?.creatorPhoto}}" alt="">
+      <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
+      <mat-card-subtitle class="title">{{post?.date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{post?.imageUrl}}" class="img">
+    <mat-card-content class="contador">
+      {{post?.description}}
+    </mat-card-content>
 
-        <button mat-menu-item routerLink="/">
-            <mat-icon [ngStyle]="{'color':'white'}">settings</mat-icon>
-            <span>Configurações</span>
-        </button>
+    <mat-card-actions class="contador">
+      <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
+      <mat-icon class="action-item2" (click)="deletePost(post?.postId)">close</mat-icon>
+    </mat-card-actions>
 
-        <button mat-menu-item (click)="signOut()">
-            <mat-icon [ngStyle]="{'color':'white'}">logout</mat-icon>
-            <span>Sair</span>
-        </button>
-    </mat-menu>
-</mat-toolbar>
-
+  </mat-card>
+</div>

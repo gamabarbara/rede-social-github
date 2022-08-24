@@ -1,24 +1,23 @@
-  <mat-card>
+<mat-card>
   <mat-card-header>
     <mat-card-title>Create Post</mat-card-title>
   </mat-card-header>
   <div>
-    <textarea maxlength="120" #commentInput placeholder="Write your post content here..."></textarea>
+    <textarea maxlength="120" #descriptionInput placeholder="Write your post content here..."></textarea>
   </div>
   <div *ngIf="selectedImageFile" id="post-preview">
     <img id="post-preview-image" />
   </div>
   <mat-card-actions align="end">
-    <button mat-button color="warn">
-        <label for="photo-upload">
-            <input #photoSelector (change)="onPhotoSelected(photoSelector)"
-            id="photo-upload" type="file" accept="images/*">
-            <mat-icon>insert_photo</mat-icon>
-        </label>
+    <button mat-button>
+      <label for="photo-upload">
+        <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="images/*">
+        <mat-icon>insert_photo</mat-icon>
+      </label>
     </button>
     <!-- <img [src]="url" *ngIf="format==='image' && url" height=""> <br/>
   <video [src]="url" *ngIf="format==='video' && url" height="" controls></video> <br/>
   <input type='file' (change)="onSelectFile($event)" /> -->
-    <button (click)="onPostClick(commentInput)" mat-flat-button>Post</button>
+    <button (click)="onPostClick(descriptionInput)" mat-flat-button>Post</button>
   </mat-card-actions>
-  </mat-card>
+</mat-card>
