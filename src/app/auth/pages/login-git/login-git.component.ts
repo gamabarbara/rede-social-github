@@ -31,7 +31,7 @@ export class LoginGitComponent implements OnInit {
         data => {
           this.dialog.closeAll()
           this.router.navigateByUrl('/feed')
-          this.dialog.open(ModalComponent)
+          this.dialog.open(ModalComponent, { disableClose: true })
         },
         error => {
           this.snackbar.open('Erro ao cadastrar com o GitHub', 'Ok', {
