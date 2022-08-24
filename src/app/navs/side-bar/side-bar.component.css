@@ -39,7 +39,6 @@ body {
   opacity: 0;
 }
 
-
 /* .sidebar ul {
   margin-top: 20px;
 }
@@ -172,7 +171,6 @@ body {
   color: #1d1d31;
 }
 
-
 .toolipe {
   position: absolute;
   top: 0;
@@ -199,7 +197,7 @@ body {
 }
 
 .sidebar.active {
-  width: 250px;
+  width: 220px;
   position: fixed;
 }
 
@@ -247,8 +245,7 @@ body {
   margin-top: 230px;
 }
 
-.buts
-{
+.buts {
   border-radius: 100%;
   color: white;
   background-color: #525252;

@@ -21,6 +21,7 @@ export class FeedService {
     private authService: AuthService) { }
 
   getPosts(posts: feed[]) {
+
     this.firestore.getCollection(
       {
         path: ["Posts"],
@@ -108,6 +109,7 @@ export class FeedService {
   }
 
   likes(post: feed) {
+
     return from(this.postsCollection.doc(post.postId).update(
       {
         likes: firebase.default.firestore.FieldValue.arrayUnion(this.userId),
