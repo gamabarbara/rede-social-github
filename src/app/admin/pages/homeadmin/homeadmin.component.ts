@@ -59,12 +59,12 @@ export class HomeadminComponent {
     const dialogRef = this.dialog.open(ConfirmarAprovacaoComponent)
     dialogRef.afterClosed().subscribe(
       (a) => {
-        if(a === true) {
+        if (a === true) {
           this.service.approvePosts(post).subscribe()
         }
       }
     )
-    
+
   }
 
 
@@ -72,18 +72,12 @@ export class HomeadminComponent {
     const dialogRef = this.dialog.open(ConfirmarDelecaoComponent)
     dialogRef.afterClosed().subscribe(
       (a) => {
-        if(a === true) {
+        if (a === true) {
           this.service.deletePost(postId).subscribe()
         }
       }
     )
-    
 
-    this.service.approvePosts(post).subscribe()
-  }
-
-  deletePost(postId?: string) {
-    this.service.deletePost(postId).subscribe()
   }
 
 }
