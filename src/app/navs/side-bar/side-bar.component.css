@@ -253,3 +253,7 @@ body {
   color: white;
   background-color: #525252;
 }
+.feed {
+  position: relative;
+  right: 8px;
+}

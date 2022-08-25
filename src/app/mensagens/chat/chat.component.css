@@ -1,0 +1,66 @@
+.app-message {
+  overflow-Y: scroll;
+  height: 270px;
+  padding: 5px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+
+button {
+  height: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rebeccapurple;
+  padding-bottom: 10px;
+}
+p {
+  padding: 10px;
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff
+}
+.enviado {
+  background-color: rebeccapurple;
+  color: #000000;
+  height: 20px;
+}
+mat-form-field {
+  position: fixed;
+  width: 470px;
+  bottom: 93px;
+  background-color: #1C1F26;
+}
+
+.bottom {
+  background-color: red;
+}
+input {
+  color: #ffffff;
+}

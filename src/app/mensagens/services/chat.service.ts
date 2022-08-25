@@ -1,0 +1,69 @@
+import { Injectable } from '@angular/core';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
+import { Message } from '../models/message';
+import { map, mergeMap } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { user } from 'src/app/auth/models/user';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ChatService {
+  private itemsCollection!: AngularFirestoreCollection<Message>;
+
+  public chats: Message[] = [];
+  firestore = new FirebaseTSFirestore();
+  private usersColletion = this.store.collection<user>('users')
+  private currentUser = this.auth.currentUser
+  private name: any
+
+  constructor(private afs: AngularFirestore, private auth: AuthService, private store: AngularFirestore) {
+
+  }
+
+
+
+  getUser() {
+    return this.currentUser.pipe(
+      mergeMap(user => {
+        return this.usersColletion.doc(user?.uid).get()
+      }),
+      map(userDoc => {
+        this.name = userDoc.data()?.name
+        console.log(this.name)
+        return userDoc.data()
+      })
+    )
+  }
+
+  chargeMessages() {
+    this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('closed', 'desc').limit(50));
+
+    return this.itemsCollection.valueChanges().pipe(
+      map((messages: Message[]) => {
+        console.log(messages);
+      /*   this.chats = messages; */
+      this.chats = [];
+      for (let message of messages) {
+        this.chats.unshift(message)
+      }
+      return this.chats;
+      })
+    );
+  }
+  
+  sendMessage(text: string, name: string) {
+    let message: Message = {
+      name: name,
+      message: text,
+      closed: new Date().getTime(),
+    }
+    return this.itemsCollection.add( message);
+  }
+  
+
+}

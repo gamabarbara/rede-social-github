@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FeedComponent } from 'src/app/feed/pages/feed/feed.component';
-import { ServiceService } from 'src/app/mensagens/services/service.service';
+import { ServiceService } from '../services/service.service';
 import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/confirmar-logout.component';
 
 @Component({
