@@ -15,12 +15,12 @@ export class PostComponent implements OnInit {
   posts: feed[] = [];
   userUid?: string
   feed?: feed
-  
+
 
   constructor(
     private feedService: FeedService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getPosts();
@@ -30,8 +30,10 @@ export class PostComponent implements OnInit {
     this.feedService.getPosts(this.posts)
 
   }
-  onReplyClick() {
-    this.dialog.open(ReplyComponent, {data: this.feed?.postId})
+  onReplyClick(post: feed) {
+    this.dialog.open(ReplyComponent, { data: post })
+    /* const ref =  */
+    /*  ref.componentInstance.getPosts(post) */
   }
 
   deletePost(postId?: string) {

@@ -14,36 +14,29 @@ import { user } from 'src/app/auth/models/user';
 })
 export class ReplyComponent implements OnInit {
   private usersCollection = this.store.collection<user>('users')
-firestore = new FirebaseTSFirestore();
-feed?: feed
+  firestore = new FirebaseTSFirestore();
+  private text!: string
+  private name?: string
 
-  constructor(private service: FeedService, @Inject(MAT_DIALOG_DATA) private postId: string, private store: AngularFirestore) { }
+  constructor(private service: FeedService, @Inject(MAT_DIALOG_DATA) private post: feed, private store: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.getUser()
   }
 
-  comment(post: feed, comment: string) {
-    return this.service.comment(post, comment).subscribe()
-  }
-
-  onSendClick(commentInput: HTMLInputElement) {
-    if(!(commentInput.value.length > 0)) return;
-    this.firestore.create(
-      {
-        path: ["Posts", this.postId, "PostComments"], 
-        data: {
-          comment: commentInput.value, 
-          creatorId: this.usersCollection.doc(this.feed?.creatorId),
-          creatorName: this.usersCollection.doc(this.feed?.creatorName),
-          timestamp: FirebaseTSApp.getFirestoreTimestamp()
-        }, 
-        onComplete: (docId) => {
-          console.log("informacao chegou")
-          commentInput.value = "";
-        }
+  getUser() {
+    this.service.getUser().subscribe(
+      a => {
+        this.name = a?.name
       }
     )
   }
 
+  comment(commentInput: HTMLInputElement) {
+    this.text = `${this.name}: ${commentInput.value}`
+    console.log(this.text);
 
+
+    return this.service.comment(this.post, this.text).subscribe()
+  }
 }

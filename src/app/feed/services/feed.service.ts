@@ -120,10 +120,10 @@ export class FeedService {
     )
   }
 
-  comment(post: feed, comment: string) {
+  comment(post: feed, commentInput: string) {
     return from(this.postsCollection.doc(post.postId).update(
       {
-        comments: firebase.default.firestore.FieldValue.arrayUnion(comment),
+        comments: firebase.default.firestore.FieldValue.arrayUnion(commentInput),
       }
     )
     )
