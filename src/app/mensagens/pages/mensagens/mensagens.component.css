@@ -6,7 +6,7 @@
   border: 1px solid #525252;
   border-radius: 10px;
  background-color: #1C1F26;
- overflow-y: scroll;
+ overflow: hidden;
 }
 
 .main-container {
@@ -20,21 +20,3 @@ padding-top: 200px;
   scrollbar-color: #1C1F26 transparent;
 }
 
-*::-webkit-scrollbar {
-  width: 10px; 
-  height: 14px; 
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #1C1F26;
-  border-radius: 14px;
-  border: 1px solid #525252;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: #1C1F26;
-}
