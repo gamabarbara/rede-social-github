@@ -15,17 +15,17 @@
 }
 
 button {
-  margin: .5em;
+  margin: 0.5em;
   background-color: #525252;
 }
 button:hover {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 input {
   width: 100%;
   padding: 1em;
-  margin: .5em;
+  margin: 0.5em;
   border-radius: 5px;
   outline: none;
   border: 1px solid rebeccapurple;

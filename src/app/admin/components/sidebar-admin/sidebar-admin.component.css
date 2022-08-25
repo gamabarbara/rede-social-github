@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.sidebar {
+  position: fixed;
+  width: 80px;
+  height: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgb(19, 19, 19);
+
+  transition: all 0.5s ease;
+  border-right: 1px solid #525252;
+}
+
+.sidebar .logoContent .logo {
+  width: 100%;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  pointer-events: auto;
+}
+
+.sidebar .links_name {
+  opacity: 0;
+}
+
+/* .sidebar ul {
+    margin-top: 20px;
+  }
+   */
+.sidebar ul li {
+  position: relative;
+  width: 80%;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  list-style: none;
+}
+
+.sidebar ul li input {
+  position: relative;
+  justify-content: center;
+  left: 0;
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background-color: #525252;
+  padding-left: 50px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.sidebar ul li .bx-search {
+  position: absolute;
+  font-size: 22px;
+  color: #fff;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #11101d;
+  background-color: #fff;
+}
+
+.sidebar ul li i {
+  min-width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.sidebar .profileContent {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+}
+
+.sidebar .profileContent .profile {
+  position: relative;
+  height: 60px;
+  padding: 10px 6px;
+}
+
+.sidebar .profileContent .profile .profileDetail {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar .profileContent .profile .profileDetail img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  background-color: #525252;
+  border-radius: 12px;
+}
+
+.sidebar .profileContent .profile .profileDetail .name_job {
+  margin-left: 15px;
+}
+
+.profile .profileDetail .name_job .name {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.profile .profileDetail .name_job .job {
+  font-size: 12px;
+}
+
+.profile #logout {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  bottom: 6px;
+  min-width: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.homeContent {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.homeContent h2 {
+  margin: 15px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #1d1d31;
+}
+
+.toolipe {
+  position: absolute;
+  top: 0;
+  left: 122px;
+  transform: translate(-50%, -50%);
+  width: 122px;
+  height: 35px;
+  background-color: #fff;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #1d1d1d;
+  line-height: 35px;
+  transition: 0;
+  opacity: 0;
+}
+
+.sidebar ul li:hover .toolipe {
+  transition: all 0.5s ease;
+  top: 50%;
+  opacity: 1;
+}
+
+.sidebar.active {
+  width: 250px;
+  position: fixed;
+}
+
+.sidebar.active .logoContent .logo {
+  opacity: 1;
+}
+
+.sidebar.active .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar.active .profileContent .profile .profileDetail {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar.active .profile #logout {
+  left: 90%;
+}
+
+.sidebar.active .toolipe {
+  display: none;
+}
+.bx-menu {
+  font-size: 25px;
+  margin-left: 17px;
+  color: #fff;
+}
+.bx-menu:hover {
+  transition: all 0.5s ease;
+  opacity: 1;
+  color: #525252;
+  background-color: #fff;
+}
+.logoName img {
+  width: 60px;
+  height: 60px;
+}
+.logoName {
+  display: flex;
+  margin: 0 auto;
+}
+.sidebar-items {
+  margin-top: 250px;
+}
+
+.buts {
+  border-radius: 100%;
+  color: white;
+  background-color: #525252;
+}
+.feed {
+  position: relative;
+  right: 8px;
+}

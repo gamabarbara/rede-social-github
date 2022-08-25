@@ -10,7 +10,6 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
   styleUrls: ['./login-admin.component.css'],
 })
 export class LoginAdminComponent implements OnInit {
-
   firebasetsAuth: FirebaseTSAuth;
 
   loginForm: FormGroup = this.fb.group({
@@ -41,10 +40,9 @@ export class LoginAdminComponent implements OnInit {
           this.dialog.closeAll();
         },
         onFail: (error) => {
-          alert("Account not found");
+          alert('Account not found');
         },
       });
     }
   }
 }
-

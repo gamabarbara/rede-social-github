@@ -14,7 +14,7 @@ import { NavsModule } from 'src/app/navs/navs.module';
     HomeadminRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    NavsModule
+    NavsModule, 
   ]
 })
 export class HomeadminModule { }

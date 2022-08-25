@@ -17,53 +17,51 @@ export class ChatService {
 
   public chats: Message[] = [];
   firestore = new FirebaseTSFirestore();
-  private usersColletion = this.store.collection<user>('users')
-  private currentUser = this.auth.currentUser
-  private name: any
+  private usersColletion = this.store.collection<user>('users');
+  private currentUser = this.auth.currentUser;
 
-  constructor(private afs: AngularFirestore, private auth: AuthService, private store: AngularFirestore) {
-
-  }
-
+  constructor(
+    private afs: AngularFirestore,
+    private auth: AuthService,
+    private store: AngularFirestore
+  ) {}
 
 
   getUser() {
     return this.currentUser.pipe(
-      mergeMap(user => {
-        return this.usersColletion.doc(user?.uid).get()
+      mergeMap((user) => {
+        return this.usersColletion.doc(user?.uid).get();
       }),
-      map(userDoc => {
-        this.name = userDoc.data()?.name
-        console.log(this.name)
-        return userDoc.data()
+      map((userDoc) => {
+        return userDoc.data();
       })
-    )
+    );
   }
 
   chargeMessages() {
-    this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('closed', 'desc').limit(50));
+    this.itemsCollection = this.afs.collection<Message>('chats', (ref) =>
+      ref.orderBy('closed', 'desc').limit(50)
+    );
 
     return this.itemsCollection.valueChanges().pipe(
       map((messages: Message[]) => {
         console.log(messages);
-      /*   this.chats = messages; */
-      this.chats = [];
-      for (let message of messages) {
-        this.chats.unshift(message)
-      }
-      return this.chats;
+        /*   this.chats = messages; */
+        this.chats = [];
+        for (let message of messages) {
+          this.chats.unshift(message);
+        }
+        return this.chats;
       })
     );
   }
-  
+
   sendMessage(text: string, name: string) {
     let message: Message = {
       name: name,
       message: text,
       closed: new Date().getTime(),
-    }
-    return this.itemsCollection.add( message);
+    };
+    return this.itemsCollection.add(message);
   }
-  
-
 }
