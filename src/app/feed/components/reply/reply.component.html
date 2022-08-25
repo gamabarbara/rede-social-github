@@ -3,8 +3,8 @@
 
 </div>
 <div id="reply-action-bar">
-    <button mat-flat-button>
+    <button mat-flat-button (click)="onSendClick(inputValue)">
         <mat-icon>send</mat-icon>
     </button>
-    <input #commentInput placeholder="Comment...">
+    <input #inputValue placeholder="Comment...">
 </div>

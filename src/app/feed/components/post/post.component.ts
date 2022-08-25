@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
@@ -14,11 +14,13 @@ export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
   userUid?: string
+  feed?: feed
+  
 
   constructor(
     private feedService: FeedService,
     private dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getPosts();
@@ -29,7 +31,7 @@ export class PostComponent implements OnInit {
 
   }
   onReplyClick() {
-    this.dialog.open(ReplyComponent)
+    this.dialog.open(ReplyComponent, {data: this.feed?.postId})
   }
 
   deletePost(postId?: string) {

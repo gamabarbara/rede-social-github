@@ -12,7 +12,7 @@ import * as firebase from 'firebase/compat/app';
 export class FeedService {
   /*   auth = new FirebaseTSAuth(); */
   firestore = new FirebaseTSFirestore();
-  private usersCollection = this.store.collection<user>('users')
+  public usersCollection = this.store.collection<user>('users')
   private currentUser = this.authService.currentUser
   private postsCollection = this.store.collection<feed>('Posts')
   private userId?: string
@@ -35,6 +35,7 @@ export class FeedService {
           result.docs.forEach(
             doc => {
               let post = <feed>doc.data();
+              post.postId = doc.id;
               posts.push(post);
 
             }
