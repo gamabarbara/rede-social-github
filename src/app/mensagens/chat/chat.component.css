@@ -1,9 +1,12 @@
 .app-message {
   overflow-y: scroll;
-  height: 335px;
+  height: 350px;
   padding: 5px;
 }
-
+.container {
+  display: flex;
+  flex-direction: column;
+}
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -18,7 +21,6 @@
   animation-fill-mode: both;
 }
 
-
 button {
   height: 15px;
   display: flex;
@@ -32,7 +34,7 @@ mat-card-title {
   justify-content: center;
   margin-bottom: 20px;
   color: #ffffff;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   margin-bottom: 20px;
   border-bottom: 1px solid rebeccapurple;
   padding-bottom: 10px;
@@ -44,7 +46,7 @@ p {
 }
 
 input::placeholder {
-  color: #ffffff
+  color: #ffffff;
 }
 .enviado {
   background-color: rebeccapurple;
@@ -55,17 +57,12 @@ mat-form-field {
   width: 470px;
 }
 
-.bottom {
-  position: fixed;
-  right: 10;
-  top: 601px;
-}
 input {
   color: #ffffff;
 }
 *::-webkit-scrollbar {
-  width: 10px; 
-  height: 14px; 
+  width: 10px;
+  height: 14px;
 }
 
 *::-webkit-scrollbar-track {
@@ -73,12 +70,14 @@ input {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #1C1F26;
+  background: #1c1f26;
   border-radius: 14px;
   border: 1px solid #525252;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #1C1F26;
+  background: #1c1f26;
 }
-
+.bottom {
+  padding-top: 10px;
+}

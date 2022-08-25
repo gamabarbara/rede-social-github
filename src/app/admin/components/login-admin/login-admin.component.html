@@ -1,7 +1,7 @@
 <div id="authenticator">
   <mat-card id="authenticator-content">
     <mat-card-header>
-      <mat-card-title>Sign In</mat-card-title>
+      <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <div [formGroup]="loginForm">
       <input
@@ -14,7 +14,7 @@
         type="email"
       />
       <input
-      #loginPassword
+        #loginPassword
         mat-input
         autocomplete="off"
         placeholder="Your password here"
@@ -22,7 +22,12 @@
         formControlName="password"
         name="password"
       />
-      <button (click)="onLogin(loginEmail, loginPassword)" mat-flat-button [disabled]="loginForm.invalid" type="submit">
+      <button
+        (click)="onLogin(loginEmail, loginPassword)"
+        mat-flat-button
+        [disabled]="loginForm.invalid"
+        type="submit"
+      >
         Login
       </button>
     </div>

@@ -1,23 +1,22 @@
 <app-nav-bar></app-nav-bar>
-
+<app-sidebar-admin></app-sidebar-admin>
 <div class="container">
   <mat-card *ngFor="let post of posts">
     <mat-card-header>
-      <img src="{{post?.creatorPhoto}}" alt="">
-      <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
-      <mat-card-subtitle class="title">{{post?.date}}</mat-card-subtitle>
+      <img src="{{ post?.creatorPhoto }}" alt="" />
+      <mat-card-title class="title">{{ post?.creatorName }}</mat-card-title>
+      <mat-card-subtitle class="title">{{ post?.date }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{post?.imageUrl}}" class="img">
+    <img mat-card-image src="{{ post?.imageUrl }}" class="img" />
     <mat-card-content class="contador">
-      {{post?.description}}
+      {{ post?.description }}
     </mat-card-content>
-
     <mat-card-actions class="contador">
       <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
 
-      <mat-icon class="action-item2" (click)="deletePost(post?.postId)">close</mat-icon>
-
+      <mat-icon class="action-item2" (click)="deletePost(post?.postId)"
+        >close</mat-icon
+      >
     </mat-card-actions>
-
   </mat-card>
 </div>

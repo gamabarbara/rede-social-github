@@ -1,28 +1,29 @@
-<div class="header">
-  <mat-card-title>Chat DevHub</mat-card-title>
-</div>
-<hr/>
-
-<div class="app-message" id="app-message">
-  <div *ngFor="let chat of chatService.chats">
-    <button class="enviado" mat-raised-button >{{this.name}}</button>
-    <p>
-      {{ chat.message }}
-    </p>
+<div class="container">
+  <div class="header">
+    <mat-card-title>Chat DevHub</mat-card-title>
   </div>
-</div>
-<div class="bottom">
-<mat-form-field appearance="outline">
-  <input
-    matInput
-    placeholder="Digite sua mensagem..."
-    [(ngModel)]="message"
-    (keydown.enter)="sendMessage()"
-    maxlength="30"
-  />
-  <button mat-icon-button matSuffix (click)="sendMessage()">
-    <mat-icon>send</mat-icon>
-  </button>
-  
-</mat-form-field>
+  <hr />
+
+  <div class="app-message" id="app-message">
+    <div *ngFor="let chat of chatService.chats">
+      <button class="enviado" mat-raised-button>{{ chat.name }}</button>
+      <p>
+        {{ chat.message }}
+      </p>
+    </div>
+  </div>
+  <div class="bottom">
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Digite sua mensagem..."
+        [(ngModel)]="message"
+        (keydown.enter)="sendMessage()"
+        maxlength="30"
+      />
+      <button mat-icon-button matSuffix (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
 </div>

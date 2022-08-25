@@ -24,15 +24,8 @@
         </mat-card-content>
 
         <mat-card-actions class="contador">
-
-            <!-- <mat-icon (click)="onReplyClick()" class="action-item">chat_bubble_outline</mat-icon> -->
-            <!--  <p>{{post.likes}}</p> -->
             <i class='bx bx-upvote' (click)="likes(post)"><span>{{post?.tagCount}}</span></i>
             <i class='bx bx-comment-detail' (click)="onReplyClick()"><span class="comment">15</span></i>
-            <!--     <mat-icon *ngIf="post?.creatorId == userUid" class="action-item" (click)="deletePost(post?.postId)">delete
-            </mat-icon> -->
-
-
-        </mat-card-actions>
+</mat-card-actions>
     </mat-card>
 </div>

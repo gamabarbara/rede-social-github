@@ -110,6 +110,9 @@ p {
   background-color: rgb(19, 19, 19) !important;
   color: white;
 }
+#editprofile:hover {
+  opacity: .8;
+}
 
 @media (max-width: 700px) {
   .example-card {

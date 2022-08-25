@@ -5,21 +5,17 @@
   display: space-around;
 }
 
-.contador {
-  display: flex;
-  display: space-around;
-}
-
 mat-card {
   position: relative;
   top: 200px;
-  width: 25%;
-
+  width: 300px;
   height: 400px;
   margin-bottom: 80px;
-  margin-right: 100px;
-  border: 3px solid #525252;
-  border-radius: 5px;
+  margin-right: 50px;
+  border: 0.1px solid rgb(63, 63, 63);
+  border-radius: 10px;
+  background-color: #1c1f26;
+  color: #ffffff;
 }
 mat-card img {
   height: 200px;
@@ -33,7 +29,6 @@ mat-card-header img {
   height: 40px;
   border-radius: 50%;
 }
-
 .title {
   margin-left: 40px;
 }
@@ -43,37 +38,67 @@ mat-card-actions mat-icon {
 .container {
   display: flex;
   flex-wrap: wrap;
-
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  margin-left: 200px;
+  margin-left: 370px;
 }
-mat-icon {
-  color: black;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-mat-icon {
-  color: black;
-}
-
 mat-card-header {
   height: 80px;
   max-height: 80px;
 }
 mat-card-actions {
-  position: absolute;
-  bottom: 10px;
-  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
 }
-
+i {
+  font-size: 25px;
+  cursor: pointer;
+}
+i:hover {
+  opacity: 0.8;
+  color: rebeccapurple;
+}
+span {
+  font-size: 15px;
+  position: relative;
+  bottom: 5px;
+}
+.comment {
+  bottom: 9px;
+}
+mat-icon {
+  position: relative;
+  /* left: 60px; */
+  font-size: 30px;
+  color: #ffffff;
+}
+#menu {
+  left: 50px;
+}
+.bx-trash-alt {
+  position: relative;
+  top: 7px;
+}
+.trash {
+  top: 2px;
+}
+.img {
+  border-top: 0.1px solid rgb(63, 63, 63);
+  border-bottom: 0.1px solid rgb(63, 63, 63);
+}
+mat-card-subtitle {
+  color: #ffffff;
+}
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .action-item:hover {
   color: green;
-}
-.action-item2 {
-  margin-left: 10px;
+  opacity: 0.8;
 }
 .action-item2:hover {
   color: red;
+  opacity: 0.8;
 }
