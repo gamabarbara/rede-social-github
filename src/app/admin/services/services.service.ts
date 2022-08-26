@@ -23,23 +23,8 @@ export class ServicesService {
     private store: AngularFirestore
   ) { }
 
-  signInWithGoogle() {
-    const googleProvider = new GoogleAuthProvider();
-
-    return from(this.authentication.signInWithPopup(googleProvider)).pipe(
-      tap((credentials) => {
-        const uid = credentials.user?.uid as string;
-
-        const photoURL = credentials.user?.photoURL as string;
-        const email = credentials.user?.email as string;
-
-        this.adminCollection.doc(uid).set({
-          uid: uid,
-          photoURL: photoURL,
-          email: email,
-        });
-      })
-    );
+  get currentUser() {
+    return this.authentication.authState
   }
 
   signOut() {
@@ -51,6 +36,7 @@ export class ServicesService {
       this.authentication.createUserWithEmailAndPassword(email, password)
     );
   }
+
 
   getPosts(posts: feed[]) {
     this.firestore.getCollection(

@@ -1,0 +1,48 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  height: 55px;
+  background-color: rgb(19, 19, 19) !important;
+  color: white;
+  padding-left: 7px;
+  border-bottom: 1px solid #525252;
+  z-index: 10000;
+  position: fixed;
+}
+
+::ng-deep .custom-class {
+  background-color: rgb(19, 19, 19) !important;
+}
+
+span {
+  color: white;
+}
+
+img {
+  height: 48px;
+  width: 48px;
+}
+a {
+  height: 48px;
+  width: 48px;
+}
+
+#profilepic {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+button {
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+button:hover {
+  color: #ffffff;
+  background-color: #525252;
+  border-radius: 10px;
+}
