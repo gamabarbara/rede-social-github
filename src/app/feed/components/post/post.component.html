@@ -19,7 +19,7 @@
 
         </mat-card-header>
         <img *ngIf="post?.imageUrl != ''" mat-card-image src="{{post?.imageUrl}}" class="img"> 
-        <video *ngIf=" post?.videoUrl != ''" width="270" height="210" controls>
+        <video class="video" *ngIf=" post?.videoUrl != ''" controls>
             <source src="{{post?.videoUrl}}" type="video/mp4">            
           </video>
         <mat-card-content class="contador">
