@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSStorage } from 'firebasets/firebasetsStorage/firebaseTSStorage';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
@@ -15,7 +15,9 @@ export class CreatePostComponent implements OnInit {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
-  date = new Date().toLocaleString('pt-BR')
+  date = new Date().toLocaleString('pt-BR');
+  selectedVideoFile!: File
+
 
 
   constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
@@ -28,7 +30,10 @@ export class CreatePostComponent implements OnInit {
     if (comment.length <= 0) return;
     if (this.selectedImageFile) {
       this.uploadImagePost(comment);
+    }else{
+      this.uploadVideoPost(comment)
     }
+
   }
 
   uploadImagePost(description: string) {
@@ -50,6 +55,7 @@ export class CreatePostComponent implements OnInit {
                 creatorName: this.auth.getAuth().currentUser?.displayName,
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
                 imageUrl: downloadURL,
+                videoUrl: '',
                 date: this.date,
                 postId: postId,
                 approved: false,
@@ -61,7 +67,48 @@ export class CreatePostComponent implements OnInit {
               },
               onComplete: (docId) => {
                 this.dialog.close();
-                /* location.reload() */
+                location.reload()
+              }
+            }
+          );
+        }
+      }
+    );
+  }
+
+
+  uploadVideoPost(description: string) {
+    let postId = this.firestore.genDocId();
+    this.storage.upload(
+      {
+        uploadName: "upload video Post",
+        path: ["Posts", postId, "video"],
+        data: {
+          data: this.selectedVideoFile
+        },
+        onComplete: (downloadURL) => {
+          this.firestore.create(
+            {
+              path: ["Posts", postId],
+              data: {
+                description: description,
+                creatorId: this.auth.getAuth().currentUser?.uid,
+                creatorName: this.auth.getAuth().currentUser?.displayName,
+                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+                imageUrl:'',
+                videoUrl: downloadURL,
+                date: this.date,
+                postId: postId,
+                approved: false,
+                likes: [],
+                comments: [],
+                tagCount: 0
+
+
+              },
+              onComplete: (docId) => {
+                this.dialog.close();
+                location.reload()
               }
             }
           );
@@ -85,22 +132,21 @@ export class CreatePostComponent implements OnInit {
     )
   }
 
-  // onSelectFile(event:any) {
-  //   const file = event.target.files && event.target.files[0];
-  //   if (file) {
-  //     var reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     if(file.type.indexOf('image')> -1){
-  //       this.format = 'image';
-  //     } else if(file.type.indexOf('video')> -1){
-  //       this.format = 'video';
-  //     }
-  //     reader.onload = (event) => {
-  //       this.url = (<FileReader>event.target).result;
-  //     }
-  //   }
-  // }
 
 
-
+   onSelectFile(videoSeletor:HTMLInputElement) {
+    this.selectedVideoFile = videoSeletor.files![0];
+    if(!this.selectedVideoFile) return;
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(this.selectedVideoFile);
+    fileReader.addEventListener(
+    "loadend",
+     ev => {
+      let readableString = fileReader.result?.toString();
+      let postPreviewVideo: any = <HTMLInputElement>document.getElementById("post-preview-video");
+    //postPreviewVideo.src = readableString  
+     
+   }
+   )
+ }
 }
