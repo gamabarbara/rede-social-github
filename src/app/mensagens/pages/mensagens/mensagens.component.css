@@ -5,18 +5,17 @@
   overflow: hidden;
   border: 1px solid #525252;
   border-radius: 10px;
- background-color: #1C1F26;
- overflow: hidden;
+  background-color: #1c1f26;
+  overflow: hidden;
 }
 
 .main-container {
-display: flex;
-justify-content: center;
-align-items: center;
-padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
 }
 * {
-  scrollbar-width: thin; 
-  scrollbar-color: #1C1F26 transparent;
+  scrollbar-width: thin;
+  scrollbar-color: #1c1f26 transparent;
 }
-

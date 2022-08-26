@@ -3,7 +3,7 @@
         <mat-card-header>
             <img src="{{post?.creatorPhoto}}" alt="">
             <mat-card-title class="title">{{post?.creatorName}}</mat-card-title>
-            <mat-card-subtitle class="title">{{post?.date}}</mat-card-subtitle>
+            <mat-card-subtitle class="title">{{post?.date | date: 'dd/MM hh:mm'}}</mat-card-subtitle>
 
             <button id="menu" class="menu" mat-icon-button [matMenuTriggerFor]="menu" *ngIf="post?.creatorId == userUid"
                 class="action-item">
@@ -25,7 +25,7 @@
 
         <mat-card-actions class="contador">
             <i class='bx bx-upvote' (click)="likes(post)"><span>{{post?.tagCount}}</span></i>
-            <i class='bx bx-comment-detail' (click)="onReplyClick(post)"><span class="comment">15</span></i>
+            <i class='bx bx-comment-detail' (click)="onReplyClick(post)"><span class="comment"></span></i>
         </mat-card-actions>
     </mat-card>
 </div>
