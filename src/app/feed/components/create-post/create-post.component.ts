@@ -30,8 +30,10 @@ export class CreatePostComponent implements OnInit {
     if (comment.length <= 0) return;
     if (this.selectedImageFile) {
       this.uploadImagePost(comment);
-    }else{
+    } if (this.selectedVideoFile) {
       this.uploadVideoPost(comment)
+    } else {
+      return
     }
 
   }

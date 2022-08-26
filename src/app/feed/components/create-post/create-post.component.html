@@ -8,6 +8,11 @@
   <div *ngIf="selectedImageFile" id="post-preview">
     <img id="post-preview-image" />
   </div>
+
+  <div *ngIf="selectedVideoFile" id="video-preview">
+    <img id="post-preview-video" />
+  </div>
+
   <mat-card-actions align="end">
 
 
@@ -21,7 +26,7 @@
     <button mat-button color="warn">
       <label for="video-upload">
         <input #videoSelector (change)="onSelectFile(videoSelector)" id="video-upload" type="file" accept="videos/*">
-        <mat-icon>insert_video</mat-icon>
+        <mat-icon>videocam</mat-icon>
       </label>
     </button>
     
