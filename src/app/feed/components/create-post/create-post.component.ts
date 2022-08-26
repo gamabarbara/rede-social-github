@@ -15,7 +15,7 @@ export class CreatePostComponent implements OnInit {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
-  date = new Date().toDateString()
+  date = new Date().toLocaleString('pt-BR')
 
 
   constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
@@ -61,7 +61,7 @@ export class CreatePostComponent implements OnInit {
               },
               onComplete: (docId) => {
                 this.dialog.close();
-                location.reload()
+                /* location.reload() */
               }
             }
           );
