@@ -25,7 +25,7 @@ export class LoginAdminComponent implements OnInit {
     this.firebasetsAuth = new FirebaseTSAuth();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onLogin(loginEmail: HTMLInputElement, loginPassword: HTMLInputElement) {
     let email = loginEmail.value;
@@ -36,6 +36,7 @@ export class LoginAdminComponent implements OnInit {
         email: email,
         password: password,
         onComplete: (res) => {
+
           this.router.navigateByUrl('/homeadmin');
           this.dialog.closeAll();
         },
