@@ -8,11 +8,13 @@ import { ConfirmarLogoutComponent } from './nav-bar/confirmar-logout/confirmar-l
 
 
 
+
 @NgModule({
   declarations: [
     NavBarComponent,
     SideBarComponent,
-    ConfirmarLogoutComponent
+    ConfirmarLogoutComponent,
+
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar-admin></app-nav-bar-admin>
 <app-sidebar-admin></app-sidebar-admin>
 <div class="container">
   <mat-card *ngFor="let post of posts">
@@ -14,9 +14,7 @@
     <mat-card-actions class="contador">
       <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
 
-      <mat-icon class="action-item2" (click)="deletePost(post?.postId)"
-        >close</mat-icon
-      >
+      <mat-icon class="action-item2" (click)="deletePost(post?.postId)">close</mat-icon>
     </mat-card-actions>
   </mat-card>
 </div>

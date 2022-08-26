@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <a routerLink="/feed"><img src="assets/logo2.png" alt=""></a>
+    <span class="example-spacer"></span>
+
+    <!--     <button mat-icon-button matTooltip="Notificações">
+        <mat-icon id="notifications" matBadge="8" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="small">
+            notifications</mat-icon>
+    </button> -->
+
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Botão menu" matTooltip="Menu">
+        <!-- <mat-icon id="menu">menu</mat-icon> -->
+        <img id="profilepic" src="" alt="">
+    </button>
+    <mat-menu #menu="matMenu" class="custom-class">
+        <!-- <button mat-menu-item routerLink="/admin">
+            <mat-icon [ngStyle]="{'color':'white'}">person</mat-icon>
+            <span>Perfil</span>
+        </button> -->
+
+        <button mat-menu-item (click)="signOut()" routerLink="/admin">
+            <mat-icon [ngStyle]="{'color':'white'}">logout</mat-icon>
+            <span>Sair</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>

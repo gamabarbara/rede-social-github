@@ -12,7 +12,7 @@ import { NavsModule } from '../navs/navs.module';
 import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.component';
 import { ConfirmarAprovacaoComponent } from './components/confirmar-aprovacao/confirmar-aprovacao.component';
 import { ConfirmarDelecaoComponent } from './components/confirmar-delecao/confirmar-delecao.component';
-
+import { NavBarAdminComponent } from './components/nav-bar-admin/nav-bar-admin.component';
 
 
 
@@ -23,7 +23,9 @@ import { ConfirmarDelecaoComponent } from './components/confirmar-delecao/confir
     HomeadminComponent,
     ConfirmarAprovacaoComponent,
     ConfirmarDelecaoComponent,
-    SidebarAdminComponent
+    SidebarAdminComponent,
+    NavBarAdminComponent,
+
   ],
   imports: [
     CommonModule,

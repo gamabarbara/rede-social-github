@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessAdminGuard } from 'src/app/guards/access-admin.guard';
 import { HomeadminComponent } from './homeadmin.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeadminComponent
+    component: HomeadminComponent,
+    canActivate: [
+      AccessAdminGuard
+    ]
   },
-
 ];
 
 @NgModule({
