@@ -12,15 +12,20 @@
 
 
     <button mat-button color="warn">
-
       <label for="photo-upload">
         <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="images/*">
         <mat-icon>insert_photo</mat-icon>
       </label>
     </button>
-    <!-- <img [src]="url" *ngIf="format==='image' && url" height=""> <br/>
-  <video [src]="url" *ngIf="format==='video' && url" height="" controls></video> <br/>
-  <input type='file' (change)="onSelectFile($event)" /> -->
+    
+    <button mat-button color="warn">
+      <label for="video-upload">
+        <input #videoSelector (change)="onSelectFile(videoSelector)" id="video-upload" type="file" accept="videos/*">
+        <mat-icon>insert_video</mat-icon>
+      </label>
+    </button>
+    
+
     <button (click)="onPostClick(descriptionInput)" mat-flat-button>Postar</button>
   </mat-card-actions>
 </mat-card>

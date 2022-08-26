@@ -5,6 +5,7 @@ export interface feed {
     creatorName: string;
     date: Date;
     imageUrl?: string;
+    videoUrl?: string;
     likes: any
     comments: any
     postId: string
