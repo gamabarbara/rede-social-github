@@ -60,11 +60,16 @@ mat-icon {
 button {
   background-color: #525252;
   color: black;
-  margin-right: 10px;
 }
 button:hover {
   opacity: 0.5;
 }
 mat-card-actions {
   margin-top: 20px;
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

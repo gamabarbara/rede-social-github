@@ -3,7 +3,11 @@
     <mat-card-title>Crie seu post</mat-card-title>
   </mat-card-header>
   <div>
-    <textarea maxlength="30" #descriptionInput placeholder="Escreva seu conteúdo aqui..."></textarea>
+    <textarea
+      maxlength="30"
+      #descriptionInput
+      placeholder="Escreva seu conteúdo aqui..."
+    ></textarea>
   </div>
   <div *ngIf="selectedImageFile" id="post-preview">
     <img id="post-preview-image" />
@@ -14,23 +18,36 @@
   </div>
 
   <mat-card-actions align="end">
+    <div class="buttons">
+      <button mat-button color="warn">
+        <label for="photo-upload">
+          <input
+            #photoSelector
+            (change)="onPhotoSelected(photoSelector)"
+            id="photo-upload"
+            type="file"
+            accept="images/*"
+          />
+          <mat-icon>insert_photo</mat-icon>
+        </label>
+      </button>
 
+      <button mat-button color="warn">
+        <label for="video-upload">
+          <input
+            #videoSelector
+            (change)="onSelectFile(videoSelector)"
+            id="video-upload"
+            type="file"
+            accept="videos/*"
+          />
+          <mat-icon>videocam</mat-icon>
+        </label>
+      </button>
 
-    <button mat-button color="warn">
-      <label for="photo-upload">
-        <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="images/*">
-        <mat-icon>insert_photo</mat-icon>
-      </label>
-    </button>
-    
-    <button mat-button color="warn">
-      <label for="video-upload">
-        <input #videoSelector (change)="onSelectFile(videoSelector)" id="video-upload" type="file" accept="videos/*">
-        <mat-icon>videocam</mat-icon>
-      </label>
-    </button>
-    
-
-    <button (click)="onPostClick(descriptionInput)" mat-flat-button>Postar</button>
+      <button (click)="onPostClick(descriptionInput)" mat-flat-button>
+        Postar
+      </button>
+    </div>
   </mat-card-actions>
 </mat-card>

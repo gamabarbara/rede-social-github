@@ -11,6 +11,7 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+
 .sidebar {
   position: fixed;
   width: 80px;
@@ -39,10 +40,6 @@ body {
   opacity: 0;
 }
 
-/* .sidebar ul {
-  margin-top: 20px;
-}
- */
 .sidebar ul li {
   position: relative;
   width: 80%;
@@ -222,27 +219,32 @@ body {
 .sidebar.active .toolipe {
   display: none;
 }
+
 .bx-menu {
   font-size: 25px;
   margin-left: 17px;
   color: #fff;
 }
+
 .bx-menu:hover {
   transition: all 0.5s ease;
   opacity: 1;
   color: #525252;
   background-color: #fff;
 }
+
 .logoName img {
   width: 60px;
   height: 60px;
 }
+
 .logoName {
   display: flex;
   margin: 0 auto;
 }
+
 .sidebar-items {
-  margin-top: 230px;
+  margin-top: 100px;
 }
 
 .buts {
@@ -250,7 +252,33 @@ body {
   color: white;
   background-color: #525252;
 }
+
 .feed {
   position: relative;
   right: 8px;
+}
+
+#profilepic {
+ margin-left: 30px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 6px solid #525252;
+}
+
+#bio {
+  color: white;
+  align-items: center;
+  margin-left: 8px;
+}
+
+#bio1 {
+  color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.profile {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #525252;
 }
