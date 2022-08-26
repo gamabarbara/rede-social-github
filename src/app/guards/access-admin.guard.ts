@@ -17,8 +17,9 @@ export class AccessAdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.servicesServices.currentUser.pipe(
       map(user => {
+
         if (user == null) {
-          return this.router.parseUrl('/')
+          return this.router.parseUrl('/admin')
         }
         return true;
       })
