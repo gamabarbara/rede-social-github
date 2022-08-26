@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { user } from 'src/app/auth/models/user';
 import { InviteDialogComponent } from 'src/app/feed/components/invite-dialog/invite-dialog.component';
-import { ServicesService } from '../services/services.service';
+import { ServicesService } from 'src/app/usuario/services/services.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -12,11 +13,13 @@ import { ServicesService } from '../services/services.service';
 export class SideBarComponent{
 
   public username?: string
+  userInfos?: user
 
-  constructor(public dialog: MatDialog,private service: ServicesService,private route: Router) {}
+  constructor(public dialog: MatDialog,private service: ServicesService,private route: Router, private serviceService: ServicesService) {}
 
   ngOnInit(): void {
     this.getUsername()
+    this.getUser()
   }
 
   openDialog(): void {
@@ -38,6 +41,14 @@ export class SideBarComponent{
     this.service.getUsername().subscribe(
       (a) => {
         this.username = a
+      }
+    )
+  }
+
+  getUser(): void {
+    this.serviceService.getUser().subscribe(
+      a => {
+        this.userInfos = a
       }
     )
   }
