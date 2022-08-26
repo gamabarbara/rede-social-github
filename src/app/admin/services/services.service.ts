@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { from, tap } from 'rxjs';
 import { admin } from 'src/app/admin/models/admin';
 import { feed } from 'src/app/feed/models/feed';
@@ -58,6 +58,7 @@ export class ServicesService {
         path: ["Posts"],
         where: [
           new OrderBy("date", "desc"),
+          new Where("approved", "==", false),
           new Limit(10)
         ],
         onComplete: (result) => {
