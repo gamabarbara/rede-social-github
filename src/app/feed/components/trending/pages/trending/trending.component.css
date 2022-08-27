@@ -98,3 +98,9 @@ mat-card-content {
   justify-content: center;
   align-items: center;
 }
+video {
+  border: 1px solid #525252;
+  width: 270px;
+  height: 203px;
+  background-color: black;
+}
