@@ -72,25 +72,6 @@ export class FeedService {
     )
   }
 
-  /* editPost() {
-    this.firestore.update(
-      {
-        path: ["Posts", postId],
-        data: {
-          comment: comment,
-          creatorId: this.auth.getAuth().currentUser?.uid,
-          creatorName: this.auth.getAuth().currentUser?.displayName,
-          creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
-          imageUrl: downloadURL,
-          timestamp: FirebaseTSApp.getFirestoreTimestamp(),
-          postId: postId,
-          approved: 'false'
-
-        }
-      }
-    )
-  } */
-
 
   deletePost(postId?: string) {
     return from(this.postsCollection.doc(postId).delete());
@@ -108,6 +89,7 @@ export class FeedService {
       })
     )
   }
+
 
   likes(post: feed) {
 
