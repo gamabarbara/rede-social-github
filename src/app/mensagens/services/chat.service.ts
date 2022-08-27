@@ -24,7 +24,7 @@ export class ChatService {
     private afs: AngularFirestore,
     private auth: AuthService,
     private store: AngularFirestore
-  ) {}
+  ) { }
 
 
   getUser() {
@@ -46,7 +46,6 @@ export class ChatService {
     return this.itemsCollection.valueChanges().pipe(
       map((messages: Message[]) => {
         console.log(messages);
-        /*   this.chats = messages; */
         this.chats = [];
         for (let message of messages) {
           this.chats.unshift(message);

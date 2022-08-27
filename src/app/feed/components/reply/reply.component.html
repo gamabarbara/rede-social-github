@@ -1,10 +1,24 @@
-<p>Reply</p>
-<div id="reply-box">
+<div class="container">
+    <div class="header">
+        <mat-card-title>Comentários</mat-card-title>
+    </div>
+    <hr />
 
-</div>
-<div id="reply-action-bar">
-    <button mat-flat-button (click)="comment(inputValue)">
-        <mat-icon>send</mat-icon>
-    </button>
-    <input #inputValue placeholder="Comment...">
+    <div class="app-message" id="app-message">
+        <div *ngFor="let comment of comments">
+            <!--  <button class="enviado" mat-raised-button>{{ comment }}</button> -->
+            <p>
+                {{ comment}}
+            </p>
+        </div>
+    </div>
+    <div class="bottom">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Digite sua mensagem..." #input (keydown.enter)="comment(input)"
+                maxlength="30" />
+            <button mat-icon-button matSuffix (click)="comment(input)">
+                <mat-icon>send</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
 </div>

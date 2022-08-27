@@ -3,9 +3,9 @@ import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { user } from 'src/app/auth/models/user';
+import { map, merge } from 'rxjs';
 
 @Component({
   selector: 'app-reply',
@@ -17,11 +17,17 @@ export class ReplyComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   private text!: string
   private name?: string
+  public comments: string[] = []
 
-  constructor(private service: FeedService, @Inject(MAT_DIALOG_DATA) private post: feed, private store: AngularFirestore) { }
+  constructor(private service: FeedService, @Inject(MAT_DIALOG_DATA) private post: feed, private store: AngularFirestore) {
+
+  }
 
   ngOnInit(): void {
     this.getUser()
+
+    this.comments = this.post.comments
+
   }
 
   getUser() {
@@ -35,7 +41,6 @@ export class ReplyComponent implements OnInit {
   comment(commentInput: HTMLInputElement) {
     this.text = `${this.name}: ${commentInput.value}`
     console.log(this.text);
-
 
     return this.service.comment(this.post, this.text).subscribe()
   }

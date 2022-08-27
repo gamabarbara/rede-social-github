@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit {
     this.element = document.getElementById('app-message');
     this.getUser()
   }
-  
+
   getUser() {
     this.chatService.getUser().subscribe(
       (a) => {
