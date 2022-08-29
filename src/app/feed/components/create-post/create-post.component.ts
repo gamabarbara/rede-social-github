@@ -41,6 +41,43 @@ export class CreatePostComponent implements OnInit {
 
   uploadImagePost(description: string, title: string) {
     let postId = this.firestore.genDocId();
+
+    this.storage.upload(
+      {
+        uploadName: "upload Image Post",
+        path: ["Posts", postId, "image"],
+        data: {
+          data: this.selectedImageFile
+        },
+        onComplete: (downloadURL) => {
+          this.firestore.create(
+            {
+              path: ["Posts", postId],
+              data: {
+                description: description,
+                creatorId: this.auth.getAuth().currentUser?.uid,
+                creatorName: this.auth.getAuth().currentUser?.displayName,
+                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+                imageUrl: downloadURL,
+                videoUrl: '',
+                date: this.date,
+                postId: postId,
+                approved: false,
+                likes: [],
+                comments: [],
+                tagCount: 0
+
+              },
+              onComplete: (docId) => {
+                this.dialog.close();
+                location.reload()
+              }
+            }
+          );
+        }
+      }
+    );
+
     this.storage.upload({
       uploadName: 'upload Image Post',
       path: ['Posts', postId, 'image'],
@@ -72,10 +109,49 @@ export class CreatePostComponent implements OnInit {
         });
       },
     });
+
   }
 
   uploadVideoPost(description: string, title: string) {
     let postId = this.firestore.genDocId();
+
+    this.storage.upload(
+      {
+        uploadName: "upload video Post",
+        path: ["Posts", postId, "video"],
+        data: {
+          data: this.selectedVideoFile
+        },
+        onComplete: (downloadURL) => {
+          this.firestore.create(
+            {
+              path: ["Posts", postId],
+              data: {
+                description: description,
+                creatorId: this.auth.getAuth().currentUser?.uid,
+                creatorName: this.auth.getAuth().currentUser?.displayName,
+                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+                imageUrl: '',
+                videoUrl: downloadURL,
+                date: this.date,
+                postId: postId,
+                approved: false,
+                likes: [],
+                comments: [],
+                tagCount: 0
+
+
+              },
+              onComplete: (docId) => {
+                this.dialog.close();
+                location.reload()
+              }
+            }
+          );
+        }
+      }
+    );
+    
     this.storage.upload({
       uploadName: 'upload video Post',
       path: ['Posts', postId, 'video'],
@@ -128,6 +204,15 @@ export class CreatePostComponent implements OnInit {
     if (!this.selectedVideoFile) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedVideoFile);
+    fileReader.addEventListener(
+      "loadend",
+      ev => {
+        let readableString = fileReader.result?.toString();
+        let postPreviewVideo: any = <HTMLInputElement>document.getElementById("post-preview-video");
+        //postPreviewVideo.src = readableString  
+
+      }
+    )
     fileReader.addEventListener('loadend', (ev) => {
       let readableString = fileReader.result?.toString();
       let postPreviewVideo: any = <HTMLInputElement>(

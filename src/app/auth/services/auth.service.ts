@@ -32,13 +32,11 @@ export class AuthService {
           const username = credentials.additionalUserInfo?.username as string
           const photoURL = credentials.user?.photoURL as string
           const email = credentials.user?.email as string
-          const bio: string = ''
 
-          this.usersCollection.doc(uid).set({
+          this.usersCollection.doc(uid).update({
             uid: uid,
             username: username,
             name: name,
-            bio: bio,
             email: email,
             photoURL: photoURL,
           })

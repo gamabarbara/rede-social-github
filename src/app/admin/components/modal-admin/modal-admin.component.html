@@ -1,15 +1,11 @@
 <div class="container">
   <mat-card>
     <mat-card-header>
-      <img
-        mat-card-md-image
-        src="{{post.creatorPhoto}}"
-        id="profilepic"
-      />
+      <img mat-card-md-image src="{{post.creatorPhoto}}" id="profilepic" />
       <mat-card-title>{{post.creatorName}}</mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-        <button class="delete" mat-raised-button color="warn">Bloquear Usuário</button>
+      <button (click)="blockUserById()" class="delete" mat-raised-button color="warn">Bloquear Usuário</button>
     </mat-card-actions>
   </mat-card>
 </div>

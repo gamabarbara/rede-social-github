@@ -4,7 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { from, tap } from 'rxjs';
+import { from, map, merge, mergeMap, tap } from 'rxjs';
 import { admin } from 'src/app/admin/models/admin';
 import { user } from 'src/app/auth/models/user';
 import { feed } from 'src/app/feed/models/feed';
@@ -14,8 +14,7 @@ import { feed } from 'src/app/feed/models/feed';
   providedIn: 'root',
 })
 export class ServicesService {
-  private userCollection = this.store.collection<user>('users');
-  private adminCollection = this.store.collection<admin>('admin');
+  private userCollection = this.store.collection<any>('users');
   private postsCollection = this.store.collection<feed>('Posts');
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
@@ -77,8 +76,27 @@ export class ServicesService {
     return from(this.postsCollection.doc(postId).delete());
   }
 
+  blockUserById(userId: string, blocked: boolean) {
+
+    if (blocked === false) {
+      return this.userCollection.doc(userId).update(
+        {
+          blocked: true
+        }
+      )
+    } else {
+      return this.userCollection.doc(userId).update(
+        {
+          blocked: false
+        }
+      )
+    }
+  }
+
   getUserById(userId: string) {
-    return this.userCollection.doc(userId).get()
+    return this.userCollection.doc(userId).get().pipe(map(a => {
+      return a.data()
+    }))
   }
 
 }
