@@ -49,7 +49,7 @@ export class ServicesService {
   setUserInfos(bio: string) {
     return this.getUser().pipe(
       mergeMap(user => {
-        return this.usersCollection.doc(user?.uid).set(
+        return this.usersCollection.doc(user?.uid).update(
           {
             uid: user?.uid as string,
             photoURL: user?.photoURL as string,

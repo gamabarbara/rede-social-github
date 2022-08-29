@@ -66,6 +66,8 @@ export class CreatePostComponent implements OnInit {
                 tagCount: 0
 
 
+
+
               },
               onComplete: (docId) => {
                 this.dialog.close();
@@ -97,7 +99,7 @@ export class CreatePostComponent implements OnInit {
                 creatorId: this.auth.getAuth().currentUser?.uid,
                 creatorName: this.auth.getAuth().currentUser?.displayName,
                 creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
-                imageUrl:'',
+                imageUrl: '',
                 videoUrl: downloadURL,
                 date: this.date,
                 postId: postId,
@@ -136,19 +138,19 @@ export class CreatePostComponent implements OnInit {
 
 
 
-   onSelectFile(videoSeletor:HTMLInputElement) {
+  onSelectFile(videoSeletor: HTMLInputElement) {
     this.selectedVideoFile = videoSeletor.files![0];
-    if(!this.selectedVideoFile) return;
+    if (!this.selectedVideoFile) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedVideoFile);
     fileReader.addEventListener(
-    "loadend",
-     ev => {
-      let readableString = fileReader.result?.toString();
-      let postPreviewVideo: any = <HTMLInputElement>document.getElementById("post-preview-video");
-    //postPreviewVideo.src = readableString  
-     
-   }
-   )
- }
+      "loadend",
+      ev => {
+        let readableString = fileReader.result?.toString();
+        let postPreviewVideo: any = <HTMLInputElement>document.getElementById("post-preview-video");
+        //postPreviewVideo.src = readableString  
+
+      }
+    )
+  }
 }
