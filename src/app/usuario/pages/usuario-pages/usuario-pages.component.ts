@@ -22,26 +22,27 @@ export class UsuarioPagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser()
-    this.getUserRepos()
+    this.getUserInfos()
   }
 
-  getUser(): void {
+  getUserInfos(): void {
     this.servicesService.getUser().subscribe(
       a => {
+
         this.userInfos = a
 
+        this.servicesService.getUserRepos(this.userInfos?.username).subscribe(
+          b => {
+            this.userRepositories = b
+
+          }
+        )
       }
     )
   }
 
   getUserRepos() {
-    this.servicesService.getUserRepos('ezuros').subscribe(
-      a => {
-        this.userRepositories = a
 
-      }
-    )
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
