@@ -9,17 +9,31 @@
   display: none;
 }
 
-textarea {
-  font-size: 1.5em;
+.textTitle {
+  font-size: 2em;
+  font-weight: 700;
   margin-left: 10px;
   resize: none;
   width: 300px;
-  min-height: 150px;
+  min-height: 80px;
   border: 1px solid gray;
   border-radius: 5px;
   outline: none;
+  margin-bottom: 20px;
 }
-
+.textContent {
+  font-size: 1.5em;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 10px;
+  border: none;
+  width: 300px;
+  min-height: 200px;
+  border: 1 px solid gray;
+  border-radius: 5px;
+  outline: none;
+  word-break: break-word;
+}
 #post-preview {
   text-align: center;
   margin-top: 1em;
