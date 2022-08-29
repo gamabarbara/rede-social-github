@@ -113,3 +113,8 @@ video {
   position: absolute;
   bottom: 25px;
 }
+.contador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
