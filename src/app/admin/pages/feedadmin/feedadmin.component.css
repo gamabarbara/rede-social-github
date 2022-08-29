@@ -89,33 +89,27 @@ mat-icon {
 mat-card-subtitle {
   color: #ffffff;
 }
+/* .bx-upvote, .bx-comment-detail {
+      background-color: rebeccapurple;
+      top: 50px;
+  } */
 mat-card-content {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.action-item:hover {
-  color: green;
-  opacity: 0.8;
-}
-.action-item2:hover {
-  color: red;
-  opacity: 0.8;
-}
+
 video {
   border: 1px solid #525252;
   width: 270px;
   height: 203px;
   background-color: black;
 }
-.teste {
+.icon {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  color: white;
-  position: fixed;
-  left: 250px;
-  top: 50px;
-  width: calc(100% - 250px);
-  height: 500px;
+  position: absolute;
+  bottom: 25px;
 }

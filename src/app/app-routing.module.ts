@@ -56,9 +56,12 @@ const routes: Routes = [
     loadChildren: () => import('./mensagens/mensagens.module').then(m => m.MensagensModule)
   },
   {
-    path:'**', redirectTo:'/error404'
-  }
-
+    path: 'admin/feed',
+    loadChildren: () => import('./admin/pages/feedadmin/feedadmin.module').then(m => m.FeedadminModule)
+  },
+  {
+    path: '**', redirectTo: '/error404'
+  },
 ];
 
 @NgModule({
