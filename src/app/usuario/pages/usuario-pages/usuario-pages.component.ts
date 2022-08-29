@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { user } from 'src/app/auth/models/user';
 import { EditDialogComponent } from '../../components/edit-dialog/edit-dialog.component';
+import { Repositories } from '../../models/repositories';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class UsuarioPagesComponent implements OnInit {
 
   userName: string = ""
   userInfos?: user
+  userRepositories: Repositories[] = []
+  displayedColumns: string[] = ['name', 'description', 'language', 'created_at'];
 
   constructor(private servicesService: ServicesService, private dialog: MatDialog,) {
 
@@ -20,14 +23,23 @@ export class UsuarioPagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser()
-
-
+    this.getUserRepos()
   }
 
   getUser(): void {
     this.servicesService.getUser().subscribe(
       a => {
         this.userInfos = a
+
+      }
+    )
+  }
+
+  getUserRepos() {
+    this.servicesService.getUserRepos('ezuros').subscribe(
+      a => {
+        this.userRepositories = a
+
       }
     )
   }

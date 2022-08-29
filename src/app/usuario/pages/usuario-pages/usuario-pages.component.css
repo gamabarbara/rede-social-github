@@ -84,12 +84,7 @@ td {
   justify-content: center;
   align-items: center;
 }
-.container2 {
-  display: flex;
-  padding-top: 20px;
-  width: 60%;
-  justify-content: space-between;
-}
+
 #left {
   background-color: rgb(255, 255, 255);
   width: 20%;
@@ -111,7 +106,20 @@ p {
   color: white;
 }
 #editprofile:hover {
-  opacity: .8;
+  opacity: 0.8;
+}
+
+table {
+  width: 100%;
+  border-radius: 10px;
+  /* background-color: white !important; */
+  overflow: hidden !important;
+}
+
+.repositories {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 60%;
 }
 
 @media (max-width: 700px) {
