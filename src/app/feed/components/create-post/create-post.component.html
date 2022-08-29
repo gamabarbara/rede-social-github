@@ -5,9 +5,12 @@
   <div>
     <textarea
       maxlength="30"
-      #descriptionInput
-      placeholder="Escreva seu conteúdo aqui..."
+      #titleInput
+      placeholder="Escreva seu título aqui!"
+      class="textTitle"
+      minlength="5"
     ></textarea>
+    <textarea placeholder="Escreva seu conteúdo aqui" class="textContent" #descriptionInput minlength="10"></textarea>
   </div>
   <div *ngIf="selectedImageFile" id="post-preview">
     <img id="post-preview-image" />
@@ -45,7 +48,7 @@
         </label>
       </button>
 
-      <button (click)="onPostClick(descriptionInput)" mat-flat-button>
+      <button (click)="onPostClick(descriptionInput, titleInput)" mat-flat-button>
         Postar
       </button>
     </div>

@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css']
+  styleUrls: ['./create-post.component.css'],
 })
 export class CreatePostComponent implements OnInit {
   selectedImageFile!: File;
@@ -16,107 +16,97 @@ export class CreatePostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   storage = new FirebaseTSStorage();
   date = new Date().toLocaleString('pt-BR');
-  selectedVideoFile!: File
+  selectedVideoFile!: File;
 
+  constructor(private dialog: MatDialogRef<CreatePostComponent>) {}
 
+  ngOnInit(): void {}
 
-  constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
-
-  ngOnInit(): void {
-  }
-
-  onPostClick(commentInput: HTMLTextAreaElement) {
+  onPostClick(
+    commentInput: HTMLTextAreaElement,
+    titleInput: HTMLTextAreaElement
+  ) {
     let comment = commentInput.value;
-    if (comment.length <= 0) return;
+    let title = titleInput.value;
+    if (comment.length <= 0 || title.length <= 0) return;
     if (this.selectedImageFile) {
-      this.uploadImagePost(comment);
-    } if (this.selectedVideoFile) {
-      this.uploadVideoPost(comment)
-    } else {
-      return
+      this.uploadImagePost(comment, title);
     }
-
+    if (this.selectedVideoFile) {
+      this.uploadVideoPost(comment, title);
+    } else {
+      return;
+    }
   }
 
-  uploadImagePost(description: string) {
+  uploadImagePost(description: string, title: string) {
     let postId = this.firestore.genDocId();
-    this.storage.upload(
-      {
-        uploadName: "upload Image Post",
-        path: ["Posts", postId, "image"],
-        data: {
-          data: this.selectedImageFile
-        },
-        onComplete: (downloadURL) => {
-          this.firestore.create(
-            {
-              path: ["Posts", postId],
-              data: {
-                description: description,
-                creatorId: this.auth.getAuth().currentUser?.uid,
-                creatorName: this.auth.getAuth().currentUser?.displayName,
-                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
-                imageUrl: downloadURL,
-                videoUrl: '',
-                date: this.date,
-                postId: postId,
-                approved: false,
-                likes: [],
-                comments: [],
-                tagCount: 0
-
-
-              },
-              onComplete: (docId) => {
-                this.dialog.close();
-                location.reload()
-              }
-            }
-          );
-        }
-      }
-    );
+    this.storage.upload({
+      uploadName: 'upload Image Post',
+      path: ['Posts', postId, 'image'],
+      data: {
+        data: this.selectedImageFile,
+      },
+      onComplete: (downloadURL) => {
+        this.firestore.create({
+          path: ['Posts', postId],
+          data: {
+            description: description,
+            creatorId: this.auth.getAuth().currentUser?.uid,
+            creatorName: this.auth.getAuth().currentUser?.displayName,
+            creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+            imageUrl: downloadURL,
+            videoUrl: '',
+            date: this.date,
+            postId: postId,
+            approved: false,
+            likes: [],
+            comments: [],
+            tagCount: 0,
+            title: title,
+          },
+          onComplete: (docId) => {
+            this.dialog.close();
+            location.reload();
+          },
+        });
+      },
+    });
   }
 
-
-  uploadVideoPost(description: string) {
+  uploadVideoPost(description: string, title: string) {
     let postId = this.firestore.genDocId();
-    this.storage.upload(
-      {
-        uploadName: "upload video Post",
-        path: ["Posts", postId, "video"],
-        data: {
-          data: this.selectedVideoFile
-        },
-        onComplete: (downloadURL) => {
-          this.firestore.create(
-            {
-              path: ["Posts", postId],
-              data: {
-                description: description,
-                creatorId: this.auth.getAuth().currentUser?.uid,
-                creatorName: this.auth.getAuth().currentUser?.displayName,
-                creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
-                imageUrl:'',
-                videoUrl: downloadURL,
-                date: this.date,
-                postId: postId,
-                approved: false,
-                likes: [],
-                comments: [],
-                tagCount: 0
-
-
-              },
-              onComplete: (docId) => {
-                this.dialog.close();
-                location.reload()
-              }
-            }
-          );
-        }
-      }
-    );
+    this.storage.upload({
+      uploadName: 'upload video Post',
+      path: ['Posts', postId, 'video'],
+      data: {
+        data: this.selectedVideoFile,
+      },
+      onComplete: (downloadURL) => {
+        this.firestore.create({
+          path: ['Posts', postId],
+          data: {
+            description: description,
+            creatorId: this.auth.getAuth().currentUser?.uid,
+            creatorName: this.auth.getAuth().currentUser?.displayName,
+            creatorPhoto: this.auth.getAuth().currentUser?.photoURL,
+            imageUrl: '',
+            videoUrl: downloadURL,
+            date: this.date,
+            postId: postId,
+            approved: false,
+            likes: [],
+            comments: [],
+            tagCount: 0,
+            title: title,
+          },
+          onComplete: (docId) => {
+            this.dialog.close();
+            location.reload();
+          },
+        });
+      },
+    });
   }
 
   onPhotoSelected(photoSelector: HTMLInputElement) {
@@ -124,31 +114,26 @@ export class CreatePostComponent implements OnInit {
     if (!this.selectedImageFile) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedImageFile);
-    fileReader.addEventListener(
-      "loadend",
-      ev => {
-        let readableString = fileReader.result?.toString();
-        let postPreviewImage: any = <HTMLImageElement>document.getElementById("post-preview-image");
-        postPreviewImage.src = readableString;
-      }
-    )
+    fileReader.addEventListener('loadend', (ev) => {
+      let readableString = fileReader.result?.toString();
+      let postPreviewImage: any = <HTMLImageElement>(
+        document.getElementById('post-preview-image')
+      );
+      postPreviewImage.src = readableString;
+    });
   }
 
-
-
-   onSelectFile(videoSeletor:HTMLInputElement) {
+  onSelectFile(videoSeletor: HTMLInputElement) {
     this.selectedVideoFile = videoSeletor.files![0];
-    if(!this.selectedVideoFile) return;
+    if (!this.selectedVideoFile) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedVideoFile);
-    fileReader.addEventListener(
-    "loadend",
-     ev => {
+    fileReader.addEventListener('loadend', (ev) => {
       let readableString = fileReader.result?.toString();
-      let postPreviewVideo: any = <HTMLInputElement>document.getElementById("post-preview-video");
-    //postPreviewVideo.src = readableString  
-     
-   }
-   )
- }
+      let postPreviewVideo: any = <HTMLInputElement>(
+        document.getElementById('post-preview-video')
+      );
+      //postPreviewVideo.src = readableString
+    });
+  }
 }
