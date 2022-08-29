@@ -119,3 +119,16 @@ video {
   width: calc(100% - 250px);
   height: 500px;
 }
+.icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+}
+mat-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
