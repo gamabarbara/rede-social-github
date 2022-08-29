@@ -24,8 +24,8 @@ export class ReplyComponent implements OnInit {
     private service: FeedService,
     @Inject(MAT_DIALOG_DATA) private post: feed,
     private store: AngularFirestore,
-    private dialogRef: Dialog, 
-  ) {}
+    private dialogRef: Dialog,
+  ) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -40,14 +40,13 @@ export class ReplyComponent implements OnInit {
 
   comment(commentInput: HTMLInputElement) {
     this.text = `${this.name}: ${commentInput.value}`;
-    console.log(this.text);
+    commentInput.value = ''
     return this.service.comment(this.post, this.text).subscribe({
       next: (res) => {
-      this.dialogRef.closeAll()
-      location.href = '/feed'
-    }
-  })
+        this.dialogRef.closeAll()
+        location.href = '/feed'
+      }
+    })
   }
-    };
-    
+};
 

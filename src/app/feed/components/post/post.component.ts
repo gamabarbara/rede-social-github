@@ -18,6 +18,7 @@ export class PostComponent implements OnInit {
   feed?: feed
 
 
+
   constructor(
     private feedService: FeedService,
     private dialog: MatDialog,
@@ -25,15 +26,14 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.getPosts();
     this.getUser()
-    console.log(this.getPosts)
   }
   getPosts() {
     this.feedService.getPosts(this.posts)
-
-
   }
+
   onReplyClick(post: feed) {
     this.dialog.open(ReplyComponent, { data: post })
     /* const ref =  */

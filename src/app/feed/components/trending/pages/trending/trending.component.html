@@ -30,7 +30,7 @@
 
         <mat-card-actions class="contador">
             <i class='bx bx-upvote' (click)="likes(post)"><span>{{post?.tagCount}}</span></i>
-            <i class='bx bx-comment-detail' (click)="onReplyClick()"><span class="comment">15</span></i>
+            <i class='bx bx-comment-detail' (click)="onReplyClick(post)"><span class="comment">15</span></i>
         </mat-card-actions>
     </mat-card>
 </div>

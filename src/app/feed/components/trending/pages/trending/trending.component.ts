@@ -29,8 +29,10 @@ export class TrendingComponent implements OnInit {
     this.feedService.getPostsByTrending(this.posts)
 
   }
-  onReplyClick() {
-    this.dialog.open(ReplyComponent)
+  onReplyClick(post: feed) {
+    this.dialog.open(ReplyComponent, { data: post })
+    /* const ref =  */
+    /*  ref.componentInstance.getPosts(post) */
   }
 
   deletePost(postId?: string) {
