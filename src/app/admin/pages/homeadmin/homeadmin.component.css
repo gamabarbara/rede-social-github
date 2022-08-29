@@ -119,3 +119,40 @@ video {
   width: calc(100% - 250px);
   height: 500px;
 }
+.icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+}
+
+/* <section>
+  <app-nav-bar-admin></app-nav-bar-admin>
+  <app-sidebar-admin></app-sidebar-admin>
+  <div class="teste" *ngIf="posts.length == 0; else post">Não existem posts para serem aprovados</div>
+  <ng-template #post>
+    <div class="container">
+      <mat-card *ngFor="let post of posts">
+        <mat-card-header>
+          <img src="{{ post?.creatorPhoto }}" alt="" />
+          <mat-card-title class="title">{{ post?.creatorName }}</mat-card-title>
+          <mat-card-subtitle class="title">{{ post?.date }}</mat-card-subtitle>
+        </mat-card-header>
+        <img *ngIf="post?.imageUrl != ''" mat-card-image src="{{post?.imageUrl}}" class="img">
+        <video *ngIf=" post?.videoUrl != ''" width="270" height="210" controls>
+          <source src="{{post?.videoUrl}}" type="video/mp4">
+        </video>
+        <mat-card-content class="contador">
+          {{ post?.description }}
+        </mat-card-content>
+        <mat-card-actions class="contador">
+          <mat-icon class="action-item" (click)="approvePosts(post)">done</mat-icon>
+
+          <mat-icon class="action-item2" (click)="deletePost(post?.postId)">close</mat-icon>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-template>
+</section> */
