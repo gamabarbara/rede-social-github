@@ -13,9 +13,8 @@ import { SidebarAdminComponent } from './components/sidebar-admin/sidebar-admin.
 import { ConfirmarAprovacaoComponent } from './components/confirmar-aprovacao/confirmar-aprovacao.component';
 import { ConfirmarDelecaoComponent } from './components/confirmar-delecao/confirmar-delecao.component';
 import { NavBarAdminComponent } from './components/nav-bar-admin/nav-bar-admin.component';
+import { FeedadminComponent } from './pages/feedadmin/feedadmin.component';
 import { ModalAdminComponent } from './components/modal-admin/modal-admin.component';
-
-
 
 @NgModule({
   declarations: [
@@ -26,7 +25,8 @@ import { ModalAdminComponent } from './components/modal-admin/modal-admin.compon
     ConfirmarDelecaoComponent,
     SidebarAdminComponent,
     NavBarAdminComponent,
-    ModalAdminComponent,
+    FeedadminComponent,
+    ModalAdminComponent
 
   ],
   imports: [

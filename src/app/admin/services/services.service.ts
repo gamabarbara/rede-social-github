@@ -78,7 +78,7 @@ export class ServicesService {
   }
 
   getUserById(userId: string) {
-      return this.userCollection.doc(userId).get()
+    return this.userCollection.doc(userId).get()
   }
 
 }

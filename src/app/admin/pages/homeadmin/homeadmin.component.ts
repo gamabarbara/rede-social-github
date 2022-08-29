@@ -24,7 +24,7 @@ export class HomeadminComponent {
     private dialog: MatDialog,
     private service: ServicesService,
     private route: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getPosts();
@@ -57,7 +57,6 @@ export class HomeadminComponent {
   }
 
   approvePosts(post: feed) {
-
     const dialogRef = this.dialog.open(ConfirmarAprovacaoComponent)
     dialogRef.afterClosed().subscribe(
       (a) => {
@@ -70,7 +69,6 @@ export class HomeadminComponent {
         }
       }
     )
-
   }
 
 
