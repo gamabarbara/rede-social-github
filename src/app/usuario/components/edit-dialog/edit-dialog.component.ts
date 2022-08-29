@@ -23,7 +23,13 @@ export class EditDialogComponent implements OnInit {
     bio: ['']
   })
 
-  constructor(private servicesService: ServicesService, private fb: FormBuilder, private authentication: AngularFireAuth, private dialogRef: Dialog) { }
+  constructor(
+    private servicesService: ServicesService, 
+    private fb: FormBuilder, 
+    private authentication: AngularFireAuth, 
+    private dialogRef: Dialog, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getUser()
@@ -42,7 +48,12 @@ export class EditDialogComponent implements OnInit {
   }
 
   setUserInfos() {
-    this.servicesService.setUserInfos(this.profileForm.get('bio')?.value).subscribe()
+    this.servicesService.setUserInfos(this.profileForm.get('bio')?.value).subscribe({
+      next: (res) => {
+        this.dialogRef.closeAll()
+        location.href = '/user/:user'
+      }
+    })
   }
 
   deleteUser() {

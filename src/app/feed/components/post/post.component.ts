@@ -4,6 +4,7 @@ import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,8 @@ export class PostComponent implements OnInit {
 
   constructor(
     private feedService: FeedService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogRef: Dialog, 
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,11 @@ export class PostComponent implements OnInit {
 
   deletePost(postId?: string) {
     this.feedService.deletePost(postId).subscribe()
+    setInterval(this.deletePostReload, 3000)
+  }
+
+  deletePostReload() {
+    location.href = '/feed'
   }
 
   getUser() {
@@ -51,7 +58,12 @@ export class PostComponent implements OnInit {
   }
 
   likes(post: feed) {
-    this.feedService.likes(post).subscribe()
+    this.feedService.likes(post).subscribe({
+      next: (res) => {
+        this.dialogRef.closeAll()
+        location.href = '/feed'
+      }
+    })
   }
 
 }

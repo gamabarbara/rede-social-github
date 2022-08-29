@@ -32,10 +32,6 @@ const routes: Routes = [
   {
     path: '404', component: NotFoundModule
   },
-
-  /* {
-    path:'**',redirectTo:'/error404'
-  }, */
   {
     path: 'error404',
     loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
@@ -58,6 +54,9 @@ const routes: Routes = [
   {
     path: 'user/:name/mensagens',
     loadChildren: () => import('./mensagens/mensagens.module').then(m => m.MensagensModule)
+  },
+  {
+    path:'**', redirectTo:'/error404'
   }
 
 ];
