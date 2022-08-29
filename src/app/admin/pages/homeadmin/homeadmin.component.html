@@ -4,7 +4,7 @@
   <mat-card *ngFor="let post of posts">
     <mat-card-header>
       <img src="{{ post?.creatorPhoto }}" alt="" />
-      <mat-card-title class="title">{{ post?.creatorName }}</mat-card-title>
+      <mat-card-title class="title" (click)="openUserInfo(post)">{{ post?.creatorName }}</mat-card-title>
       <mat-card-subtitle class="title">{{ post?.date }}</mat-card-subtitle>
     </mat-card-header>
     <img *ngIf="post?.imageUrl != ''" mat-card-image src="{{post?.imageUrl}}" class="img">

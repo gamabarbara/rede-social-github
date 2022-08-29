@@ -6,6 +6,7 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore, Limit, OrderBy, Where } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { from, tap } from 'rxjs';
 import { admin } from 'src/app/admin/models/admin';
+import { user } from 'src/app/auth/models/user';
 import { feed } from 'src/app/feed/models/feed';
 
 
@@ -13,6 +14,7 @@ import { feed } from 'src/app/feed/models/feed';
   providedIn: 'root',
 })
 export class ServicesService {
+  private userCollection = this.store.collection<user>('users');
   private adminCollection = this.store.collection<admin>('admin');
   private postsCollection = this.store.collection<feed>('Posts');
   auth = new FirebaseTSAuth();
@@ -74,4 +76,9 @@ export class ServicesService {
   deletePost(postId?: string) {
     return from(this.postsCollection.doc(postId).delete());
   }
+
+  getUserById(userId: string) {
+      return this.userCollection.doc(userId).get()
+  }
+
 }
