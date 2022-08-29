@@ -105,3 +105,11 @@ video {
   height: 203px;
   background-color: black;
 }
+.icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 25px;
+}

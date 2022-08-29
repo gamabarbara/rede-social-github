@@ -22,7 +22,8 @@ export class HomeadminComponent {
   constructor(
     private dialog: MatDialog,
     private service: ServicesService,
-    private route: Router) { }
+    private route: Router
+    ) { }
 
   ngOnInit(): void {
     this.getPosts();
@@ -60,7 +61,11 @@ export class HomeadminComponent {
     dialogRef.afterClosed().subscribe(
       (a) => {
         if (a === true) {
-          this.service.approvePosts(post).subscribe()
+          this.service.approvePosts(post).subscribe({
+            next: (a) => {
+              location.href = '/homeadmin'
+            }
+          })
         }
       }
     )
@@ -73,11 +78,14 @@ export class HomeadminComponent {
     dialogRef.afterClosed().subscribe(
       (a) => {
         if (a === true) {
-          this.service.deletePost(postId).subscribe()
+          this.service.deletePost(postId).subscribe({
+            next: (res) => {
+              location.href = '/homeadmin'
+            }
+          })
         }
       }
     )
-
   }
 
 }
