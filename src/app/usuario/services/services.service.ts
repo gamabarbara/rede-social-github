@@ -5,19 +5,24 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { user } from 'src/app/auth/models/user';
+import { Repositories } from '../models/repositories';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicesService {
 
+  private readonly url: string = "https://api.github.com/users"
   private usersCollection = this.store.collection<user>('users')
   private currentUser = this.authService.currentUser
 
   constructor(
     private store: AngularFirestore,
-    private authService: AuthService) { }
+    private authService: AuthService, private http: HttpClient) { }
 
+  getUserRepos(userName?: string): Observable<Repositories[]> {
+    return this.http.get<Repositories[]>(`${this.url}/${userName}/repos`)
+  }
 
   getUser() {
     return this.currentUser.pipe(

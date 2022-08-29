@@ -21,6 +21,37 @@
             </div>
         </mat-card>
     </section>
+    <section class="repositories">
+        <table mat-table [dataSource]="userRepositories" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> <a
+                        href="https://github.com/{{userInfos?.username}}/{{element.name}}"
+                        target="_blank">{{element.name}}</a></td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Descrição</th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="language">
+                <th mat-header-cell *matHeaderCellDef> Linguagem </th>
+                <td mat-cell *matCellDef="let element"> {{element.language}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="created_at">
+                <th mat-header-cell *matHeaderCellDef> Data de criação </th>
+                <td mat-cell *matCellDef="let element"> {{element.created_at | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
 
 
     <!--  <section class="container2">
