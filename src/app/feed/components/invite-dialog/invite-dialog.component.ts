@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { FeedService } from '../../services/feed.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -16,13 +17,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class InviteDialogComponent implements OnInit {
 
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
-  matcher = new MyErrorStateMatcher();
-
-  constructor() { }
+  public username?: string
+  constructor(private service: FeedService) { }
 
   ngOnInit(): void {
+    this.getUser()
   }
+
+  getUser() {
+    this.service.getUser().subscribe(a => {
+      this.username = a?.username
+    })
+  }
+
 
 }

@@ -60,6 +60,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/pages/feedadmin/feedadmin.module').then(m => m.FeedadminModule)
   },
   {
+    path: 'convite/:name',
+    redirectTo: '/'
+  },
+  {
     path: '**', redirectTo: '/error404'
   },
 ];

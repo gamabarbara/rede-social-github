@@ -26,3 +26,8 @@
 mat-label {
   color: #ffffff;
 }
+input {
+  background-color: transparent;
+  color: white;
+  width: 100%;
+}
