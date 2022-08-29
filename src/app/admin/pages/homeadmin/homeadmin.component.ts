@@ -7,6 +7,7 @@ import { feed } from 'src/app/feed/models/feed';
 
 import { ConfirmarAprovacaoComponent } from '../../components/confirmar-aprovacao/confirmar-aprovacao.component';
 import { ConfirmarDelecaoComponent } from '../../components/confirmar-delecao/confirmar-delecao.component';
+import { ModalAdminComponent } from '../../components/modal-admin/modal-admin.component';
 
 
 @Component({
@@ -88,4 +89,7 @@ export class HomeadminComponent {
     )
   }
 
+openUserInfo(post: feed) {
+  this.dialog.open(ModalAdminComponent, { data: post })
+}
 }
