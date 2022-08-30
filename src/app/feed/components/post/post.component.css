@@ -56,7 +56,6 @@ i {
 }
 i:hover {
   opacity: 0.8;
-  color: rebeccapurple;
 }
 span {
   font-size: 15px;
@@ -117,4 +116,12 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.success {
+  background-color: red;
+
+}
+
+.danger {
 }

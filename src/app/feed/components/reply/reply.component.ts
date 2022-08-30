@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { user } from 'src/app/auth/models/user';
 import { map, merge } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reply',
@@ -25,6 +26,7 @@ export class ReplyComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private post: feed,
     private store: AngularFirestore,
     private dialogRef: Dialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,8 +45,10 @@ export class ReplyComponent implements OnInit {
     commentInput.value = ''
     return this.service.comment(this.post, this.text).subscribe({
       next: (res) => {
-        this.dialogRef.closeAll()
-        location.href = '/feed'
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.dialogRef.closeAll();
+          this.router.navigate(['/feed']);
+      }); 
       }
     })
   }

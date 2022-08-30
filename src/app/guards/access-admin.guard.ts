@@ -18,7 +18,7 @@ export class AccessAdminGuard implements CanActivate {
     return this.servicesServices.currentUser.pipe(
       map(user => {
 
-        if (user == null) {
+        if (user == null) { // aqui está testando se o usuário está logado
           return this.router.parseUrl('/admin')
         }
         return true;

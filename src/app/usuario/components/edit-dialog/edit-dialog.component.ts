@@ -51,7 +51,9 @@ export class EditDialogComponent implements OnInit {
     this.servicesService.setUserInfos(this.profileForm.get('bio')?.value).subscribe({
       next: (res) => {
         this.dialogRef.closeAll()
-        location.href = '/user/:user'
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/user/:user']);
+      }); 
       }
     })
   }

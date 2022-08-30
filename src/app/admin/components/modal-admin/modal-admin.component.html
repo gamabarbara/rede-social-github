@@ -5,7 +5,8 @@
       <mat-card-title>{{post.creatorName}}</mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-      <button (click)="blockUserById()" class="delete" mat-raised-button color="warn">Bloquear Usuário</button>
+      <button (click)="deletePost(post.postId)" class="delete" mat-raised-button color="warn">Deletar Post</button>
+      <button (click)="blockUserById()" class="block" mat-raised-button color="warn">Bloquear Usuário</button>
     </mat-card-actions>
   </mat-card>
 </div>

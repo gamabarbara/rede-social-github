@@ -63,7 +63,9 @@ export class HomeadminComponent {
         if (a === true) {
           this.service.approvePosts(post).subscribe({
             next: (a) => {
-              location.href = '/homeadmin'
+              this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.route.navigate(['/homeadmin']);
+            }); 
             }
           })
         }
@@ -79,7 +81,9 @@ export class HomeadminComponent {
         if (a === true) {
           this.service.deletePost(postId).subscribe({
             next: (res) => {
-              location.href = '/homeadmin'
+              this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.route.navigate(['/homeadmin']);
+            }); 
             }
           })
         }
