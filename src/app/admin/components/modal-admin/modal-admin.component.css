@@ -1,7 +1,7 @@
 .container {
     background-color: rgb(19, 19, 19);
     width: 250px;
-    height: 200px;
+    height: 250px;
     display: flex;
     justify-content: space-around;
 
@@ -34,7 +34,12 @@ mat-card-header {
 
 mat-card-actions {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.delete {
+    margin-bottom: 20px;
+    background-color: #525252;
 }
 

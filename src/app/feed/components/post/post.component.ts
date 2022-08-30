@@ -5,6 +5,9 @@ import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
 import { Dialog } from '@angular/cdk/dialog';
+import { Router } from '@angular/router';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-post',
@@ -16,13 +19,13 @@ export class PostComponent implements OnInit {
   posts: feed[] = [];
   userUid?: string
   feed?: feed
+  status: boolean = false;
 
-
-
-  constructor(
+constructor(
     private feedService: FeedService,
     private dialog: MatDialog,
     private dialogRef: Dialog, 
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -41,13 +44,15 @@ export class PostComponent implements OnInit {
   }
 
   deletePost(postId?: string) {
-    this.feedService.deletePost(postId).subscribe()
-    setInterval(this.deletePostReload, 3000)
+    this.feedService.deletePost(postId).subscribe({
+      next: (res) => {
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/feed']);
+      }); 
+      }
+    })
   }
 
-  deletePostReload() {
-    location.href = '/feed'
-  }
 
   getUser() {
     this.feedService.getUser().subscribe(
@@ -60,11 +65,24 @@ export class PostComponent implements OnInit {
   likes(post: feed) {
     this.feedService.likes(post).subscribe({
       next: (res) => {
-        this.dialogRef.closeAll()
-        location.href = '/feed'
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/feed']);
+      }); 
       }
     })
   }
 
+  liked() {
+    const element = document.querySelector('#item')
+    if(element?.classList.contains('.liked')) {
+      element.classList.add('.liked')
+    } else {
+      element?.classList.remove('.liked')
+    }
+  }
+
+  clickEvent() {
+    this.status = !this.status;
+  }
 }
 

@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { feed } from 'src/app/feed/models/feed';
 import { ServicesService } from '../../services/services.service';
 import { DialogRef } from '@angular/cdk/dialog';
+import { FeedService } from 'src/app/feed/services/feed.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-admin',
@@ -16,7 +18,13 @@ export class ModalAdminComponent implements OnInit {
   public username?: string;
   public blocked!: boolean
 
-  constructor(private service: ServicesService, @Inject(MAT_DIALOG_DATA) public post: feed, private dialog: DialogRef) { }
+  constructor(
+    private service: ServicesService, 
+    @Inject(MAT_DIALOG_DATA) public post: feed, 
+    private dialog: DialogRef, 
+    private feedService: FeedService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getUserById()
@@ -34,8 +42,16 @@ export class ModalAdminComponent implements OnInit {
     this.service.getUserById(this.post.creatorId).subscribe(a => {
       this.blocked = a.blocked
     });
+  }
 
-
+  deletePost(postId?: string) {
+    this.feedService.deletePost(postId).subscribe({
+      next: (res) => {
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/feed']);
+      }); 
+      }
+    })
   }
 
 
