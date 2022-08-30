@@ -1,5 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FirebaseTSFirestore, Limit, OrderBy } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+import {
+  FirebaseTSFirestore,
+  Limit,
+  OrderBy,
+} from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { feed } from '../../models/feed';
 import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,38 +11,45 @@ import { ReplyComponent } from '../reply/reply.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/compat/firestore';
+import * as firebase from 'firebase/compat/app';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: feed[] = [];
-  userUid?: string
-  feed?: feed
+  userUid?: string;
+  feed?: feed;
   status: boolean = false;
+  private userId?: string;
+  private postsCollection = this.store.collection<feed>('Posts');
 
-constructor(
+  constructor(
     private feedService: FeedService,
     private dialog: MatDialog,
-    private dialogRef: Dialog, 
-    private router: Router
-  ) { }
+    private dialogRef: Dialog,
+    private router: Router,
+    private store: AngularFirestore
+  ) {}
 
   ngOnInit(): void {
-
     this.getPosts();
-    this.getUser()
+    this.getUser();
   }
   getPosts() {
-    this.feedService.getPosts(this.posts)
+    this.feedService.getPosts(this.posts);
   }
 
   onReplyClick(post: feed) {
-    this.dialog.open(ReplyComponent, { data: post })
+    this.dialog.open(ReplyComponent, { data: post });
     /* const ref =  */
     /*  ref.componentInstance.getPosts(post) */
   }
@@ -46,38 +57,40 @@ constructor(
   deletePost(postId?: string) {
     this.feedService.deletePost(postId).subscribe({
       next: (res) => {
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/feed']);
-      }); 
-      }
-    })
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/feed']);
+          });
+      },
+    });
   }
-
 
   getUser() {
-    this.feedService.getUser().subscribe(
-      a => {
-        this.userUid = a?.uid
-      }
-    )
+    this.feedService.getUser().subscribe((a) => {
+      this.userUid = a?.uid;
+    });
   }
+ 
 
   likes(post: feed) {
-    this.feedService.likes(post).subscribe({
+    return this.feedService.likes(post).subscribe({
       next: (res) => {
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-          this.router.navigate(['/feed']);
-      }); 
-      }
-    })
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/feed']);
+          });
+      },
+    }) 
   }
 
   liked() {
-    const element = document.querySelector('#item')
-    if(element?.classList.contains('.liked')) {
-      element.classList.add('.liked')
+    const element = document.querySelector('#item');
+    if (element?.classList.contains('.liked')) {
+      element.classList.add('.liked');
     } else {
-      element?.classList.remove('.liked')
+      element?.classList.remove('.liked');
     }
   }
 
@@ -85,4 +98,3 @@ constructor(
     this.status = !this.status;
   }
 }
-
