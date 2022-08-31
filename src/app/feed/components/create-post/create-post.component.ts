@@ -18,9 +18,9 @@ export class CreatePostComponent implements OnInit {
   date = new Date().toLocaleString('pt-BR');
   selectedVideoFile!: File;
 
-  constructor(private dialog: MatDialogRef<CreatePostComponent>) {}
+  constructor(private dialog: MatDialogRef<CreatePostComponent>) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onPostClick(
     commentInput: HTMLTextAreaElement,
@@ -138,7 +138,8 @@ export class CreatePostComponent implements OnInit {
                 approved: false,
                 likes: [],
                 comments: [],
-                tagCount: 0
+                tagCount: 0,
+                title: title
 
 
               },
@@ -151,7 +152,7 @@ export class CreatePostComponent implements OnInit {
         }
       }
     );
-    
+
     this.storage.upload({
       uploadName: 'upload video Post',
       path: ['Posts', postId, 'video'],
