@@ -11,7 +11,7 @@ import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent implements OnInit {
-  
+
 
   constructor(
     private dialog: MatDialog,
@@ -34,8 +34,8 @@ export class PagesComponent implements OnInit {
     )
   }
 
-  OnNotError(){
+  OnNotError() {
     this.dialog.open(FeedComponent)
   }
- 
+
 }
