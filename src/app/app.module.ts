@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { PagesComponent } from './not-found/pages/pages.component';
 import { MatCardModule } from '@angular/material/card';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -33,7 +34,13 @@ import { MatCardModule } from '@angular/material/card';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MatCardModule
+    MatCardModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
 
   ],
   providers: [],
