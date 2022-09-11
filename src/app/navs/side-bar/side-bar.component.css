@@ -286,3 +286,10 @@ body {
 .itens {
   margin-top: 100px;
 }
+
+
+@media (max-width: 767px) {
+  .sidebar{
+    display: none;
+  }
+}

@@ -17,24 +17,29 @@ mat-card {
   background-color: #282A2E;
   color: #ffffff;
 }
+
 mat-card img {
   height: 200px;
   margin-top: 2px;
   padding-left: 5px;
   padding-right: 5px;
 }
+
 mat-card-header img {
   position: absolute;
   width: 50px;
   height: 40px;
   border-radius: 50%;
 }
+
 .title {
   margin-left: 40px;
 }
+
 mat-card-actions mat-icon {
   margin-bottom: 10px;
 }
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -42,52 +47,65 @@ mat-card-actions mat-icon {
   align-items: center;
   margin-left: 370px;
 }
+
 mat-card-header {
   height: 80px;
   max-height: 80px;
 }
+
 mat-card-actions {
   display: flex;
   justify-content: space-around;
 }
+
 i {
   font-size: 25px;
   cursor: pointer;
 }
+
 i:hover {
   opacity: 0.8;
 }
+
 span {
   font-size: 15px;
   position: relative;
   bottom: 5px;
 }
+
 .comment {
   bottom: 9px;
 }
+
 mat-icon {
   position: relative;
   /* left: 60px; */
   font-size: 30px;
   color: #ffffff;
 }
+
 #menu {
   left: 50px;
 }
+
 .bx-trash-alt {
   position: relative;
   top: 7px;
 }
+
 .trash {
   top: 2px;
 }
+
 .img {
   border-top: 0.1px solid rgb(63, 63, 63);
   border-bottom: 0.1px solid rgb(63, 63, 63);
 }
+
 mat-card-subtitle {
   color: #ffffff;
 }
+
 /* .bx-upvote, .bx-comment-detail {
     background-color: rebeccapurple;
     top: 50px;
@@ -104,6 +122,7 @@ video {
   height: 203px;
   background-color: black;
 }
+
 .icon {
   width: 100%;
   display: flex;
@@ -112,18 +131,31 @@ video {
   position: absolute;
   bottom: 25px;
 }
+
 .contador {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.success {
-  background-color: red;
-}
 
-.danger {
-}
-mat-card:hover {
-  border: 1px solid gray;
+@media (max-width: 767px) {
+
+  .container,
+  mat-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 2rem;
+  }
+
+  mat-card-header {
+    height: 40px;
+    max-height: 80px;
+  }
+  video {
+    border: 1px solid #525252;
+    width: 100%;
+    background-color: black;
+  }
 }

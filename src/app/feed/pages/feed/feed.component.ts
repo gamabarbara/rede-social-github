@@ -7,14 +7,10 @@ import { FeedService } from '../../services/feed.service';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
+  constructor(private dialog: MatDialog, private service: FeedService) {}
 
-  constructor(private dialog: MatDialog, private service: FeedService) { }
-
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void {}
 }
