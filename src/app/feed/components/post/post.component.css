@@ -12,7 +12,7 @@ mat-card {
   height: 400px;
   margin-bottom: 80px;
   margin-right: 50px;
-/*   border: 0.1px solid #F45027; */
+  /*   border: 0.1px solid #F45027; */
   border-radius: 10px;
   background-color: #282A2E;
   color: #ffffff;
@@ -153,6 +153,7 @@ video {
     height: 40px;
     max-height: 80px;
   }
+
   video {
     border: 1px solid #525252;
     width: 100%;
