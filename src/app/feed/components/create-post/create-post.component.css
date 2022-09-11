@@ -63,20 +63,25 @@ mat-card-title {
   color: white;
 }
 mat-card {
-  background-color: rgb(19, 19, 19);
+  background-color: #141517;
   width: 350px;
 
 }
+
 mat-icon {
-  color: black;
+  color: #F45027;
   padding-top: 5px;
 }
 button {
-  background-color: #525252;
-  color: black;
+  background-color: transparent;
+  color: #F45027;
+  border: 1px solid #F45027;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 button:hover {
-  opacity: 0.5;
+  box-shadow: 0 0 5px #F45027;
 }
 mat-card-actions {
   margin-top: 20px;

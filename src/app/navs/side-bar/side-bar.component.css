@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Montserrat:wght@300;400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -20,9 +21,9 @@ body {
   left: 0;
   top: 0;
   height: 100%;
-  background-color: rgb(19, 19, 19);
+  background-color: #141517;
   transition: all 0.5s ease;
-  border-right: 1px solid #525252;
+  border-right: 1px solid #F45027;
 }
 
 .sidebar .logoContent .logo {
@@ -280,7 +281,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #525252;
+  border-bottom: 1px solid #F45027;
 }
 .itens {
   margin-top: 100px;

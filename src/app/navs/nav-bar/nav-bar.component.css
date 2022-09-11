@@ -4,16 +4,16 @@
 
 mat-toolbar {
   height: 55px;
-  background-color: rgb(19, 19, 19) !important;
+  background-color: #141517!important;
   color: white;
   padding-left: 7px;
-  border-bottom: 1px solid #525252;
+  border-bottom: 1px solid #F45027;
   z-index: 10000;
   position: fixed;
 }
 
 ::ng-deep .custom-class {
-  background-color: rgb(19, 19, 19) !important;
+  background-color: #141517 !important;
 }
 
 span {

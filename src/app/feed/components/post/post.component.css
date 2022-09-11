@@ -12,9 +12,9 @@ mat-card {
   height: 400px;
   margin-bottom: 80px;
   margin-right: 50px;
-  border: 0.1px solid rgb(63, 63, 63);
+/*   border: 0.1px solid #F45027; */
   border-radius: 10px;
-  background-color: #1c1f26;
+  background-color: #282A2E;
   color: #ffffff;
 }
 mat-card img {
@@ -123,4 +123,7 @@ video {
 }
 
 .danger {
+}
+mat-card:hover {
+  border: 1px solid gray;
 }
