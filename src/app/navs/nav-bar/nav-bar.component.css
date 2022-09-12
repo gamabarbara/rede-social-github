@@ -46,3 +46,28 @@ button:hover {
   background-color: #525252;
   border-radius: 10px;
 }
+#menu{
+  display: none;
+}
+@media (max-width: 767px) {
+  #menu{
+    margin-left: 10px;
+    display: block;
+    width: 50px;
+    border-radius: 12px;
+    white-space: nowrap;
+    transition: all 0.5s ease;
+  }
+  #menu:hover{
+    background-color: #525252;
+    border-radius: 10px;
+  }
+  mat-toolbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+.example-spacer{
+  display: none;
+}
+}
