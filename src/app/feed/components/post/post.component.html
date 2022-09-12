@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card *ngFor="let post of posts">
     <mat-card-header>
-      <img src="{{ post?.creatorPhoto }}" alt="" />
+      <img class="imagePerfil" src="{{ post?.creatorPhoto }}" alt="" />
       <mat-card-title class="title">{{ post?.creatorName }}</mat-card-title>
       <mat-card-subtitle class="title">{{ post?.date }}</mat-card-subtitle>
 
