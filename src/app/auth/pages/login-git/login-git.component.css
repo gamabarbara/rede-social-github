@@ -1,10 +1,13 @@
+
 img {
-  width: 50px;
+  width: 150px;
   height: 50px;
 }
 .top {
-  border-bottom: 2px solid rebeccapurple;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
 }
 .top p {
@@ -19,16 +22,14 @@ img {
 .content p {
   font-size: 15px;
   color: #cfd6e6;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   padding-top: 50px;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 .content-button img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-right: 2px;
 }
 .content-button {
@@ -39,15 +40,16 @@ img {
 
 .content-button button {
   display: flex;
-  width: 180px;
-  height: 30px;
-  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  border-radius: 25px;
   align-items: center;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 500;
   margin-top: 50px;
 }
 .content-button button:hover {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .botton p {
@@ -59,3 +61,4 @@ img {
   color: #cfd6e6;
   margin-top: 20px;
 }
+

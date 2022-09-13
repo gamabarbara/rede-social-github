@@ -65,6 +65,8 @@ mat-icon {
   margin-right: 5px;
 }
 
+
+
 @media(max-width:300px) {
   .esq{
     display: flex;

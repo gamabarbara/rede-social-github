@@ -15,9 +15,11 @@ export class NavbarComponent {
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(LoginGitComponent, {
       width: '400px',
-      height: '350px',
+      height: '400px',
       enterAnimationDuration,
       exitAnimationDuration,
+      backdropClass:'backdrop-bg-orange',
+      panelClass:'bg-blue'
     })
 
   }

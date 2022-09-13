@@ -56,3 +56,10 @@ mat-dialog-container {
   background-color: #141517 !important;
   border-radius: 15px !important;
 }
+.bg-blue .mat-dialog-container{
+  background: rgba(4, 4, 4, 0.559);
+}
+
+.backdrop-bg-orange {
+ background: rgba(4, 4, 4, 0.559);
+}
