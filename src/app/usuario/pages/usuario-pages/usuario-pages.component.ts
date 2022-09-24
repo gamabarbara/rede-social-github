@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { user } from 'src/app/auth/models/user';
+import { Repositories } from 'src/app/shared/models/repositories';
+import { user } from 'src/app/shared/models/user';
+import { UserService } from 'src/app/shared/services/user.service';
 import { EditDialogComponent } from '../../components/edit-dialog/edit-dialog.component';
-import { Repositories } from '../../models/repositories';
-import { ServicesService } from '../../services/services.service';
+
 
 @Component({
   selector: 'app-usuario-pages',
@@ -13,11 +14,11 @@ import { ServicesService } from '../../services/services.service';
 export class UsuarioPagesComponent implements OnInit {
 
   userName: string = ""
-  userInfos?: user
+  userInfos?: user;
   userRepositories: Repositories[] = []
   displayedColumns: string[] = ['name', 'description', 'language', 'created_at'];
 
-  constructor(private servicesService: ServicesService, private dialog: MatDialog,) {
+  constructor(private userService: UserService, private dialog: MatDialog,) {
 
   }
 
@@ -26,15 +27,12 @@ export class UsuarioPagesComponent implements OnInit {
   }
 
   getUserInfos(): void {
-    this.servicesService.getUser().subscribe(
+    this.userService.getUser().subscribe(
       a => {
-
         this.userInfos = a
-
-        this.servicesService.getUserRepos(this.userInfos?.username).subscribe(
+        this.userService.getUserRepos(this.userInfos?.username).subscribe(
           b => {
             this.userRepositories = b
-
           }
         )
       }

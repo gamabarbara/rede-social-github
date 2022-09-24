@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedRoutingModule } from './feed-routing.module';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../shared/material/material.module';
 import { FeedComponent } from './pages/feed/feed.component';
 import { NavsModule } from '../navs/navs.module';
 import { MatCardModule } from '@angular/material/card';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../services/chat.service';
+import { ChatService } from 'src/app/shared/services/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -25,7 +25,7 @@ export class ChatComponent implements OnInit {
 
   getUser() {
     this.chatService.getUser().subscribe(
-      (a) => {
+      (a: any) => {
         this.name = a?.name
       }
     )

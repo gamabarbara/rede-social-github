@@ -1,13 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { feed } from '../../models/feed';
-import { FeedService } from '../../services/feed.service';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { user } from 'src/app/auth/models/user';
-import { map, merge } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
+import { FeedService } from 'src/app/shared/services/feed.service';
+import { feed } from 'src/app/shared/models/feed';
 
 @Component({
   selector: 'app-reply',
@@ -15,7 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./reply.component.css'],
 })
 export class ReplyComponent implements OnInit {
-  private usersCollection = this.store.collection<user>('users');
   firestore = new FirebaseTSFirestore();
   private text!: string;
   private name?: string;
@@ -24,7 +21,6 @@ export class ReplyComponent implements OnInit {
   constructor(
     private service: FeedService,
     @Inject(MAT_DIALOG_DATA) private post: feed,
-    private store: AngularFirestore,
     private dialogRef: Dialog,
     private router: Router
   ) { }

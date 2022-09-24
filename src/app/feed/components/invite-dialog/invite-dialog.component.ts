@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { FeedService } from '../../services/feed.service';
+import { FeedService } from 'src/app/shared/services/feed.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -25,10 +25,8 @@ export class InviteDialogComponent implements OnInit {
   }
 
   getUser() {
-    this.service.getUser().subscribe(a => {
+    this.service.getUser().subscribe((a : any)=> {
       this.username = a?.username
     })
   }
-
-
 }

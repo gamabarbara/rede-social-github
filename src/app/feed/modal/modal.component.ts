@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth.service';
-import { FeedService } from '../services/feed.service';
+import { FeedService } from 'src/app/shared/services/feed.service';
 
 @Component({
   selector: 'app-modal',
@@ -15,7 +14,7 @@ export class ModalComponent implements OnInit {
     this.getUser();
   }
   getUser() {
-    this.feedService.getUser().subscribe((a) => {
+    this.feedService.getUser().subscribe((a: any) => {
       this.name = a?.name;
     });
   }

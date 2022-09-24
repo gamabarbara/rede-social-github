@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccessBlockedGuard } from '../guards/access-blocked.guard';
-import { AccessFeedGuard } from '../guards/access-feed.guard';
+import { AccessBlockedGuard } from '../shared/guards/access-blocked.guard';
+import { AccessFeedGuard } from '../shared/guards/access-feed.guard';
 import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [

@@ -1,13 +1,13 @@
-import { ServicesService } from 'src/app/admin/services/services.service';
+
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/confirmar-logout.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { feed } from 'src/app/feed/models/feed';
-
 import { ConfirmarAprovacaoComponent } from '../../components/confirmar-aprovacao/confirmar-aprovacao.component';
 import { ConfirmarDelecaoComponent } from '../../components/confirmar-delecao/confirmar-delecao.component';
 import { ModalAdminComponent } from '../../components/modal-admin/modal-admin.component';
+import { feed } from 'src/app/shared/models/feed';
+import { PostService } from 'src/app/shared/services/post.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class HomeadminComponent {
 
   constructor(
     private dialog: MatDialog,
-    private service: ServicesService,
+    private service: PostService,
     private route: Router
   ) { }
 

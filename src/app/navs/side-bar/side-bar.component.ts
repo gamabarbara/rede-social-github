@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { user } from 'src/app/auth/models/user';
 import { InviteDialogComponent } from 'src/app/feed/components/invite-dialog/invite-dialog.component';
-import { ServicesService } from 'src/app/usuario/services/services.service';
+import { user } from 'src/app/shared/models/user';
+import { UserService } from 'src/app/shared/services/user.service';
+
 
 @Component({
   selector: 'app-side-bar',
@@ -15,8 +16,7 @@ export class SideBarComponent {
 
   constructor(
     public dialog: MatDialog,
-    private service: ServicesService,
-    private serviceService: ServicesService
+    private service: UserService
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class SideBarComponent {
   }
 
   getUser(): void {
-    this.serviceService.getUser().subscribe((a) => {
+    this.service.getUser().subscribe((a) => {
       this.userInfos = a;
     });
   }

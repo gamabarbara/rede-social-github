@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FeedComponent } from 'src/app/feed/pages/feed/feed.component';
-import { ServiceService } from '../services/service.service';
 import { ConfirmarLogoutComponent } from 'src/app/navs/nav-bar/confirmar-logout/confirmar-logout.component';
+import { SideService } from 'src/app/shared/services/side.service';
 
 @Component({
   selector: 'app-pages',
@@ -15,7 +15,7 @@ export class PagesComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private service: ServiceService,
+    private service: SideService,
     private route: Router
   ) { }
 
@@ -37,5 +37,4 @@ export class PagesComponent implements OnInit {
   OnNotError() {
     this.dialog.open(FeedComponent)
   }
-
 }

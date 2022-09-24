@@ -5,9 +5,9 @@ import {
 } from '@angular/fire/compat/firestore';
 import { Message } from '../models/message';
 import { map, mergeMap } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { user } from 'src/app/auth/models/user';
+import { user } from '../models/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',

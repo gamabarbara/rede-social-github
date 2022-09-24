@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesService } from '../../services/services.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-nav-bar-admin',
@@ -8,12 +8,12 @@ import { ServicesService } from '../../services/services.service';
 })
 export class NavBarAdminComponent implements OnInit {
 
-  constructor(private service: ServicesService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   signOut() {
-    this.service.signOut()
+    this.authService.signOut()
   }
 }

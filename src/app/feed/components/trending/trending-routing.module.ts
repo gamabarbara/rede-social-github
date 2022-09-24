@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccessFeedGuard } from 'src/app/guards/access-feed.guard';
+import { AccessFeedGuard } from 'src/app/shared/guards/access-feed.guard';
 import { TrendingComponent } from './pages/trending/trending.component';
 
 const routes: Routes = [

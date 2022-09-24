@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { AuthService } from '../auth/services/auth.service';
-import { ServicesService } from '../admin/services/services.service';
+import { AuthService } from '../services/auth.service';
+import { PostService } from '../services/post.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccessBlockedGuard implements CanActivate {
   constructor(
-    private servicesServices: ServicesService,
+    private servicesServices: PostService,
     private auth: AuthService,
     private router: Router
   ) { }

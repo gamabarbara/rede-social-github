@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { MensagensRoutingModule } from './mensagens-routing.module';
 import { MensagensComponent } from './pages/mensagens/mensagens.component';
 import { ChatComponent } from './chat/chat.component';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule } from '@angular/forms';
-import { ChatService } from './services/chat.service';
+import { ChatService } from '../shared/services/chat.service';
 
 
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { feed } from 'src/app/feed/models/feed';
-import { FeedService } from 'src/app/feed/services/feed.service';
+import { feed } from 'src/app/shared/models/feed';
+import { FeedService } from 'src/app/shared/services/feed.service';
 import { ReplyComponent } from '../../../reply/reply.component';
 
 @Component({

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'src/app/feed/modal/modal.component';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -27,19 +27,19 @@ export class LoginGitComponent implements OnInit {
 
   signInWithGithub() {
     this.authService.signInWithGitHub()
-      .subscribe(
-        data => {
+      .subscribe({
+        next: response => {
           this.dialog.closeAll()
           this.router.navigateByUrl('/feed')
           this.dialog.open(ModalComponent, { disableClose: true })
         },
-        error => {
+        error: error => {
           this.snackbar.open('Erro ao cadastrar com o GitHub', 'Ok', {
             duration: 3000,
             horizontalPosition: 'right',
             verticalPosition: 'top'
-          })
+          });
         }
-      )
+      });
   }
 }

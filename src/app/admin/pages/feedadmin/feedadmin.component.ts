@@ -2,9 +2,8 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { feed } from 'src/app/feed/models/feed';
-import { FeedService } from 'src/app/feed/services/feed.service';
+import { feed } from 'src/app/shared/models/feed';
+import { FeedService } from 'src/app/shared/services/feed.service';
 import { ModalAdminComponent } from '../../components/modal-admin/modal-admin.component';
 
 @Component({
@@ -45,7 +44,7 @@ export class FeedadminComponent implements OnInit {
   }
 
   getUser() {
-    this.feedService.getUser().subscribe((a) => {
+    this.feedService.getUser().subscribe((a: any) => {
       this.userUid = a?.uid;
     });
   }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ServicesService } from '../services/services.service';
+import { SideService } from 'src/app/shared/services/side.service';
 import { ConfirmarLogoutComponent } from './confirmar-logout/confirmar-logout.component';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private service: ServicesService,
+    private service: SideService,
     private route: Router) { }
 
   ngOnInit(): void {

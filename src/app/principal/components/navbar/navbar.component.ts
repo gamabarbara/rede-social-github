@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { LoginGitComponent } from 'src/app/auth/pages/login-git/login-git.component';
 
 
@@ -21,8 +21,5 @@ export class NavbarComponent {
       backdropClass:'backdrop-bg-orange',
       panelClass:'bg-blue'
     })
-
   }
-
-
 }

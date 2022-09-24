@@ -7,10 +7,10 @@ import {
   Where,
 } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { from, map, mergeMap } from 'rxjs';
-import { user } from 'src/app/auth/models/user';
-import { AuthService } from 'src/app/auth/services/auth.service';
 import { feed } from '../models/feed';
 import * as firebase from 'firebase/compat/app';
+import { AuthService } from './auth.service';
+import { user } from '../models/user';
 @Injectable({
   providedIn: 'root',
 })

@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { user } from 'src/app/auth/models/user';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { feed } from 'src/app/feed/models/feed';
-import { ServicesService } from '../../services/services.service';
 import { DialogRef } from '@angular/cdk/dialog';
-import { FeedService } from 'src/app/feed/services/feed.service';
 import { Router } from '@angular/router';
+import { user } from 'src/app/shared/models/user';
+import { feed } from 'src/app/shared/models/feed';
+import { FeedService } from 'src/app/shared/services/feed.service';
+import { PostService } from 'src/app/shared/services/post.service';
 
 @Component({
   selector: 'app-modal-admin',
@@ -19,22 +19,20 @@ export class ModalAdminComponent implements OnInit {
   public blocked!: boolean
 
   constructor(
-    private service: ServicesService, 
-    @Inject(MAT_DIALOG_DATA) public post: feed, 
-    private dialog: DialogRef, 
+    @Inject(MAT_DIALOG_DATA) public post: feed,
+    private dialog: DialogRef,
     private feedService: FeedService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private service: PostService
+  ) { }
 
   ngOnInit(): void {
-    this.getUserById()
+    this.getUserById();
   }
 
   blockUserById() {
-    console.log(this.blocked);
-
     this.service.blockUserById(this.post.creatorId, this.blocked)
-    this.dialog.close()
+    this.dialog.close();
   }
 
 
@@ -49,10 +47,8 @@ export class ModalAdminComponent implements OnInit {
       next: (res) => {
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['/feed']);
-      }); 
+        });
       }
-    })
+    });
   }
-
-
 }

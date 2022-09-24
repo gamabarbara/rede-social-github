@@ -1,22 +1,16 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
-  FirebaseTSFirestore,
-  Limit,
-  OrderBy,
+  FirebaseTSFirestore
 } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import { feed } from '../../models/feed';
-import { FeedService } from '../../services/feed.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReplyComponent } from '../reply/reply.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
-import { AngularFireModule } from '@angular/fire/compat';
 import {
-  AngularFirestore,
-  AngularFirestoreDocument,
+  AngularFirestore
 } from '@angular/fire/compat/firestore';
-import * as firebase from 'firebase/compat/app';
-import { from } from 'rxjs';
+import { feed } from 'src/app/shared/models/feed';
+import { FeedService } from 'src/app/shared/services/feed.service';
 
 @Component({
   selector: 'app-post',
@@ -29,13 +23,10 @@ export class PostComponent implements OnInit {
   userUid?: string;
   feed?: feed;
   status: boolean = false;
-  private userId?: string;
-  private postsCollection = this.store.collection<feed>('Posts');
 
   constructor(
     private feedService: FeedService,
     private dialog: MatDialog,
-    private dialogRef: Dialog,
     private router: Router,
     private store: AngularFirestore
   ) {}
@@ -50,8 +41,6 @@ export class PostComponent implements OnInit {
 
   onReplyClick(post: feed) {
     this.dialog.open(ReplyComponent, { data: post });
-    /* const ref =  */
-    /*  ref.componentInstance.getPosts(post) */
   }
 
   deletePost(postId?: string) {
@@ -67,7 +56,7 @@ export class PostComponent implements OnInit {
   }
 
   getUser() {
-    this.feedService.getUser().subscribe((a) => {
+    this.feedService.getUser().subscribe((a: any) => {
       this.userUid = a?.uid;
     });
   }

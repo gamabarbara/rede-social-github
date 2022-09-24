@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccessAdminGuard } from 'src/app/guards/access-admin.guard';
+import { AccessAdminGuard } from 'src/app/shared/guards/access-admin.guard';
 import { HomeadminComponent } from './homeadmin.component';
 
 const routes: Routes = [
