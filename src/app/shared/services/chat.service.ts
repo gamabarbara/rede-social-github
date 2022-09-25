@@ -8,6 +8,7 @@ import { map, mergeMap } from 'rxjs';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { user } from '../models/user';
 import { AuthService } from './auth.service';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,8 @@ export class ChatService {
   firestore = new FirebaseTSFirestore();
   private usersColletion = this.store.collection<user>('users');
   private currentUser = this.auth.currentUser;
+  date = new Date().toLocaleString('pt-BR');
+  authentication = new FirebaseTSAuth();
 
   constructor(
     private afs: AngularFirestore,
@@ -59,6 +62,8 @@ export class ChatService {
     let message: Message = {
       name: name,
       message: text,
+      date: this.date,
+      creatorPhoto: this.authentication.getAuth().currentUser?.photoURL,
       closed: new Date().getTime(),
     };
     return this.itemsCollection.add(message);

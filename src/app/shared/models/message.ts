@@ -3,4 +3,6 @@ export interface Message {
   message: string;
   closed?: number;
   name : string;
+  date?: string;
+  creatorPhoto?: string | null;
 }

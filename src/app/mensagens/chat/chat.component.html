@@ -1,26 +1,27 @@
 <div class="container">
   <div class="header">
-    <mat-card-title>Chat DevHub</mat-card-title>
+    <mat-card-title>Chat Be Dev</mat-card-title>
   </div>
   <hr />
-
   <div class="app-message" id="app-message">
-    <div *ngFor="let chat of chatService.chats">
-      <button class="enviado" mat-raised-button>{{ chat.name }}</button>
-      <p>
-        {{ chat.message }}
-      </p>
+    <div *ngFor="let chat of chatService.chats" class="container">
+      <div>
+      </div>
+      <div class="container-button-image">
+        <button [ngClass]="chat.name == name ? 'recebido' : 'enviado' " mat-raised-button>{{ chat.name }} <img
+            class="imagem" src="{{ chat.creatorPhoto }}"></button>
+      </div>
+      <div>
+        <p [ngClass]="chat.name == name ? 'color' : 'recebidos' ">
+          {{ chat.message }}
+        </p>
+      </div>
     </div>
   </div>
   <div class="bottom">
     <mat-form-field appearance="outline">
-      <input
-        matInput
-        placeholder="Digite sua mensagem..."
-        [(ngModel)]="message"
-        (keydown.enter)="sendMessage()"
-        maxlength="30"
-      />
+      <input matInput placeholder="Digite sua mensagem..." [(ngModel)]="message" (keydown.enter)="sendMessage()"
+        maxlength="30" />
       <button mat-icon-button matSuffix (click)="sendMessage()">
         <mat-icon>send</mat-icon>
       </button>
