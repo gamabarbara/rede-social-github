@@ -9,7 +9,7 @@ import { ChatService } from 'src/app/shared/services/chat.service';
 export class ChatComponent implements OnInit {
   message: string = '';
   element: any;
-  public name?: string
+  public name?: string = this.name;
 
   constructor(public chatService: ChatService) {
     this.chatService.chargeMessages().subscribe(() => {
@@ -27,6 +27,7 @@ export class ChatComponent implements OnInit {
     this.chatService.getUser().subscribe(
       (a: any) => {
         this.name = a?.name
+        console.log(this.name)
       }
     )
   }
